@@ -1,0 +1,23 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="container">
+  <view class="zone">
+    <view class="question">
+      {{question.question}}
+    </view>
+
+    <view class="image-text goods-white answer-details">
+      
+      <view class='answer-detail'>
+        <import src="../../utils/wxParse/wxParse.wxml" />
+        <template is="wxParse" data="{{wxParseData:answer.nodes}}" />
+
+      </view>
+
+
+    </view>
+  </view>
+
+</view>
+
+<include src="/common/footer.wxml" />

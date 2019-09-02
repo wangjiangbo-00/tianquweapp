@@ -1,0 +1,115 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="body" avalonctrl="order" hidden="{{notNetCon.error == 1 || notNetCon.error == 1 && notNetCon.show == 1 || needInitCheck && pageInit == 0}}">
+
+  <view class="div" style="display: block;">
+    <view class="div wx_wrap">
+      <!--ms-if-->
+      <view bindtap="redirectAddresses" hover-class="none">
+        <view class="a send_address">
+          <view class="div" id="sendTo">
+            <view class="div address address_defalut" style="{{address ? '' : 'display: none;'}}">
+              <view class="h3">
+                <view class="b send_margin">送至</view>
+                <view class="br"></view>
+                <!--ms-if-->
+              </view>
+
+              <view id="editAddBtn" adid="4" class="ul" wx:if="{{isgiveChecked}}">
+                <view class="li">
+                  <view class="strong">待接受者填写</view>
+                </view>
+                <view class="li">待接受者填写</view>
+              </view>
+
+              <view id="editAddBtn" adid="4" class="ul" wx:elif="{{!isgiveChecked}}">
+                <view class="li">
+                  <view class="strong">{{address.consigner}}</view>
+                  {{address.mobile}}
+                </view>
+                <view class="li">{{address.cityname}}{{address.districtname}}{{address.address}}</view>
+              </view>
+            </view>
+            <view class="div address_new" style="display: none;">
+              <view class="h4 lou_userinfo">本人信息:
+                <view class="strong name_lou">{{address.mobile}}&nbsp;&nbsp;{{address.mobile}}</view>
+              </view>
+            </view>
+            <view class="div address text_center" style="{{!address ? '' : 'display: none;'}}">
+              <view class="span">
+                <view class="strong">您还没有收货地址哦,点击新增地址</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+
+      <view class="div order" wx:if="{{bindtype==0}}">
+        <view class="div order_bd" hidden='true'>
+          <leftimagecover item="{{goods}}"></leftimagecover>
+        </view>
+
+        <view class="div total">快递费：
+          <view class="small">￥</view>{{expressfee}} 可退：
+          <view id="totalPrice" class="span total_price">
+            <view class="i">￥</view>
+            <block>{{prefee - expressfee}}</block>
+
+          </view>
+        </view>
+      </view>
+      <view class="div" id="pay_area" style="opacity: 1;">
+
+
+
+
+        <view class="pay2 div ">
+
+
+          <!--ms-if-->
+          <!--ms-if-->
+          <!--ms-if-->
+          <form name="theForm" id="theForm" class="form" report-submit="true" bindsubmit="bindAddr">
+            <view>
+              <button formType="submit" class="pay2_btn" loading="{{btn_order_done ? true : false}}" id="btn_order_done" style="{{btn_order_done || !address ? 'opacity: 0.4;' : ''}}">
+                <block wx:if="{{btn_order_done}}">正在提交 请稍候</block>
+
+                <block wx:else>立即领取</block>
+              </button>
+            </view>
+          </form>
+        </view>
+
+
+
+      </view>
+    </view>
+    <view class="div step">
+  <view class="div step_hd">
+    运费说明
+
+  </view>
+
+  <view id="footItem" class="div step_list">
+
+    系统将根据您实际选择收货地址给送礼者退还预付运费，实际退还额以退款为准。
+
+  </view>
+
+
+</view>
+  </view>
+
+
+
+
+</view>
+
+
+
+<van-dialog async-close title="请求授权" message="系统需要获取您的头像信息以提供更好的体验" show="{{ userinfoshow }}" show-cancel-button confirm-button-open-type="getUserInfo" bind:close="onUserinfoClose" bind:getuserinfo="bindGetUserInfo" id="getuserinfo">
+
+</van-dialog>
+
+<include src="/common/footer.wxml" />

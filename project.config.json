@@ -1,0 +1,59 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.2",
+	"appid": "***********",
+	"projectname": "tcapp",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": 0,
+					"name": "testscene",
+					"pathName": "pages/goodsgroup/goodsgroup",
+					"query": "scene=rd10:rf66"
+				},
+				{
+					"id": 1,
+					"name": "模拟更新",
+					"pathName": "pages/index/index",
+					"query": "scene=rd10"
+				},
+				{
+					"id": 2,
+					"name": "测试收礼",
+					"pathName": "pages/lottery/lottery",
+					"query": "scene=ru40:rf54"
+				}
+			]
+		}
+	}
+}

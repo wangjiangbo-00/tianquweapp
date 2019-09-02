@@ -1,0 +1,17 @@
+{
+    "enablePullDownRefresh": false,
+     "navigationBarTitleText" : "推荐有礼",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "disableScroll" : true,
+    "usingComponents": {
+      "zan-cell": "../../thirdpartcomponents/vant/dist/cell/index",
+      "zan-icon": "../../thirdpartcomponents/vant/dist/icon/index",
+      "zan-badge": "../../thirdpartcomponents/vant/dist/badge/index",
+      "zan-panel": "../../thirdpartcomponents/vant/dist/panel/index",
+      "zan-cell-group": "../../thirdpartcomponents/vant/dist/cell-group/index",
+      "doc-page": "../../components/doc-page/index",
+      "van-popup": "../../thirdpartcomponents/vant/dist/popup/index",
+      "navbar": "/components/navbar/index"
+    }
+}

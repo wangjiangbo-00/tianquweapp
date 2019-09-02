@@ -1,0 +1,51 @@
+<view class="comm_bd">
+
+  <view bindtap='gogroup'>
+
+    <view class='flex-row lotteryheader' hidden='true'>
+      <view class='flex-grow-1'>
+        <view class="giftname">{{item.name}}</view>
+      </view>
+      <view class='flex-grow-0 {{item.status_class}}'>
+        {{item.status_lang}}
+      </view>
+    </view>
+
+
+    <view class="div goods_img  flex-y-center">
+
+      <image class="img" alt="" src="{{item.goodsCover.bannerurl}}"></image>
+
+
+
+    </view>
+
+
+
+    <view class="div order_goods">
+
+      <view class="div order_goods_info">
+        <view class='introduction'>{{item.goodsCover.introduction}}</view>
+
+        <view class='flex-row lotterydesp'>
+          <view class='flex-grow-1'>
+
+
+            <view class="mode">团购价低至{{item.discount}}折</view>
+
+
+          </view>
+
+
+
+
+
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+
+
+</view>

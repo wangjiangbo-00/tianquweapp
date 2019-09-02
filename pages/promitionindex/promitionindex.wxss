@@ -1,0 +1,43 @@
+#main {
+    color: #666;
+    font-family: Helvetica,STHeiti STXihei,Microsoft JhengHei,Microsoft YaHei,Arial;
+    font-size: 12px;
+    line-height: 1.5;
+     background-color: #f0f0f0
+}
+
+.addspace{
+  padding-bottom: 24rpx;
+}
+
+.ptit {
+  color: #000;
+  font-size: 14px;
+  height: 34px;
+  line-height: 34px;
+  margin-top: 5px;
+  padding: 0 10px;
+  position: relative;
+  background-color: #fff;
+}
+.ordersection{
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  background-color: #fff
+}
+
+.lotterysection{
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  margin-bottom: 5px;
+  background-color: #fff
+}
+
+
+
+.recommend .title {
+    font-size: 14px;
+    padding: 10rpx 0;
+    text-align: center;
+}

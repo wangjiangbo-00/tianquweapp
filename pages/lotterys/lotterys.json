@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "公共抽奖",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "i-tabs": "../../thirdpartcomponents/iview/dist/tabs/index",
+    "i-tab": "../../thirdpartcomponents/iview/dist/tab/index",
+    "lotteryitem": "../../components/lotteryitem/index",
+    "van-tab": "../../thirdpartcomponents/vant/dist/tab/index",
+    "van-tabs": "../../thirdpartcomponents/vant/dist/tabs/index",
+    "navbar": "/components/navbar/index"
+  }
+}

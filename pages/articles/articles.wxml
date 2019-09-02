@@ -1,0 +1,53 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="body" hidden="{{notNetCon.error == 1 || notNetCon.error == 1 && notNetCon.show == 1}}">
+  <view class="div" ms-controller="root">
+
+    <view class='addsection' wx:if="{{viewmode == 1 || viewmode == 2 }}">
+      <button class='sharearticle' bindtap='addacticle'>添加文章</button>
+    </view>
+
+    <scroll-view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="true" bindscrolltoupper="pullUpLoad" bindscrolltolower="pullDown" hidden="{{!page.load && !page.operate}}">
+
+      <view class="articles_section" ms-repeat-order="articles" wx:key="" wx:for-item="article" wx:for="{{scroll_items}}">
+
+        <articlecover article="{{article}}" bind:gotoarticle="gotoarticle">
+          <view class='opsection' wx:if="{{viewmode == 0}}">
+            <view class='draft' wx:if="{{article.hasdraft}}">
+              <view class='drafttext'>
+                草稿
+              </view>
+
+              <zan-button size="mini" bindtap='editdraft' data-index="{{index}}" data-id="{{article.id}}">编辑</zan-button>
+              <zan-button size="mini" bindtap='cleardraft' data-index="{{index}}" data-id="{{article.id}}">清除</zan-button>
+              <zan-button size="mini" bindtap='previewdraft' data-index="{{index}}" data-id="{{article.id}}">预览</zan-button>
+
+            </view>
+            <view class='draft' wx:else>
+              <view class='drafttext'>
+                无草稿
+              </view>
+            </view>
+            <view class='nomalop'>
+              <zan-button size="mini" bindtap='editarticle' data-index="{{index}}" data-id="{{article.id}}">编辑</zan-button>
+
+              <zan-button size="mini" bindtap='deletearticle' data-index="{{index}}" data-id="{{article.id}}">删除</zan-button>
+              <zan-button size="mini" wx:if="{{article.ispublic == 0}}" bindtap='setpublic' data-index="{{index}}" data-id="{{article.id}}">公开</zan-button>
+              <zan-button size="mini" wx:else bindtap='setunpublic' data-index="{{index}}" data-id="{{article.id}}">不公开</zan-button>
+            </view>
+          </view>
+        </articlecover>
+      
+      </view>
+        <include src="/common/scrollfooter.wxml" />
+    </scroll-view>
+
+
+    
+
+
+  </view>
+  <view style="div height:58px;visibility:hidden "></view>
+</view>
+
+<include src="/common/footer.wxml" />

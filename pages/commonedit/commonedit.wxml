@@ -1,0 +1,13 @@
+<!--pages/textedit/textedit.wxml-->
+
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+<view class='container'>
+<textarea   bindconfirm='conform'  bindinput='textchange' placeholder='{{placeholder}}'
+value='{{text}}' maxlength="500"></textarea>
+
+<view class='tip'>{{tips}}</view>
+
+<view class='finishbutton' bindtap='conform'>完成</view>
+
+</view>
+

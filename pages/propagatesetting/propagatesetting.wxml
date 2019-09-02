@@ -1,0 +1,95 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}">
+</navbar>
+<view class="body" hidden="{{!page.load && !page.operate}}">
+  <form bindsubmit="listenFormSubmit" bindreser="listenFormReser" report-submit="true">
+
+    
+
+
+    
+    <view class="flex-row flex-y-center edit-row">
+      <view class="flex-grow-0 row-label">推广名字</view>
+      <view class="flex-grow-1">
+        <input id="name" name="name" value="{{propagatesetting.name}}" placeholder="请填写推广名字" type="text" bindblur='receive_function' />
+      </view>
+      <view class="span" id="updateTip1" style="color:red; {{!receive_name_tip ? 'display: none;' : ''}}">请填写推广名字</view>
+    </view>
+
+    
+
+
+    <view class="flex-row flex-y-center edit-row">
+      <view class="flex-grow-0 row-label">推广方式</view>
+
+      
+
+     
+      <picker bindchange="propagatetypeindexChange" value="{{propagatetypeindex}}" range="{{propagatetypes}}" class='flex-grow-1'>
+        <view class="picker select flex-y-center">
+          {{propagatetypes[propagatetypeindex]}}
+          <input disabled="true" name="type" value="{{propagatetypeindex}}" class="hide" />
+        </view>
+      </picker>
+      <view class="flex-grow-0">
+        <image class='pickericon' src="../../images/rightarrow.png"></image>
+      </view>
+    
+
+
+    </view>
+
+    <view class="flex-row flex-y-center edit-row">
+
+      <view class="flex-grow-0 row-label" wx:if="{{propagatetypeindex == 0}}">微信号</view>
+      <view class="flex-grow-0 row-label" wx:elif="{{propagatetypeindex == 1}}">公众号</view>
+      <view class="flex-grow-0 row-label" wx:elif="{{propagatetypeindex == 2}}">店铺地址</view>
+      <view class="flex-grow-1">
+        <input id="name" name="spreadvalue" value="{{propagatesetting.spreadvalue}}" placeholder="请填写推广内容" type="text" bindblur='receive_function' />
+      </view>
+      <view class="span" id="updateTip1" style="color:red; {{!receive_name_tip ? 'display: none;' : ''}}">请填写推广内容</view>
+    </view>
+
+
+    <view class="div ptit">详情说明
+      </view>
+
+      <view class='content_container'>
+
+        <view class='content flex-grow-1' bindtap='editText' data-index="{{index}}">
+          <text>{{introduction}}</text>
+        </view>
+
+
+        <view class='rightop flex-grow-0'>
+          <view class="" bindtap='cleartext' data-index="{{index}}">
+            <image class="opicon" src="/images/close_edit.png" />
+
+          </view>
+
+
+        </view>
+      </view>
+
+    <view class="fixopt">
+      <view class='fix_inner'>
+        <view>
+          <button bindtap="addNewLottery" hover-class="none" class="btn_full" formType="submit">保存</button>
+        </view>
+      </view>
+    </view>
+
+    
+
+    <view class='bottomspace'></view>
+
+  </form>
+</view>
+
+<include src="/common/footer.wxml" />
+
+<van-dialog id="van-dialog" />
+
+
+<van-popup show="{{ datetimeshow }}" bind:close="onDatetimeClose" position="bottom" z-index="10001">
+  <datetime-picker type="datetime" value="{{ currentDate }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:confirm="ontimeChoosed" />
+</van-popup>

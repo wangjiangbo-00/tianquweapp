@@ -1,0 +1,38 @@
+<view class="order_bd ">
+
+  <navigator url="../goods/goods?goods_id={{item.id}}">
+
+    <view class="div order_goods flex-row">
+
+      <view class="div order_goods_img flex-grow-0 flex-y-center">
+
+        <image class="img" alt="" src="{{item.cover}}"></image>
+      </view>
+
+      <view class="div order_goods_info flex-grow-1">
+        <view class='introduction'>
+          {{item.introduction}}
+        </view>
+        <view class='order_goods_attr'>
+          {{item.group_number}}人团 已售{{item.sell_count}}件
+        </view>
+        <view class=" flex-row">
+          <view class='flex-grow-1'>
+            <view class="order_goods_price">￥{{item.group_price}}</view>
+
+          </view>
+
+          <view class="goinbutton flex-grow-0 ">
+            <button class="weui-btn mini-btn" type="warn" size="mini">去看看</button>
+          </view>
+
+        </view>
+
+      </view>
+
+    </view>
+
+  </navigator>
+
+
+</view>

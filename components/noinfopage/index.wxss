@@ -1,0 +1,29 @@
+@import "/common/flex.wxss";
+
+.blank-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 37px;
+  background-position: 0 -80px;
+}
+
+.hint {
+  font-size: 17px;
+  color: #151516;
+  margin-bottom: 14px;
+}
+.tips{
+  font-size:12px;
+color:#9c9c9c;
+
+}
+.no-message-at-all{
+ background-color:#f1f1f2;
+ text-align: center;
+ min-height: 100%;
+
+ padding-top: 115px;
+
+ 
+
+}

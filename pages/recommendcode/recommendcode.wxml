@@ -1,0 +1,17 @@
+
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+<view class="code_container">
+
+  
+
+  <image src="{{recommendimg.pic}}" class='codeimg'></image>
+
+  <view class='flex-row codeop'>
+    <view class='.flex-grid_2'>
+      <button class='sharebtn ' bindtap='saveimage'>保存图片</button>
+    </view>
+    <view class='.flex-grid_2'>
+      <button class='sharebtn .flex-grid_2' bindtap='generateimg'>重新生成</button>
+    </view>
+  </view>
+</view>

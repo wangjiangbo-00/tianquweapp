@@ -1,0 +1,90 @@
+
+
+#dealliststatus1 {
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+
+.order_bd {
+    padding: 0 10px;
+    background-color: #fff;
+}
+
+
+
+.order_goods {
+    
+    font-size: 12px;
+    min-height: 60px;
+}
+.order_goods_img {
+
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.order_goods_img .img {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #d7d7d7;
+
+    
+}
+
+.order_goods_info {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.order_goods_attr {
+    color: #666;
+}
+
+.order_goods_price {
+    
+    font-size: px;
+    height: 22px;
+    line-height: 22px;
+    
+}
+
+.order_ft {
+    padding: 10px;
+}
+
+.order_total {
+    font-size: 12px;
+    height: 16px;
+    line-height: 16px;
+    overflow: hidden;
+    color: #5a5a5a;
+        text-align: right;
+            margin-bottom: 10px;
+}
+
+.order_total_info {
+    float: left;
+}
+
+.order_price {
+    float: right;
+}
+
+.order_price .b {
+    color: #df2128;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.small {
+    font-size: 80%;
+}
+
+
+
+
+

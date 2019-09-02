@@ -1,0 +1,39 @@
+<view class="navbar flex-row" style='height:{{navH}}rpx'>
+  <view class="navbar-wrap" style='margin-top:{{navH - 96}}rpx'>
+    <block wx:if="{{showHome}}">
+      <view class='flex-row' style='width:560rpx'>
+        <view bindtap='toIndex' class='flex-grow-0'>
+          <image src="/images/littlehomeblack.png" class='navimg'></image>
+        </view>
+        <view class='navbar-title flex-grow-1'>
+          {{pageName}}
+        </view>
+      </view>
+
+    </block>
+    <block wx:else>
+
+      <view class='flex-row'>
+        <block wx:if="{{showNav}}">
+
+          <view bindtap='navBack'>
+            <image src="/images/fanhui.png" class='navimg'></image>
+          </view>
+        </block>
+
+        <view class='navbar-title'>
+          {{pageName}}
+        </view>
+      </view>
+
+
+    </block>
+  </view>
+
+</view>
+
+
+<view class="navbarspace " style='height:{{navH}}rpx'>
+
+
+</view>

@@ -1,0 +1,71 @@
+
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+<view class="bottom-bar" >
+  <view class="addaddr" bindtap="addsetting">添加推广方式</view>
+</view>
+
+<view class="address-list">
+  <view class="address-item" wx:for="{{scroll_items}}" wx:key="">
+    <view class="userinfo flex-row">
+      <view class="flex-grow-0">{{item.name}}</view>
+      <view class="add-margin-left" >{{item.typestr}}</view>
+    </view>
+    <view class="flex-row address-detail">
+      <view class="flex-grow-1">
+        <view class="">{{item.spreadvalue}}</view>
+      </view>
+      
+    </view>
+    <view class="flex-row opsection">
+      <view class="flex-grow-1">
+        <view style="display: inline-block" wx:if="{{item.isdefault==1}}">
+          <view class="default-address active flex-row flex-y-center">
+            <image src="../../images/icon-checked.png" style="width: 40rpx;height: 40rpx;margin-right: 12rpx"></image>
+            <text>默认推广</text>
+          </view>
+        </view>
+        <view style="display: inline-block" wx:else>
+          <view bindtap="selectedDEFAULT" class="default-address flex-row flex-y-center" data-index="{{index}}" data-id="{{item.id}}">
+            <image src="../../images/icon-uncheck.png" style="width: 40rpx;height: 40rpx;margin-right: 12rpx"></image>
+            <view>设为默认</view>
+          </view>
+        </view>
+      </view>
+      <view class="flex-grow-0 flex-row">
+        
+        <view bindtap="deleteSetting" class="address-option flex-y-center" data-id="{{item.id}}" data-index="{{index}}" >
+          <image src="../../images/deletelittle.png"></image>
+          <view>删除</view>
+        </view>
+
+        <view class="address-option flex-y-center" catchtap="editSetting" data-id="{{item.id}}">
+          <image src="../../images/icon-edit.png"></image>
+          <text>编辑</text>
+        </view>
+      </view>
+    </view>
+
+
+
+  </view>
+</view>
+
+<include src="/common/footer.wxml" />
+
+<van-dialog
+
+  async-close
+  title = "请求授权" 
+  message = "系统需要您授权以获取地址信息"
+  show="{{ openSettingshow }}"
+  show-cancel-button
+  confirm-button-open-type="openSetting"
+  bind:close="onOpenSettingClose"
+  bind:opensetting="bindOpenSetting"
+id="getuserinfo"
+  
+>
+
+</van-dialog>
+
+<van-toast id="van-toast" />

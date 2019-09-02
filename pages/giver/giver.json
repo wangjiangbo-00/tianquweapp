@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText" : "收到礼物喽",
+    
+    "navigationBarBackgroundColor" : "#fff",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      "giftgoodscover": "../../components/giftgoodscover/index",
+      "navbar": "/components/navbar/index"
+    }
+}

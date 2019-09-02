@@ -1,0 +1,50 @@
+
+
+        <view class='article_container'>
+          <view class='article_content'>
+            <view class='titlesection'>
+              <view class='title'>{{article.title}}</view>
+              <view class='tag'>
+                <i-tag class="i-tags" name="{{article.publicstr}}" color="gray" type="border" wx:if="{{article.publicstr}}">
+                  {{article.publicstr}}
+                </i-tag>
+              </view>
+            </view>
+
+            <view class='title_cover' bindtap='gotoarticle' >
+              <image src='{{article.coverpic}}' class='coverimg' mode='top left'></image>
+            </view>
+            <view class='desp'>
+
+              <view class='writer'>
+                <view>
+                  <i-avatar src="{{article.headpic}}" size="small"></i-avatar>
+
+                </view>
+                <view class='desptext'>
+                  {{article.nikename}}
+                </view>
+                <view class='desptext'>
+                  {{article.modifytime}}
+                </view>
+              </view>
+              <view class='statistics'>
+                <view class='desptext'>
+                  阅读{{article.readcount}}
+                </view>
+
+
+                <view class='desptext'>
+                  收藏{{article.collect}}
+                </view>
+
+              </view>
+            </view>
+
+            <slot></slot>
+
+
+          </view>
+
+        </view>
+     

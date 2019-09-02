@@ -1,0 +1,213 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}">
+</navbar>
+<view class="body">
+
+  <block wx:if="{{isrecommender}}">
+    <view class="state">
+
+      <view class='flex-row'>
+
+        <view class="flex-grow-1">
+          <view class="my_head flex-row">
+            <view class="my_head_pic" wx:if="{{userInfo.headpic}}">
+              <image id="uinLogo" class="my_head_img img" src="{{userInfo.headpic}}"></image>
+            </view>
+
+            <view class="my_head_info">
+
+
+              <view class="my_head_name " id='nickname'>{{userInfo.nickname}}</view>
+
+              <view class="my_join ">{{userInfo.updatetimestr}} 加入</view>
+
+
+            </view>
+          </view>
+        </view>
+
+        <view class='flex-grow-0 sharebtn' bindtap='showshare'>
+        我要推广
+        </view>
+      </view>
+    </view>
+
+    <view class="div mod_container">
+      <view class="div wx_bar">
+        <view class="div wx_bar_back">
+          <navigator id="back" url="javascript:void(0);"></navigator>
+        </view>
+
+      </view>
+
+
+      <view class="rewardhead flex-row">
+        <view class='flex-grow-1'>
+          <zan-cell class title="我的奖励"></zan-cell>
+        </view>
+        <view class='recommendrules flex-grow-0' bindtap='gotorules'>
+          奖励规则
+        </view>
+      </view>
+
+      <view class="rewarddesc">
+        <view class="weui-grids_2">
+
+          <navigator url="../accountrecords/accountrecords" class="weui-grid_2" hover-class="weui-grid_active">
+            <view class="weui-grid__desc">{{account.profit?account.profit:0}}元</view>
+            <view class="weui-grid__label">总收益</view>
+          </navigator>
+
+
+          <navigator url="../accountrecords/accountrecords" class="weui-grid_2" hover-class="weui-grid_active">
+            <view class="weui-grid__desc">{{account.money?account.money:0}}元</view>
+            <view class="weui-grid__label">余额</view>
+          </navigator>
+
+          <navigator url="../recommendpeople/recommendpeople" class="weui-grid_2" hover-class="weui-grid_active">
+            <view class="weui-grid__desc">{{userInfo.recommendcount}}人</view>
+            <view class="weui-grid__label">推广</view>
+          </navigator>
+
+        </view>
+      </view>
+      <view class="rewardhead flex-row">
+        <view class='flex-grow-1'>
+          <zan-cell class title="更多操作"></zan-cell>
+        </view>
+
+      </view>
+      <view class="weui-grids_1">
+
+        <view bindtap='gotoarticles' class="flex-grid_4" hover-class="weui-grid_active">
+          <image class="weui-grid__icon" src="/images/comments.png" />
+          <view class="weui-grid__label">评价管理</view>
+        </view>
+
+        <navigator url="../sponsors/sponsors" class="flex-grid_4" hover-class="weui-grid_active">
+          <image class="weui-grid__icon" src="/images/supply.png" />
+          <view class="weui-grid__label">抽奖活动</view>
+        </navigator>
+
+        <navigator url="../accountrecords/accountrecords" class="flex-grid_4" hover-class="weui-grid_active">
+          <image class="weui-grid__icon" src="/images/profits.png" />
+          <view class="weui-grid__label">账户记录</view>
+        </navigator>
+
+        <view bindtap='gotowithdrew' class="flex-grid_4" hover-class="weui-grid_active">
+          <image class="weui-grid__icon" src="/images/withdrew.png" />
+          <view class="weui-grid__label">提现</view>
+        </view>
+
+        <view bindtap='gotorecommendcode' class="flex-grid_4" hover-class="weui-grid_active">
+          <image class="weui-grid__icon" src="/images/code.png" />
+          <view class="weui-grid__label">我的推广码</view>
+        </view>
+
+
+        <navigator url="../propagatesettings/propagatesettings" class="flex-grid_4" hover-class="weui-grid_active">
+          <image class="weui-grid__icon" src="/images/settingblue.png" />
+          <view class="weui-grid__label">推广设置</view>
+        </navigator>
+
+      </view>
+
+
+    </view>
+  </block>
+
+
+  <block wx:else>
+    <view class="state">
+
+      <view class='ordertitle'>
+        <view class='orderstatus'>
+          尚未开通推广权限
+        </view>
+
+
+      </view>
+
+    </view>
+
+    <view class="div mod_container">
+      <view class="div wx_bar">
+        <view class="div wx_bar_back">
+          <navigator id="back" url="javascript:void(0);"></navigator>
+        </view>
+
+      </view>
+
+
+      <view class="consumehead flex-row">
+        <view class='flex-grow-1'>
+          <zan-cell class title="开通条件：消费满698元"></zan-cell>
+        </view>
+
+      </view>
+
+
+
+
+      <view class='flex-row consumedesp'>
+        <view class='flex-grow-1 flex-row'>
+          <view class="weui-grid__label ">已消费: </view>
+          <view class="weui-grid__label cssred"> {{account.consume?account.consume:0}}元</view>
+        </view>
+
+
+
+
+        <view bindtap='applyrecommender' class='recommendrules flex-grow-0' wx:if="{{account.canapply}}">
+          立即开通
+        </view>
+        <view class='recommendrules flex-grow-0' bindtap="gotoindex" wx:else>
+          再去逛逛
+        </view>
+      </view>
+
+
+
+
+
+
+
+
+      <view class="rewardhead flex-row">
+        <view class='flex-grow-1'>
+          <zan-cell class title="其他操作"></zan-cell>
+        </view>
+
+      </view>
+      <view class="weui-grids_1">
+
+        <view bindtap='activecode' class="flex-grid_4" hover-class="weui-grid_active">
+          <image class="weui-grid__icon" src="/images/activecode.png" />
+          <view class="weui-grid__label">激活码</view>
+        </view>
+
+
+
+      </view>
+
+
+    </view>
+
+    <modal hidden="{{hiddenmodalput}}" title="激活码" confirm-text="提交" cancel-text="重置" bindcancel="cancel" bindconfirm="applyrecommenderwithactivecode">
+      <input placeholder="请填写激活码" value="{{activecode}}" confirm-type="done" bindinput="onInput" />
+
+    </modal>
+  </block>
+
+
+</view>
+
+
+<van-popup show="{{ shareshow }}" bind:close="onDatetimeClose" position="bottom" z-index="10001">
+  <view class='shareitems'>
+
+  <button class='shareitem' open-type="share" bindtap='shareclose'>直接分享 </button> 
+  <button class='shareitem' bindtap='gotorecommendcode'>生成分享图 </button> 
+  <button class='shareitem' bindtap='shareclose'>取消 </button> 
+
+  </view>
+</van-popup>

@@ -1,0 +1,131 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class=" body" id="group" hidden="{{notNetCon.error == 1 || notNetCon.error == 1 && notNetCon.show == 1 || needInitCheck && pageInit == 0}}">
+  <view class="div" id="group-container" style="display: block;">
+    <view class="div explain_modal">
+      <view class="i explain_lou explain_icon" style="display:none"></view>
+      <view class="i explain_tuan explain_icon" style="display:none"></view>
+      <view class="div" id="showExplain">
+        <view class="div showBg" id="showBg">
+        </view>
+      </view>
+    </view>
+    <view class="div content">
+      <view class="div H5_con" id="group_title">
+      </view>
+
+      <!--拼团失败-->
+      <view class=" div H5_con" id="group_title" hidden="{{!order}}">
+        <view class="div tips topStateWrap {{order.group_title_class}}">
+          <!--tips_succ tips_err-->
+          <view class="div tips_ico"></view>
+          <view class="div tips_tit">{{order.tips_tit}}</view>
+          <view class="div tips_txt">{{order.tips_detail}}</view>
+        </view>
+      </view>
+
+
+     
+
+      <view class=" div H5_con" hidden="{{!order}}">
+        <view class="div order_goods" bindtap='gotogoods' data-goodsid='{{order.orderGoods.goodId}}'>
+          <giftgoodscover item="{{order.orderGoods}}"></giftgoodscover>
+        </view>
+        <view class="div giftmessage">
+
+          <view class=" div pp_tips" id="flag_1_a">祝福语：{{order.blessing_message}}</view>
+
+
+          <!--<view class="pp_state_txt" id="flag_1_b" style="display:none;">团购成功，卖家将尽快发货</view> -->
+        </view>
+        <view class=" div pp_list">
+
+
+
+        </view>
+      </view>
+
+      <view id="shareit" bindtap="groupShareUp" class="div" style="{{share_down ? 'display:block;' : 'display:none;'}}">
+        <image class="arrow" src="/images/share-it.png" />
+        <view class="div img-share">
+          <view class="div img-arrow"></view>
+          <view class="div img-head">分享至朋友圈</view>
+          <view class="div img-body">咻的一下就成团！</view>
+        </view>
+        <view id="describe" class="div describe">
+        </view>
+      </view>
+
+      <!-- 你可能喜欢 -->
+      <view id="recommendA" class="div recommendA" hidden="{{goods == '' || goods == undefined}}">
+        <view class="div recommend" style="display: block;">
+          <view class="div title">你可能喜欢</view>
+          <view class="ul">
+            <block wx:key="item" wx:for="{{goods}}">
+              <view class="li" bindtap="bindRedirect" data-url="../goods/goods?goods_id={{item.goods_id}}">
+                <view style="{{(index + 1) % 2 == 0 ? 'padding: 10px 0px 20px 0px;' : 'padding: 10px 0px 20px 0px;'}}">
+                  <view class="div img">
+                    <image src="{{item.image_url}}" class="img" mode="widthFix" />
+                  </view>
+                  <view class="div desc">
+                    <view class="div text">{{item.goods_name}}</view>
+                    <view class="div detail">
+                      <view class="span price">
+                        <view class="small">￥</view>{{item.group_price}}</view>
+                      <view class="span spec">
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </block>
+            <view class="div" style="clear:both"></view>
+          </view>
+        </view>
+      </view>
+      <view class="div step">
+        <view class="div step_hd">
+          领取说明
+        </view>
+
+        <view class="div ">
+          礼品或奖品可能被分享给多人，最终由最先完成地址选择的小伙伴得到。如果收礼者所在地区在包邮范围，预付的邮费将退还。
+        </view>
+
+      </view>
+      <view class="div mod_footer" id="mod_footer">
+
+      </view>
+
+      <view class="br"></view>
+
+      <view class="div H5_con fixopt" id="fixopt" wx:if="{{order.givenstatus == 0}}">
+
+       <view class='fix_inner  flex-row-space-between'>
+
+        <view>
+          <button open-type="share" hover-class="none" class="btn_first" >转赠朋友</button>
+        </view>
+
+        <view>
+          <button bindtap="acceptGift" hover-class="none" class="btn_second" >收下礼物</button>
+        </view>
+      </view>
+</view>
+      <view class="div H5_con fixopt" id="fixopt" wx:else>
+
+
+<view class='fix_inner  flex-row-right'>
+        <view>
+          <button bindtap="gotoIndex" hover-class="none" class="btn_first" >随便逛逛</button>
+        </view>
+      </view>
+
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+<include src="/common/footer.wxml" />

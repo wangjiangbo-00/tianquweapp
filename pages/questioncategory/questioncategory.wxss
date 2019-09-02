@@ -1,0 +1,84 @@
+
+
+.container{
+  padding: 0;
+  font-size: 14rpx;
+  
+}
+.container {
+  
+  /*padding: 200rpx 0;*/
+  box-sizing: border-box;
+  background: #F0F4F3;
+
+  
+  
+}
+.flex-wrp{
+  display: flex;
+}
+.flex-tab{
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+.flex-item{
+  flex-grow: 1;
+  text-align: center;
+}
+.my{
+  border-top: solid 1px #ebebeb;
+  border-bottom: solid 2px #ebebeb;
+  
+}
+.my .my-item{
+  width: 750rpx;
+  
+  margin-left: 18rpx;
+
+}
+.my .my-item .myitem-iconl{
+  flex: 1;
+}
+.my .my-item .myitem-iconl image{
+  width: 45rpx;
+  height: 45rpx;
+
+  padding: 24rpx 0;
+}
+
+.my .my-item .myitem-icon{
+  flex: 1;
+}
+.my .my-item .myitem-icon image{
+  width: 45rpx;
+  height: 45rpx;
+
+  padding: 24rpx 0;
+}
+.my .my-item .myitem-name{
+  flex: 5;
+  text-align: left;
+  font-size: 34rpx;
+  color: #6d6d6d;
+  line-height: 45rpx;
+  padding: 24rpx 0;
+  
+}
+.my .my-item:last-child .myitem-name{
+  border-bottom: none;
+}
+.zone{
+background: #ffffff;
+
+margin-bottom: 8rpx
+}
+
+.headerdescription{
+  height: 60rpx;
+  text-align: left;
+  font-size: 45rpx;
+  padding:20rpx 0 35rpx 30rpx;
+  
+}
+

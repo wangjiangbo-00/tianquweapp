@@ -1,0 +1,240 @@
+
+
+.container{
+  padding: 0;
+  font-size: 14rpx;
+  
+}
+.container {
+  
+  
+  /*padding: 200rpx 0;*/
+  box-sizing: border-box;
+  background: #F0F4F3;
+
+  
+  
+}
+.flex-wrp{
+  display: flex;
+}
+.flex-tab{
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+.flex-item{
+  flex-grow: 1;
+  text-align: center;
+}
+.my{
+
+  border-bottom: solid 2px #ebebeb;
+  margin-top: 5px;
+}
+.my .my-item{
+  width: 750rpx;
+  
+  margin-left: 18rpx;
+
+}
+.my .my-item .myitem-iconl{
+  flex: 1;
+}
+.my .my-item .myitem-iconl image{
+  width: 45rpx;
+  height: 45rpx;
+
+  padding: 24rpx 0;
+ 
+}
+
+.my .my-item .myitem-icon{
+  flex: 1;
+}
+.my .my-item .myitem-icon image{
+  width: 45rpx;
+  height: 45rpx;
+  padding: 24rpx 0;
+}
+.my .my-item .myitem-name{
+  flex: 5;
+  text-align: left;
+  font-size: 34rpx;
+  color: #6d6d6d;
+
+  
+
+
+  padding: 24rpx 0;
+  
+}
+.my .my-item:last-child .myitem-name{
+  border-bottom: none;
+}
+.zone{
+background: #ffffff;
+
+margin-bottom: 20rpx
+}
+
+
+.service-detail-bg {
+    height: 100%;
+    top: 0;
+    background: rgba(0,0,0,.7);
+    z-index: 10002;
+}
+
+.main-show {
+    bottom: 0;
+}
+
+.main-hide {
+    bottom: -840rpx;
+}
+
+.service-detail-main {
+    height: 420px;
+    background-color: #fff;
+    z-index: 10000;
+    -webkit-transition: bottom .15s ease-in-out .15s;
+    transition: bottom .15s ease-in-out .15s;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.service-detail-bg  {
+    position: fixed;
+    max-width: 640px;
+    width: 100%;
+    
+    
+}
+
+.service-detail-main
+{
+    position: fixed;
+    max-width: 640px;
+    width: 86%;
+    margin-left: 20px;
+    
+}
+
+.service-title {
+    position: relative;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    font-size: 16px;
+    color: #151516;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+
+.service-close-btn {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    padding: 16px;
+    top: 0;
+    right: 0;
+}
+
+#service-list {
+    height: 372px;
+    padding: 5px 0 45rpx 45rpx;
+    font-size: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.service-item {
+    padding: 50rpx 0 0 35px;
+}
+
+#service-list, .service-item {
+    width:86%;
+    position: relative;
+}
+
+.ms-item-icon {
+    position: absolute;
+    display: block;
+    width: 19px;
+    height: 19px;
+    top: 24px;
+    left: 0;
+}
+
+
+
+
+.service-item-desc, .service-item-name {
+    position: relative;
+    display: block;
+    line-height: 1;
+}
+
+.service-item-name {
+    font-size: 15px;
+    color: #151516;
+    margin-bottom: 8px;
+}
+
+.service-close-btn {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    padding: 16px;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+}
+
+.service-close-btn:before {
+    content: "";
+    position: relative;
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-image: url(http://mobile.yangkeduo.com/assets/img/goods_sprites_v1-3ad6b19ec4.png);
+    background-repeat: no-repeat;
+    background-size: 134px 108px;
+    background-position: -60px -90px
+}
+
+
+
+:after, :before {
+    box-sizing: border-box;   
+}
+
+
+.service-item-desc {
+    font-size: 12px;
+    color: #9c9c9c;
+}
+
+.service-item-desc, .service-item-name {
+    position: relative;
+    display: block;
+    line-height: 1;
+}
+
+
+.service-detail-main {
+    height: 250px;
+    background-color: #fff;
+    z-index: 10000;
+    -webkit-transition: bottom .15s ease-in-out .15s;
+    transition: bottom .15s ease-in-out .15s;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.main-show {
+    bottom: 190px;
+}
+

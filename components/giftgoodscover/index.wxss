@@ -1,0 +1,67 @@
+@import "/common/flex.wxss";
+
+.span {
+  display: inline;
+}
+
+.small {
+  display: inline;
+}
+
+.covercontainer {
+  background-color: white;
+  text-align: center;
+}
+
+.li_inside {
+  border: 1px solid #ca856a;
+  width: 360rpx;
+  height: 420rpx;
+  margin: 0px auto;
+}
+
+.img {
+  height: 260rpx;
+  width: 260rpx;
+  margin: 10px auto;
+}
+
+.desc {
+  text-align: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.text {
+  width: 100%;
+  height: 32px;
+  line-height: 16px;
+  font-size: 14px;
+  overflow: hidden;
+  color: black;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.detail {
+  height: 24px;
+  line-height: 24px;
+}
+
+.price {
+  line-height: 24px;
+  color: #df2127;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+.price .small {
+  padding-right: 2px;
+}
+
+.spec {
+  color: #878787;
+  font-size: 12px;
+}

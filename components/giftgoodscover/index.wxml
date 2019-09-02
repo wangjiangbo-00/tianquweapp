@@ -1,0 +1,12 @@
+<view class="covercontainer" bindtap="bindRedirect" data-url="../goods/goods?goods_id={{item.id}}">
+  <view class="li_inside" >
+    <view class="div">
+      <image src="{{item.cover}}"  class="img" data-id="two_goods_img" />
+    </view>
+    <view class="div desc">
+      <view class="div text">{{item.introduction}} × {{item.buysum}}件</view>
+      
+    </view>
+
+  </view>
+</view>

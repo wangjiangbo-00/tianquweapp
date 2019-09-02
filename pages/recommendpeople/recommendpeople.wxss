@@ -1,0 +1,107 @@
+.nav_fixed {
+    position: fixed;
+    background-color: #fff;
+    height: 40px;
+    width: 100%;
+    font-size: 15px;
+    text-align: center;
+    z-index: 9999;
+    top: 0;
+    max-width: 640px;
+}
+
+
+.nav_txt {
+    position: relative;
+}
+
+.nav_cur {
+    border-bottom: 2px solid #df2127;
+    color: red;
+}
+
+.fixed_nav_item {
+    height: 40px;
+    line-height: 40px;
+    width: 20%;
+    float: left;
+    display: block;
+    box-sizing: border-box;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+#dealliststatus1 {
+    font-size: 12px;
+    padding-top: 30rpx;
+}
+
+.order {
+    background-color: #fff;
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid #dedede;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.order_hd {
+    background-color: #fff;
+    
+    height: 72px;
+    
+    overflow: hidden;
+    padding: 0 10px;
+
+    border-bottom: 1px solid #dedede;
+}
+
+.userinfo{
+  margin-left: 5px;
+  margin-top: 10px;
+
+}
+
+
+
+.order_bd {
+    padding: 0 10px;
+}
+
+.order_bd {
+    background-color: #fff;
+    border-bottom: 1px solid #dedede;
+    padding: 0 10px;
+}
+
+.giftname{
+  font-size: 20px;
+  color: #666;
+  font-weight: bold
+}
+.gifttime{
+  font-size: 14px;
+  color: silver;
+  margin-top: 3px;
+}
+
+.closelottery{
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.giftwin{
+  color: #65A7E1;
+  margin-left: 3px;
+}
+
+.my_head_img {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  box-shadow: 0 0 0 2px #fff;
+  height: 54px;
+  width: 54px;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+

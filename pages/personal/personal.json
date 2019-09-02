@@ -1,0 +1,16 @@
+{
+    "navigationBarTitleText" : " ",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      "zan-button": "../../thirdpartcomponents/vant/dist/button/index",
+
+      "zan-icon": "../../thirdpartcomponents/vant/dist/icon/index",
+      "doc-page": "../../components/doc-page/index",
+      "i-button": "../../thirdpartcomponents/iview/dist/button/index",
+      "navbar": "/components/navbar/index"
+    }
+      
+    
+    
+}

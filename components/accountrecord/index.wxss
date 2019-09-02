@@ -1,0 +1,27 @@
+ @import "/common/flex.wxss";
+ 
+ 
+.recordcontent{
+  padding: 10px;
+  font-size: 14px;
+}
+
+.line{
+  line-height: 22px;
+  margin-bottom: 2px;
+}
+
+
+.tips{
+color: silver;
+font-size: 12px;
+}
+
+.moneyadd{
+  color: red;
+}
+
+.moneyremove{
+  color: green
+}
+

@@ -1,0 +1,50 @@
+<view class="div order" ms-repeat-order="orders" wx:key="order.id" wx:for-item="order" wx:for="{{orders}}">
+  <view class="div order_hd flex-row-space-between">
+
+    <view class='flex-row'>
+
+      <view>
+        <image class='avatar' src="{{order.headpic}}" ></image>
+
+      </view>
+      <view class='desptext'>
+        {{order.nikename}}
+      </view>
+    </view>
+    <view class='order_time'>
+      {{order.order_time}}
+    </view>
+
+  </view>
+
+
+  <view class="div order_goods flex-row" bindtap='todetails' data-order_id="{{order.id}}" data-type="{{order.viewtype}}" data-index="{{index}}">
+
+    <view class="div order_goods_img flex-grow-0">
+      <image class="img" alt="" src="{{order.goodspic}}"></image>
+    </view>
+
+    <view class="div order_goods_info flex-grow-1">
+      <view class='introduction'>
+        {{order.goodsname}}
+      </view>
+
+      <view class=" flex-row order_goods_attr">
+        <view class=' flex-grow-1'>
+          数量:￥{{order.num}}
+        </view>
+
+      </view>
+
+    </view>
+  </view>
+
+
+  <view class="div order_total">
+    <view class="div" wx:if="order.payStatus != 2 || order.orderStatus != 1">
+      <view class="order_money">免单金额:<view class='price'>{{order.money}}</view>元</view>
+    </view>
+
+  </view>
+
+</view>

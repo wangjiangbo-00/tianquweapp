@@ -1,0 +1,100 @@
+@import '/common/flex.wxss';
+
+.coverimg{
+  height: 28px;
+  width: 28px;
+  
+
+  
+}
+
+.local-article-img{
+  display:block;
+width:65rpx;
+height: 65rpx;
+
+border-radius:100%;
+
+}
+
+.addsection{
+  background-color: white;
+  width: 100%;
+  height: 30px;
+  text-align:  right;
+
+  padding-top: 10px
+}
+.article_container{
+  background-color: white;
+  border-bottom: 2px solid #ddd;
+  
+}
+.article_content{
+  
+  padding: 25rpx;
+  
+  
+}
+
+.desp{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  
+  
+  padding-bottom: 10rpx;
+}
+
+.writer{
+  display: flex;
+  flex-direction: row;
+}
+
+.articlecontent{
+  margin-top: 5px;
+}
+
+.statistics{
+  display: flex;
+  flex-direction: row;
+  font-size: 20rpx;
+  color: silver;
+}
+
+.desptext{
+  margin-top: 6rpx;
+  margin-left: 10rpx;
+  font-size: 12px; 
+}
+
+.title{
+font-size: 10px;
+
+  color: black
+
+}
+
+
+
+
+.titlesection{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.sharearticle{
+  display:inline-block;
+line-height:2.3;
+font-size:13px;
+padding:0 1.34em;
+margin-right:5px;
+margin-left: 5px;
+color:#FFF;
+background-color:cornflowerblue;
+
+}

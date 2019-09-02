@@ -1,0 +1,9 @@
+<view class="div no-message-at-all" >
+  <view class="div head-block">
+    <view class="">
+    <image class="div blank-icon" src = "{{src}}"></image>
+    </view>
+    <view class="hint">{{message}}</view>
+    <view class="tips">{{tips}}</view>
+  </view>
+</view>

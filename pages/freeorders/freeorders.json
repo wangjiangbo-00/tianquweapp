@@ -1,0 +1,18 @@
+{
+    "navigationBarTitleText" : "免单记录",
+    "navigationBarBackgroundColor" : "#fff",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      "i-tabs": "../../thirdpartcomponents/iview/dist/tabs/index",
+      "i-tab": "../../thirdpartcomponents/iview/dist/tab/index",
+
+         "freeorders-section": "../../components/freeorders-section/index"   ,
+        "navbar": "/components/navbar/index"
+                
+
+
+                
+      
+    }
+
+}

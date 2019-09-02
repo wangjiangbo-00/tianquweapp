@@ -1,0 +1,66 @@
+<!--pages/wx-cropper/index.wxml-->
+
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class=''>
+<view class="wx-content-info" style='top:{{navH}}rpx'>
+  <view class='cropper-content'>
+    <view  class="wx-corpper" style="width:600rpx;height:960rpx;background:#000">
+      <view class="wx-corpper-content" style="width:600rpx;height:960rpx;left:0rpx;top:0rpx">
+        <image src="{{imageSrc}}" style="width:600rpx;height:960rpx;"></image>
+        
+      </view>
+    </view>
+  </view>
+
+  
+
+  <view class="fixopt">
+    <view class='fix_inner flex-row-space-between'>
+
+
+      <view>
+        <button bindtap="saveImage" hover-class="none" class="btn_full" formType="submit">点击保存图片</button>
+      </view>
+
+
+
+
+    </view>
+
+
+  </view>
+
+
+
+  <view class='bottomspace'></view>
+</view>
+
+
+
+  
+</view>
+<canvas canvas-id="myCanvas" style=" width:{{width}}px;height:{{height}}px;top:-9999px;left:-9999px;" wx:if="{{canvasshow}}"></canvas>
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />
+
+<van-dialog async-close title="请求授权" message="系统需要获取您的头像信息以提供更好的体验" show="{{ userinfoshow }}" show-cancel-button confirm-button-open-type="getUserInfo" bind:close="onUserinfoClose" bind:getuserinfo="bindGetUserInfo" id="getuserinfo">
+
+</van-dialog>
+
+
+<van-dialog
+
+  async-close
+  title = "请求授权" 
+  message = "系统需要您授权设置保存图片权限"
+  show="{{openSettingshow}}"
+  show-cancel-button
+  confirm-button-open-type="openSetting"
+  bind:close="onOpenSettingClose"
+  bind:opensetting="bindOpenSetting"
+id="getuserinfo"
+  
+>
+
+</van-dialog>

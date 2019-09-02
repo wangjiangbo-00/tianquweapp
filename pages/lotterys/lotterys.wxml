@@ -1,0 +1,44 @@
+
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+<view class="page" hidden="{{notNetCon.error == 1 || notNetCon.error == 1 && notNetCon.show == 1}}">
+  <view class="container" ms-controller="root">
+
+    
+
+
+    <view class="div nav_fixed" style='top:{{navH}}rpx'>
+<i-tabs current="{{ all_status }}" color="red" bindchange="handleChange">
+    
+    
+    <i-tab key="0" title="正在进行"></i-tab>
+    <i-tab key="1" title="已开奖"></i-tab>
+    
+</i-tabs>
+</view>
+
+
+    <scroll-view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="true" bindscrolltoupper="pullUpLoad" bindscrolltolower="pullDown" hidden="{{!page.load && !page.operate}}">
+      <!--&& shippingBanner.open == '1'-->
+      <view class="div" id="dealliststatus1" ms-class="scroll_coup:confirm_code">
+
+        <block wx:key="item" wx:for="{{scroll_items}}">
+          <view class='.flex-grid_2 ' bindtap='gotogoods' data-id='{{item.id}}'>
+            <lotteryitem item="{{item}}" bind:gotoarticle="goodscover"></lotteryitem>
+          </view>
+
+        </block>
+
+        <include src="/common/scrollfooter.wxml" />
+
+      </view>
+
+    </scroll-view>
+
+
+
+    
+
+  </view>
+  <view style="div height:58px;visibility:hidden "></view>
+</view>
+

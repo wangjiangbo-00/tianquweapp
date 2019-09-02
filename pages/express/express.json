@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "noinfopage": "../../components/noinfopage/index",
+    "navbar": "/components/navbar/index"
+  }
+}

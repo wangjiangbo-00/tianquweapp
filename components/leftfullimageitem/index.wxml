@@ -1,0 +1,51 @@
+
+
+<view class="order_bd ">
+
+  <navigator url="../goods/goods?goods_id={{item.goodsCover.id}}">
+
+    <view class="div order_goods flex-row">
+
+      <view class="div order_goods_img flex-grow-0 flex-y-center">
+
+        <image class="img" alt="" src="{{item.goodsCover.pictureurl}}"></image>
+      </view>
+
+      <view class="div order_goods_info flex-grow-1">
+
+      <view class='order_goods_info_inner'>
+<view class='introduction'>
+           {{item.goodsCover.introduction}}
+        </view>
+        <view class='order_goods_attr'>
+          截止时间:{{item.endtime}}
+        </view>
+        <view class=" flex-row goods_discount">
+          <view class='flex-grow-1'>
+            <view class="order_goods_price">￥{{item.goodsCover.group_price}}</view>
+
+          </view>
+
+          <view class='flex-grow-1'>
+            <view class="order_goods_discount">{{item.discount}}折</view>
+
+          </view>
+
+          <view class="goinbutton flex-grow-0 ">
+            <button class="weui-btn mini-btn" type="warn" size="mini">去看看</button>
+          </view>
+      </view>
+        
+
+        </view>
+
+      </view>
+
+    </view>
+
+  </navigator>
+
+
+</view>
+
+

@@ -1,0 +1,464 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="container" hidden="{{notNetCon.error == 1 || notNetCon.error == 1 && notNetCon.show == 1 || needInitCheck && pageInit == 0}}">
+  <view class="main-view">
+
+    <view class="goods-banner" bindtap='gotogoods'>
+      <image lazyload="true" bindtap="previewImage" data-idx="{{idx}}" src="{{lottery.goods_picture}}" class="slide-image" wx:if="{{lottery.goods_picture}}" />
+      <image lazyload="true" bindtap="previewImage" data-idx="{{idx}}" src="../../images/giftcut.png" class="slide-image" wx:else />
+
+    </view>
+
+
+
+    <view class="div comm_bd">
+
+      <view class="div order_goods">
+        <view class='introduction'>奖品:{{lottery.goods_name}}</view>
+
+
+        <view class='remarks' wx:if="{{lottery.remarks}}">备注:{{lottery.remarks}}</view>
+
+
+        <view class='flex-row mode'>
+          <view class="">{{lottery.modestr}}</view>
+          <view class='helplink' bindtap='gotorule'>活动规则</view>
+
+        </view>
+
+
+
+
+
+        <block wx:if="{{lottery.drawvalue}}">
+          <view class='drawmodestr'>领取方式:{{lottery.drawmodestr}}</view>
+
+          <view class="mode">领取说明:{{lottery.drawvalue}} </view>
+
+        </block>
+
+
+        <view class='sponsor flex-row' bindtap='gotoshop'>
+          <view class='flex-grow-1'>奖品来源</view>
+
+          <view class='flex-row flex-grow-0'>
+
+            <view>
+              <image class='sponsorlogo' src="{{lottery.ownerpic}}"></image>
+            </view>
+
+            <view class='sponsorname'>
+              {{lottery.ownername}}
+            </view>
+
+            <view wx:if="{{lottery.giftfrom==0}}">
+              <image class='sponsorlogo' src="/images/rightarrow.png"></image>
+            </view>
+          </view>
+
+        </view>
+
+
+
+
+
+      </view>
+    </view>
+
+    <view class='sponsorinfo' wx:if="{{lottery.propagatesetting}}">
+
+      <view class='sponsorintroduction'>
+
+        {{lottery.propagatesetting.introduction}}
+      </view>
+
+      <view class='sponsorvaluecontainer'>
+
+        <view class='sponsorcard'>
+          <view class='sponsorstr'>{{lottery.propagatesetting.typestr}}</view>
+
+          <view class='sponsorvalue '>
+            {{lottery.propagatesetting.spreadvalue}}
+          </view>
+
+
+
+          <button class='morebtn' bindtap='copytoclips'>一键复制</button>
+        </view>
+
+
+      </view>
+    </view>
+
+
+
+
+  </view>
+
+
+  <block wx:if="{{lottery.status<4}}">
+
+    <button class='participatebtndone'>
+      <view class='participatetextdone'>即将开始</view>
+    </button>
+  </block>
+
+  <block wx:else>
+
+
+
+
+
+    <view wx:if="{{lottery.showmode == 2 }}" class="lotteryresult">
+
+      <view class="resultcontainer">
+        <view wx:if="{{ participate && participate.result == 1 }}">
+          <view class='imgcontainer'>
+            <image src='/images/laugth.png' class='resultimg'></image>
+          </view>
+
+          <view class='txtcontainer'>
+            恭喜您，中奖了，点击一下按钮领奖
+          </view>
+
+          <view class='morecontainer' wx:if="{{lottery.giftfrom == 0}}">
+            <button class='morebtn' bindtap='gotoRewards'>去领奖</button>
+          </view>
+
+
+          <view class='morecontainer' wx:elif="{{lottery.giftfrom != 0 && lottery.drawmode == 0}}">
+            <button class='morebtn' bindtap='gotoRewards'>去领奖</button>
+          </view>
+
+          <view class='ownercontackcontainer flex-row-center' wx:elif="{{lottery.giftfrom != 0 && lottery.drawmode != 0}}">
+            <view class='ownercontack'>{{lottery.ownerphone}}</view>
+            <button class='makephonecall' bindtap='makephonecall'>拨打电话</button>
+          </view>
+
+        </view>
+
+        <view wx:elif="{{ participate && participate.result == 0}}">
+
+          <view class='imgcontainer'>
+            <image src='/images/cry.png' class='resultimg'></image>
+          </view>
+
+          <view class='txtcontainer'>
+            很遗憾没中奖,更多精彩活动在等你
+          </view>
+
+          <view class='morecontainer'>
+            <button class='morebtn' bindtap='toIndex'>去逛逛</button>
+          </view>
+
+
+
+
+
+
+        </view>
+
+        <view wx:else>
+          <view class='imgcontainer'>
+            <image src='/images/laugth.png' class='resultimg'></image>
+          </view>
+
+          <view class='txtcontainer'>
+            活动已经结束，下次早点来哦
+          </view>
+
+          <view class='morecontainer'>
+            <button class='morebtn' bindtap='toIndex'>去逛逛</button>
+          </view>
+
+
+
+        </view>
+
+
+        <view class='splitcontainer flex-row-space-between'>
+          <view class='showbottom splititem'></view>
+          <view class='splititem splitname'>中奖者名单</view>
+          <view class='showbottom splititem'></view>
+        </view>
+
+
+        <view class='winnercontainer flex-row-center'>
+
+          <view wx:key="item" wx:for="{{lottery.result}}" wx:for-index="idx">
+            <view class='winner'>
+              <view class='winnerimgcontainer'>
+                <image src='{{item.pic}}' class='winnerimg'></image>
+              </view>
+
+              <view class='winnertxt'>
+                {{item.name}}
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </view>
+
+
+    </view>
+
+
+    <view class="lotteryparticipate" wx:elif="{{lottery.showmode == 1}}">
+
+
+
+      <block wx:if="{{lottery.status==4}}">
+        <form bindsubmit="appointment" report-submit="true">
+          <block wx:if="{{participate}}">
+            <button class='participatebtndone'>
+              <view class='participatetextdone'>已预约</view>
+            </button>
+          </block>
+          <block wx:else>
+            <button class='participatebtn' form-type="submit">
+              <view class='participatetext'>去预约</view>
+            </button>
+          </block>
+        </form>
+      </block>
+
+      <block wx:elif="{{lottery.status==5}}">
+        <form bindsubmit="participate" report-submit="true">
+          <block wx:if="{{participate && participate.status == 2}}">
+            <button class='participatebtndone' bindtap='alreadynotice'>
+              <view class='participatetextdone' wx:if="{{ lottery.mode == 3 || lottery.mode == 2 }}">火热进行中</view>
+              <view class='participatetextdone' wx:else>等待开奖</view>
+            </button>
+
+            <view class='relaycount flex-row flex-x-center' wx:if="{{ lottery.mode == 3}}">
+
+              <block wx:if="{{participate.relaycount>0}}">
+                <view>已有{{participate.relaycount}}人帮我助力,</view>
+
+                <view class='colorlink' bindtap='showshare'>
+                  继续努力
+                </view>
+              </block>
+
+              <block wx:else>
+                <view>还没有人帮你助力呢,</view>
+
+                <view class='colorlink' bindtap='showshare'>
+                  点击邀请
+                </view>
+              </block>
+
+            </view>
+          </block>
+
+          <block wx:else>
+            <button class='participatebtn' form-type="submit">
+              <view class='participatetext'>参加抽奖</view>
+            </button>
+          </block>
+        </form>
+      </block>
+
+    </view>
+
+
+
+    <view wx:elif="{{lottery.showmode == 3 }}" class="lotteryresult">
+
+
+
+      <form bindsubmit="giftrelay" report-submit="true">
+        <block wx:if="{{participate && participate.relaystatus == 2}}">
+          <button class='participatebtndone' bindtap='alreadynotice'>
+            <view class='participatetextdone'>已经助力</view>
+          </button>
+        </block>
+
+        <block wx:else>
+          <button class='participatebtn' form-type="submit">
+            <view class='participatetext'>给他助力</view>
+          </button>
+        </block>
+      </form>
+
+
+
+    </view>
+
+  </block>
+
+  <view class="participator" wx:if="{{lottery.status>=4}}">
+
+
+    <view class="participatorpeople">已经有{{lottery.participate}}人参与</view>
+
+    <view class='personas_container'>
+      <block wx:key="item" wx:for="{{lottery.personas}}" wx:for-index="idx">
+
+        <image class='personas' src="{{item}}"></image>
+
+      </block>
+    </view>
+
+
+  </view>
+
+
+  <view wx:if="{{selfmanage && lottery.status==6 && lottery.giftfrom==1 && lottery.drawmode == 0}}">
+
+
+
+    <view class='ptit'>用户中奖信息</view>
+
+
+    <view class="winneraddrs">
+
+      <view wx:key="item" wx:for="{{lottery.result}}" wx:for-index="idx" class='winneraddr'>
+        <view class='addritem'>
+
+
+          <view class='flex-row'>
+            <view class='winnername '>{{item.name}}</view>
+            <image src="{{item.pic}}" class='winnerpic'></image>
+
+          </view>
+        </view>
+
+        <view class='addrinfo' wx:if="{{item.addr}}">
+          {{item.addr}}
+        </view>
+
+        <view class='addrinfo' wx:else>
+          尚未填写收货地址
+        </view>
+      </view>
+
+    </view>
+
+
+
+
+
+
+
+
+  </view>
+
+
+
+
+
+
+  <view class="fixopt">
+
+
+    <block wx:if="{{selfmanage}}">
+      <view class='fix_inner' wx:if="{{lottery.status == 1}}">
+        <view>
+          <button bindtap="recall" hover-class="none" class="btn_full">撤回申请</button>
+        </view>
+      </view>
+
+      <view wx:elif="{{lottery.status == 5}}">
+        <view class='fix_inner flex-row-space-between' wx:if="{{lottery.mode == 5}}">
+          <view>
+            <button bindtap='showshare' hover-class="none" class="btn_share">邀请抽奖</button>
+          </view>
+
+          <view>
+            <button bindtap="uncoverlottery" hover-class="none" class="btn_more">立即开奖</button>
+          </view>
+        </view>
+
+
+        <view class='fix_inner flex-row-space-between' wx:else>
+          <view>
+            <button bindtap='showshare' hover-class="none " class="btn_full ">邀请抽奖</button>
+          </view>
+
+
+        </view>
+      </view>
+
+
+      <view wx:elif="{{lottery.status == 6}}">
+
+
+
+        <view class='fix_inner flex-row-space-between'>
+          <view>
+            <button bindtap="createlottery" hover-class="none " class="btn_full ">再发起一个抽奖</button>
+          </view>
+
+
+        </view>
+      </view>
+
+    </block>
+
+    <block wx:else>
+
+      <view class='flex-row-space-between fix_inner' wx:if="{{lottery.status==5 || lottery.status== 4}}">
+        <view>
+          <button bindtap='showshare' hover-class="none" class="btn_share">{{lottery.sharemsg?lottery.sharemsg:'通知好友'}}</button>
+        </view>
+
+
+        <view wx:if="{{lottery.mode == 3 && relayuserid && relayuserid!=userinfo.id}}">
+          <button bindtap="gotoMine" hover-class="none" class="btn_more">我的助力</button>
+        </view>
+
+
+        <view wx:else>
+          <button bindtap="gotoMore" hover-class="none" class="btn_more">更多惊喜</button>
+        </view>
+      </view>
+
+
+      <view class='fix_inner' wx:elif="{{lottery.status == 6}}">
+        <view>
+          <button bindtap="gotoMore" hover-class="none" class="btn_full">更多惊喜</button>
+        </view>
+      </view>
+
+    </block>
+
+  </view>
+
+
+
+</view>
+
+
+<include src="/common/footer.wxml" />
+
+<!-- 引入图片预加载组件 -->
+<import src="../../utils/img-loader/img-loader.wxml" />
+<template is="img-loader" data="{{ imgLoadList }}"></template>
+
+
+<van-dialog id="van-dialog" />
+
+<van-toast id="van-toast" />
+
+<van-dialog async-close title="请求授权" message="系统需要获取您的头像信息以提供更好的体验" show="{{ userinfoshow }}" show-cancel-button confirm-button-open-type="getUserInfo" bind:close="onUserinfoClose" bind:getuserinfo="bindGetUserInfo" id="getuserinfo">
+
+</van-dialog>
+
+
+<van-popup show="{{ shareshow }}" bind:close="onDatetimeClose" position="bottom" z-index="10001">
+  <view class='shareitems'>
+
+    <button class='shareitem' open-type="share" bindtap='shareclose'>直接分享 </button>
+    <button class='shareitem' bindtap='generateshareimg'>生成分享图 </button>
+    <button class='shareitem' bindtap='shareclose'>取消 </button>
+
+  </view>
+</van-popup>
+
+
+<view bindtap="showparticipatetip" class=" tip-show-nav " data-reactid="485" wx:if="{{lottery.status==5 && lottery.giftfrom==1 &&showparticipatetip}}">
+  <view class='pulldowntext'>下滑参与</view>
+  <image src="/images/pulldown.png" class='pulldownimg'></image>
+</view>

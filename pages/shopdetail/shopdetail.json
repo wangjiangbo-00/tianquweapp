@@ -1,0 +1,16 @@
+{
+    "navigationBarTitleText": "店铺详情",
+    "usingComponents": {
+      "zan-noticebar": "../../thirdpartcomponents/vant/dist/notice-bar/index",
+      "zan-panel": "../../thirdpartcomponents/vant/dist/panel/index",
+      "doc-page": "../../components/doc-page/index",
+      "i-cell": "../../thirdpartcomponents/iview/dist/cell/index",
+      "i-panel": "../../thirdpartcomponents/iview/dist/panel/index",
+      "i-avatar": "../../thirdpartcomponents/iview/dist/avatar/index",
+      "zan-button": "../../thirdpartcomponents/vant/dist/button/index",
+      "i-tag": "../../thirdpartcomponents/iview/dist/tag/index",
+      "articlecomment": "../../components/articlecomment/index",
+      "goods-section": "../../components/goods-section/index",
+      "navbar": "/components/navbar/index"
+    }
+}

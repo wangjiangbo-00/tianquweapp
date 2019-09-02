@@ -1,0 +1,11 @@
+{
+    "navigationBarBackgroundColor" : "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText" : "领取礼物",
+    "usingComponents": {
+      
+      "leftimagecover": "../../components/leftimagecover/index",
+      "navbar": "/components/navbar/index",
+      "van-dialog": "../../thirdpartcomponents/vant/dist/dialog/index"
+    }
+}

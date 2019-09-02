@@ -1,0 +1,12 @@
+{
+    "navigationBarTitleText" : "账号明细",
+    "navigationBarBackgroundColor" : "#fff",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      "i-tabs": "../../thirdpartcomponents/iview/dist/tabs/index",
+      "i-tab": "../../thirdpartcomponents/iview/dist/tab/index",
+        "accountrecord": "../../components/accountrecord/index",
+        "navbar": "/components/navbar/index"
+
+    }
+}

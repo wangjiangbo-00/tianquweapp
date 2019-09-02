@@ -1,0 +1,66 @@
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.addaddr {
+    background: #ff4544;
+    text-align: center;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: #fff;
+}
+
+.address-list {
+    padding-bottom: 100rpx;
+
+    background-color: #eee;
+    min-height: 88%
+}
+
+.address-item {
+    background: #fff;
+    margin-bottom: 15rpx;
+    padding: 24rpx 24rpx;
+    font-size: 14px;
+}
+
+.userinfo {
+    margin-bottom: 12rpx;
+}
+
+.address-detail {
+    border-bottom: 1rpx solid #eee;
+    margin-bottom: 12rpx;
+    padding-bottom: 12rpx;
+}
+
+.address-option {
+    margin-left: 48rpx;
+}
+
+.add-margin-left{
+  margin-left: 10px;
+}
+
+.address-option image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 16rpx;
+}
+.opsection{
+  margin-top: 12rpx;
+  font-size: 12px;
+  color:  silver;
+}
+
+.default-address {
+    width: auto;
+}
+
+.default-address.active {
+    color: #fe6e00;
+}

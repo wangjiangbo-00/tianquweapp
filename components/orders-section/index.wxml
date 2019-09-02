@@ -1,0 +1,68 @@
+<view class="div order" ms-repeat-order="orders" wx:key="order.id" wx:for-item="order" wx:for="{{orders}}">
+  <view class="div order_hd flex-row-space-between">
+    <view class='order_time'>
+      {{order.order_time}}
+    </view>
+    <view class="div" wx:if="order.payStatus != 2 || order.orderStatus != 1">
+      <view class="order_status">{{order.order_status_lang}}</view>
+    </view>
+  </view>
+
+
+  <view class="div order_goods flex-row" bindtap='todetails' data-order_id="{{order.id}}"  data-index="{{index}}">
+
+    <view class="div order_goods_img flex-grow-0">
+      <image class="img" alt="" src="{{order.goodposter}}"></image>
+    </view>
+
+    <view class="div order_goods_info flex-grow-1">
+      <view class='introduction'>
+        {{order.goodtitle}} ×{{order.buysum}}件
+      </view>
+
+      <view class=" flex-row order_goods_attr">
+        <view class=' flex-grow-1'>
+          商品价格:￥{{order.goods_price}}
+        </view>
+        
+      </view>
+
+    </view>
+  </view>
+
+
+  <view class="div order_total">
+
+    <view class="span order_price">
+      实付：￥{{order.ordermoney}} ({{order.shipfeedesp}})
+    </view>
+  </view>
+
+
+
+  <view class="order_opt">
+
+    <view class='fix_inner flex-row-right'>
+
+      <block  wx:if="{{(order.orderStatus==0)}}">
+        <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="1">继续支付</view>
+
+        <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="2">删除订单</view>
+      </block>
+
+
+      <block  wx:elif="{{( order.orderStatus==5)}}">
+        <view class="orderbtn " bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="3" wx:if="{{order.givenstatus == 0 }}">赠送礼物</view>
+      </block>
+
+
+      <block  wx:elif="{{(order.orderStatus==8 || order.orderStatus==9 || order.orderStatus== 10)}}">
+        <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="10">重新购买</view>
+
+        <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="2">删除订单</view>
+      </block>
+
+      
+    </view>
+  </view>
+</view>

@@ -1,0 +1,44 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="body" hidden="{{notNetCon.error == 1 || notNetCon.error == 1 && notNetCon.show == 1}}">
+  <view class="div" ms-controller="root">
+
+    
+    <scroll-view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="true" bindscrolltoupper="pullUpLoad" bindscrolltolower="pullDown" hidden="{{!page.load && !page.operate}}">
+      <!--&& shippingBanner.open == '1'-->
+      <view class="div order" ms-repeat-order="orders" wx:key="order.id" wx:for-item="lottery" wx:for="{{scroll_items}}">
+          <view class="div order_hd flex-row" bindtap='gotolottery' data-lotteryid="{{lottery.id}}" data-index="{{index}}">
+            <view class='flex-row flex-grow-1'>
+
+              <view class=' giftname'>
+                {{lottery.giftname}}
+              </view>
+              <view class='gifttime'>{{lottery.participatetime}}
+              </view>
+
+              <view class='giftwin' wx:if="{{lottery.result == 1}}">
+              中奖了
+            </view>
+            </view>
+
+            
+
+            <view  class='flex-grow-0 flex-y-center' >
+              <image src='../../images/rightarrow.png' class='closelottery' data-lotteryid="{{lottery.id}}" data-index="{{index}}"></image>
+            </view>
+
+          </view>
+
+        </view>
+<include src="/common/scrollfooter.wxml" />
+    </scroll-view>
+
+
+
+    
+
+  </view>
+  <view style="div height:58px;visibility:hidden "></view>
+</view>
+
+<include src="/common/footer.wxml" />

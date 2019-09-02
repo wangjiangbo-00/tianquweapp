@@ -1,0 +1,11 @@
+{
+    
+     "navigationBarTitleText" : "",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      "i-avatar": "../../thirdpartcomponents/iview/dist/avatar/index",
+      "navbar": "/components/navbar/index"
+    }
+    
+}

@@ -1,0 +1,15 @@
+.nav_fixed {
+    position: fixed;
+    background-color: #fff;
+    height: 40px;
+    width: 100%;
+    font-size: 15px;
+    text-align: center;
+    z-index: 9999;
+
+    max-width: 640px;
+}
+
+#dealliststatus1{
+  margin-top: 45px;
+}

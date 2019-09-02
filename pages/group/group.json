@@ -1,0 +1,16 @@
+{
+    "navigationBarTitleText" : "拼团详情",
+     
+    "navigationBarBackgroundColor" : "#fff",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      
+      "zan-panel": "../../thirdpartcomponents/vant/dist/panel/index",
+      "i-input-number": "../../thirdpartcomponents/iview/dist/input-number/index",
+      "doc-page": "../../components/doc-page/index",
+      "goodscover": "../../components/goodscover/index",
+      "goods-section": "../../components/goods-section/index",
+      "leftimagecover": "../../components/leftimagecover/index",
+      "navbar": "/components/navbar/index"
+    }
+}

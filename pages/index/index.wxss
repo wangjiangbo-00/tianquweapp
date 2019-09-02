@@ -1,0 +1,240 @@
+#main {
+    color: #666;
+    font-family: Helvetica,STHeiti STXihei,Microsoft JhengHei,Microsoft YaHei,Arial;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.p {display: inline}
+
+#main,.view.navbar,.header {
+    margin: auto;
+    max-width: 640px
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    min-height: 100%;
+    margin: 0 auto;
+    /*padding: 0 0 56px;*/
+    overflow-x: hidden;
+    background-color: #eceded
+}
+
+
+
+.tuan {
+    min-height: 520px;
+}
+
+#channelSlider {
+    max-width: 640px;
+    position: fixed;
+    height: 46.4px;
+    
+    width: 100%;
+    z-index: 10015;
+    background-color: #fff;
+    overflow: hidden;
+    border-top: 1px solid #eceded;
+    border-bottom: 1px solid #eceded
+}
+
+#channelSlider .ch-left {
+    background-image: linear-gradient(270deg,hsla(0,0%,100%,0) 0,#fff);
+    width: 35.2rpx;
+    float: left
+}
+
+#channelSlider .ch-left,#channelSlider .ch-right {
+    z-index: 10015;
+    height: inherit;
+    overflow: hidden;
+    position: absolute
+}
+
+#channelSlider .ch-right {
+    background-image: linear-gradient(90deg,hsla(0,0%,100%,0) 0,#fff);
+    /*width: 28.8px;*/
+    right: 0;
+    float: right
+}
+
+#channelSlider .ch-content {
+    position: relative;
+    height: 46.4px;
+    font-size: 15px;
+    font-family: Hiragino Sans GB;
+    color: #626262;
+    text-align: center;
+    top: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 2.56px;
+    z-index: 10010;
+    -webkit-overflow-scrolling: touch
+}
+
+#channelSlider .ch-content .li:first-child {
+    margin-left: 16px;
+}
+
+#channelSlider .ch-content .ch-tab-item {
+    height: 46.4px;
+    display: inline-block;
+    margin-left: 20px;
+    line-height: 46.4px;
+    text-align: center;
+    z-index: 10005
+}
+
+#channelSlider .ch-content .cur-ch-tab {
+    border-bottom: 2px solid #e00;
+    color: #e00;
+    height: 40px;
+    display: inline-block;
+    position: relative;
+    z-index: 10005
+}
+
+#channelSlider .ch-content .ch-tab {
+    color: #626262;
+    height: 46.4px;
+    display: inline-block;
+    position: relative;
+    z-index: 10005
+}
+
+/*#channelSlider .ch-content .li:first-child {
+    margin-left: 16px;
+}*/
+
+#channelSlider .ch-content .li:last-child {
+    margin-right: 16px;
+}
+
+#channelSlider .ch-content .ch-tab-item {
+    height: 46.4px;
+    display: inline-block;
+    margin-left: 20px;
+    line-height: 46.4px;
+    text-align: center;
+    z-index: 10005;
+}
+
+
+
+
+.center .tip-last {
+    line-height: 20px;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.tuan {
+    min-height: 1000rpx;
+}
+
+
+
+#slider {
+    height: 100%;
+    max-height: 190px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 47px;
+}
+
+.clear-both {
+    clear: both;
+}
+
+#go-top {
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    right: 6%;
+    bottom: 15%;
+    z-index: 999;
+    background: url(http://139.199.168.122:8989/Public/Api/images/top.png) no-repeat;
+    background-size: contain;
+    opacity: 0;
+    -webkit-transition: bottom .8s ease,opacity .6s ease;
+    webkit-transition: bottom .8s ease,opacity .6s ease;
+}
+
+.group-desc {
+    color: #9c9c9c;
+}
+
+
+
+image {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+#rp-banner {
+    position: relative;
+    width: 100%;
+    display: block;
+    overflow-y: hidden;
+}
+
+.rp-islider-dot-wrap {
+    box-sizing: border-box;
+    width: 100%;
+    height: 6px;
+    margin: 0;
+    padding: 0 16px 0 0;
+    bottom: 10px;
+    z-index: 10000;
+    text-align: right;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.rp-islider-dot.active {
+    background-color: #e02e24;
+}
+
+.rp-islider-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    margin: 0 0 6px 6px;
+    position: relative;
+    display: inline-block;
+    list-style: none;
+}
+
+.notice{
+ 
+   width: 100%;
+    
+    position: relative;
+  
+    /*padding: 0 0 56px;*/
+    overflow-x: hidden;
+    background-color: white
+
+}
+
+.addtopedge{
+  margin-top: 55px;
+}
+
+
+
+ 
+
+

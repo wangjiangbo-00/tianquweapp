@@ -1,0 +1,173 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}">
+
+</navbar>
+
+<view class="container">
+
+  <view class="main-view">
+    <view class="my">
+      <view class="my_head flex-row">
+        <view class="my_head_pic" wx:if="{{userInfo.headpic}}">
+          <image id="uinLogo" class="my_head_img img" src="{{userInfo.headpic}}"></image>
+        </view>
+
+
+        <view class="my_head_pic" wx:else>
+          <image id="uinLogo" class="my_head_img img" src="/images/defaultheadpic.png"></image>
+        </view>
+
+        <view class="my_head_info" wx:if="{{userInfo.headpic}}">
+
+
+          <view class="h4 my_head_name " id='nickname'>{{userInfo.nickname}}</view>
+
+          <button class="my_head_update" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更新头像</button>
+
+
+        </view>
+        <view class="my_head_info" wx:else>
+          <zan-button size="mini" type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">获取头像</zan-button>
+        </view>
+      </view>
+    </view>
+
+    <!-- start -->
+    <view class="div">
+      <view class="div nav">
+        <view class="ul nav_list">
+
+
+
+
+          <view class='ordersection '>
+            <view class="weui-cell " hover-class="weui-cell_active" bindtap='gotoorders' data-status='-1'>
+              <view class="weui-cell__bd">我的订单</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access font-small">查看全部</view>
+            </view>
+            <view class='flex-row-grids ordersstatus'>
+
+              <view bindtap='gotoorders' data-status='0' class="flex-grid_5" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/order-topay.png" />
+                <view class="weui-grid__label font-small">待付款</view>
+              </view>
+
+              <view bindtap='gotoorders' data-status='7' class="flex-grid_5" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/order-toshare.png" />
+                <view class="weui-grid__label font-small">待成团</view>
+              </view>
+
+              <view bindtap='gotoorders' data-status='1' class="flex-grid_5" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/orders-toship.png" />
+                <view class="weui-grid__label font-small">待发货</view>
+              </view>
+
+              <view bindtap='gotoorders' data-status='2' class="flex-grid_5" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/orders-toreceive.png" />
+                <view class="weui-grid__label font-small">待收货</view>
+              </view>
+
+              <view bindtap='gotoorders' data-status='3' class="flex-grid_5" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/orders-finish.png" />
+                <view class="weui-grid__label font-small">已完成</view>
+              </view>
+
+            </view>
+          </view>
+
+
+          <view class='ordersection '>
+
+            <view class='flex-row-grids orderop'>
+
+              <view bindtap='gotogroups' class="flex-grid_4" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/group-red.png" />
+                <view class="weui-grid__label font-small">我的拼团</view>
+              </view>
+
+
+
+              <view bindtap='gotorefunds' class="flex-grid_4" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/refund-red.png" />
+                <view class="weui-grid__label font-small">退款/售后</view>
+              </view>
+
+              <view bindtap='gotogifts' class="flex-grid_4" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/gift-red.png" />
+                <view class="weui-grid__label font-small">礼品箱</view>
+              </view>
+
+              <view bindtap='gotorewards' class="flex-grid_4" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/rewards-red.png" />
+                <view class="weui-grid__label font-small">抽奖记录</view>
+              </view>
+
+            </view>
+          </view>
+
+
+          <view class='ordersection '>
+
+            <view class='flex-row-grids orderop'>
+
+              <navigator url="../collects/collects" class="flex-grid_4 addspace" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/collect-yellow.png" />
+                <view class="weui-grid__label font-small">我的收藏</view>
+              </navigator>
+
+              <navigator url="../footprints/footprints" class="flex-grid_4 addspace" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/footprint-yellow.png" />
+                <view class="weui-grid__label font-small">浏览记录</view>
+              </navigator>
+
+              <navigator url="../addresses/addresses" class="flex-grid_4 addspace" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/addr-yellow.png" />
+                <view class="weui-grid__label font-small">收货地址</view>
+              </navigator>
+
+              <navigator url="../recommend/recommend" class="flex-grid_4 addspace" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/spread-yellow.png" />
+                <view class="weui-grid__label font-small">推广返利</view>
+              </navigator>
+
+
+              <navigator url="../personalsetting/personalsetting" class="flex-grid_4" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/settingyellow.png" />
+                <view class="weui-grid__label font-small">个人设置</view>
+              </navigator>
+
+              <navigator url="../serviceindex/serviceindex" class="flex-grid_4" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/service-yellow.png" />
+                <view class="weui-grid__label font-small">系统服务</view>
+              </navigator>
+
+
+              <!--navigator url="../giver/giver?id=433&&token=9EA94B93927AB08A23318DB6BE9E1775" class="flex-grid_4" hover-class="weui-grid_active">
+                <image class="weui-grid__icon" src="/images/service-yellow.png" />
+                <view class="weui-grid__label font-small">测试收礼</view>
+              </navigator -->
+
+            </view>
+          </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </view>
+      </view>
+    </view>
+    <!-- end -->
+  </view>
+</view>
+<!--<view class="div" style="font-size:13px;color:gray;vertical-align:middle;text-align:center;line-height:23px;}">点击右上角，显示在聊天顶部</view>
+<view class="div" style="font-size:13px;color:gray;vertical-align:middle;text-align:center;line-height:23px;}">再次使用： 发现-小程序-搜索“拼123”</view>
+<view class="div"  style="font-weight:bold;font-size:13px;color:#666;vertical-align:middle;text-align:center;line-height:30px;}">查看这张名片二维码，同步至手机</view>-->
+<include src="/common/footer.wxml" />

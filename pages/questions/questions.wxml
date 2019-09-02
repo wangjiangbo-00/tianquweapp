@@ -1,0 +1,24 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="container">
+<view class="headerdescription" >
+            问题列表
+          </view>
+        <view class="my">
+        <view class="zone">
+        <view ms-repeat-order="goods" wx:key="" wx:for-item="item" wx:for="{{questionlist}}" >
+          <view class="my-item flex-wrp " data-id="{{item.id}}" data-index="{{index}}" bindtap='toQuestionDetail'>
+            
+            <view class="myitem-name flex-item" bindtap='gotoQuestions'>
+              <text>{{item.question}}</text>
+            </view>
+
+            <view class="myitem-iconl flex-item">
+            <image src="../../images/rightarrow.png"></image>
+          </view>
+          </view>
+          </view>
+</view>
+  </view>
+</view>
+<include src="/common/footer.wxml" />

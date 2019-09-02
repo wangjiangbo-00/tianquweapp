@@ -1,0 +1,15 @@
+{
+   
+    "navigationBarTitleText" : "退款详情",
+    "navigationBarBackgroundColor" : "#fff",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      "zan-button": "../../thirdpartcomponents/vant/dist/button/index",
+
+      "zan-panel": "../../thirdpartcomponents/vant/dist/panel/index",
+      "doc-page": "../../components/doc-page/index",
+      "ordergoodscover": "../../components/ordergoodscover/index",
+      "navbar": "/components/navbar/index"
+    }
+    
+}

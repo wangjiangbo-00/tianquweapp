@@ -1,0 +1,33 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="body" hidden="{{notNetCon.error == 1 || notNetCon.error == 1 && notNetCon.show == 1}}">
+  <view class="div" ms-controller="root">
+
+
+
+
+
+
+
+
+    <scroll-view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="true" bindscrolltoupper="pullUpLoad" bindscrolltolower="pullDown" hidden="{{!page.load && !page.operate}}">
+      <!--&& shippingBanner.open == '1'-->
+      <view class="div" id="dealliststatus1" ms-class="scroll_coup:confirm_code">
+
+        <view class="div">
+          <view class="footprintitem"  wx:key="{{item.id}}" wx:for-item="item" wx:for="{{goods}}">
+<leftimagecover item="{{item}}"></leftimagecover>
+            
+          </view>
+        </view>
+<include src="/common/scrollfooter.wxml" />
+
+      </view>
+
+    </scroll-view>
+
+  </view>
+  <view style="div height:58px;visibility:hidden "></view>
+</view>
+
+<include src="/common/footer.wxml" />

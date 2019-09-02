@@ -1,0 +1,46 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="body" hidden="{{notNetCon.error == 1 || notNetCon.error == 1 && notNetCon.show == 1}}">
+  <view class="div" ms-controller="root">
+
+    
+    <scroll-view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="true" bindscrolltoupper="pullUpLoad" bindscrolltolower="pullDown" hidden="{{!page.load && !page.operate}}">
+      <!--&& shippingBanner.open == '1'-->
+      <view class="div order" ms-repeat-order="orders" wx:key="order.id" wx:for-item="person" wx:for="{{scroll_items}}">
+          <view class="div order_hd flex-row">
+
+
+          <view  class='flex-grow-0 flex-y-center' >
+              <image src='{{person.headpic}}' class='my_head_img' ></image>
+            </view>
+            <view class='flex-grow-1 userinfo'>
+
+              <view class=' giftname'>
+                {{person.nickname}}
+              </view>
+              <view class='gifttime'>
+              {{person.updatetime}} 推广加入
+              </view>
+
+              
+            </view>
+
+            
+
+            
+
+          </view>
+
+        </view>
+<include src="/common/scrollfooter.wxml" />
+    </scroll-view>
+
+
+
+    
+
+  </view>
+  <view style="div height:58px;visibility:hidden "></view>
+</view>
+
+<include src="/common/footer.wxml" />

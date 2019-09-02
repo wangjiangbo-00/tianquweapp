@@ -1,0 +1,11 @@
+{
+    "enablePullDownRefresh": false,
+    "navigationBarTitleText" : "退款/售后",
+    "navigationBarBackgroundColor" : "#fff",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      
+      "orders-section": "../../components/orders-section/index",
+      "navbar": "/components/navbar/index"
+    }
+}

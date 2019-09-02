@@ -1,0 +1,95 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+
+<scroll-view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="true" bindscrolltoupper="" bindscrolltolower="" hidden="{{!page.load && !page.operate}}" bindscroll="scroll" scroll-top="{{scrollTop}}">
+  <!--&& shippingBanner.open == '1'-->
+  <view id="main" hidden="{{notNetCon.error == 1 || notNetCon.error == 1 && notNetCon.show == 1 || needInitCheck && pageInit == 0}}">
+    <view class='ordersection '>
+
+      <view class='flex-row-grids ordersstatus'>
+
+        <block wx:key="item" wx:for="{{platformactivities}}">
+          <view bindtap='gotopromition' data-index="{{index}}" class="flex-grid_5 addspace" hover-class="weui-grid_active">
+            <image class="weui-grid__icon" src="{{item.img}}" />
+            <view class="weui-grid__label font-small">{{item.discount_name}}</view>
+          </view>
+
+        </block>
+
+
+
+      </view>
+    </view>
+
+    <view class='lotterysection' wx:if="{{platformactivitieshows.giftActivities && platformactivitieshows.giftActivities.length>0}}">
+      <view class="div ptit">
+        免费抽奖
+      </view>
+      <block wx:key="item" wx:for="{{platformactivitieshows.giftActivities}}">
+        <view class='.flex-grid_2 ' bindtap='gotogoods' data-id='{{item.id}}'>
+          <lotteryitem item="{{item}}" bind:gotoarticle="gotolottery"></lotteryitem>
+        </view>
+
+      </block>
+    </view>
+
+
+    <view class='lotterysection' wx:if="{{platformactivitieshows.teamFounders && platformactivitieshows.teamFounders.length>0}}">
+      <view class="div ptit">
+        超级团购
+      </view>
+
+      <block wx:key="item" wx:for="{{platformactivitieshows.teamFounders}}">
+        <view class='.flex-grid_2 ' bindtap='gotogoods' data-id='{{item.id}}'>
+          <groupitem item="{{item}}" bind:gotoarticle="gotogroup"></groupitem>
+        </view>
+
+      </block>
+
+
+    </view>
+
+
+<block wx:key="item" wx:for="{{platformactivitieshows.platformDiscounts}}" wx:for-item="item">
+
+    <view class='lotterysection' wx:if="{{item.promotionDiscountGoods && item.promotionDiscountGoods.length>0}}">
+      <view class="div ptit">
+        {{item.promotionDiscount.discount_name}}
+      </view>
+
+      <block wx:key="discountGoods" wx:for="{{item.promotionDiscountGoods}}" wx:for-item="discountGoods">
+        <view class='.flex-grid_2' bindtap='gotogoods' data-id='{{discountGoods.id}}'>
+          <leftfullimageitem item="{{discountGoods}}" bind:gotoarticle="goodscover"></leftfullimageitem>
+        </view>
+
+      </block>
+
+
+    </view>
+
+    </block>
+
+    <view id="recommendA" class="div recommendA" hidden="{{goods == '' || goods == undefined}}">
+      <view class="div recommend" style="display: block;">
+        <view class="div title">没有更多活动了,为您推荐:</view>
+        <view>
+          <goods-section items="{{goods}}"></goods-section>
+          <view class="div" style="clear:both"></view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</scroll-view>
+
+
+<view bindtap="goTop" class="view go-top {{goTopClass}}" data-reactid="485">
+  <view class="span" data-reactid="486">顶部</view>
+</view>
+<include src="/common/footer.wxml" />
+
+
+<!-- 引入图片预加载组件 -->
+<import src="../../utils/img-loader/img-loader.wxml" />
+<template is="img-loader" data="{{ imgLoadList }}"></template>

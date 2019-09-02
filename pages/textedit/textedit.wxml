@@ -1,0 +1,11 @@
+<!--pages/textedit/textedit.wxml-->
+
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+<view>
+<textarea maxlength='500'  bindconfirm='conform'  bindblur='textchange'
+value='{{text}}' ></textarea>
+
+</view>
+
+<view wx:if ="{{istitle}}" class='tip'>提示：标题请输入少于28个文字</view>
+<view wx:else class='tip'>提示：段落请输入少于500个文字</view>

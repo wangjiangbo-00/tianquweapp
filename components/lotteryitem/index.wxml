@@ -1,0 +1,93 @@
+<view class="comm_bd">
+
+  <view bindtap='golottery'>
+
+    <view class='flex-row lotteryheader' hidden='true'>
+      <view class='flex-grow-1'>
+
+        <view class="giftname">{{item.gift_name}}</view>
+
+      </view>
+
+      <view class='flex-grow-0 {{item.status_class}}'>
+        {{item.status_lang}}
+      </view>
+    </view>
+
+
+    <view class="div goods_img  flex-y-center">
+
+      <image class="img" alt="" src="{{item.goodsCover.bannerurl}}"></image>
+
+
+
+    </view>
+
+
+
+    <view class="div order_goods">
+
+      <view class="div order_goods_info">
+        <view class='introduction'>奖品:{{item.goodsCover.introduction}} × {{item.num}}</view>
+
+        <view class='flex-row lotterydesp'>
+          <view wx:if="{{item.mode==1}}" class=''>
+
+
+            <view class="mode">定时开奖:{{item.end_time}}</view>
+
+
+          </view>
+
+          <view wx:elif="{{item.mode==2}}" class=''>
+
+            <view class="mode">手气抽奖:1/{{item.chance}}</view>
+
+          </view>
+
+          <view wx:elif="{{item.mode==3}}" class=''>
+
+            <view class="mode">助力抽奖:1/{{item.chance}}</view>
+
+          </view>
+
+          <view wx:elif="{{item.mode==4}}" class=''>
+
+            <view class="mode">满人开奖:{{item.peoplenum}}人</view>
+
+          </view>
+
+
+
+
+          <view class='participatestatus' wx:if="{{item.giftParticipate && item.giftParticipate.status == 1}}">
+
+            <view class="result_in">已预约</view>
+
+          </view>
+
+          <view class='participatestatus' wx:elif="{{item.giftParticipate && item.giftParticipate.status == 2 && item.giftParticipate.result == 1 }}">
+
+            <view class="result_winner">中奖了</view>
+
+          </view>
+
+          <view class='participatestatus' wx:elif="{{item.giftParticipate && item.giftParticipate.status == 2 && item.giftParticipate.result == 0 }}">
+
+            <view class="result_in">已参与</view>
+
+          </view>
+
+
+
+
+
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+
+
+</view>

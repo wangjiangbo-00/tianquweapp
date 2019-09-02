@@ -1,0 +1,100 @@
+@import "../../utils/wxParse/wxParse.wxss";
+
+.container{
+  padding: 0;
+  font-size: 14px;
+  
+}
+.container {
+  
+  /*padding: 200rpx 0;*/
+  box-sizing: border-box;
+  background: #ffffff;
+
+  height:99%;
+
+  
+}
+.flex-wrp{
+  display: flex;
+}
+.flex-tab{
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+.flex-item{
+  flex-grow: 1;
+  text-align: center;
+}
+.my{
+  border-top: solid 1px #ebebeb;
+  border-bottom: solid 2px #ebebeb;
+  
+}
+.my .my-item{
+  width: 750rpx;
+  
+  margin-left: 18rpx;
+  border-bottom: solid 1px #ebebeb;
+}
+.my .my-item .myitem-iconl{
+  flex: 1;
+}
+.my .my-item .myitem-iconl image{
+  width: 20rpx;
+  height: 20rpx;
+  padding: 50rpx 0;
+}
+
+.my .my-item .myitem-icon{
+  flex: 1;
+}
+.my .my-item .myitem-icon image{
+  width: 45rpx;
+  height: 45rpx;
+  padding: 37.5rpx 0;
+}
+.my .my-item .myitem-name{
+  flex: 5;
+  text-align: left;
+  font-size: 34rpx;
+  color: #6d6d6d;
+  line-height: 60rpx;
+  padding: 30rpx 0;
+  
+}
+.my .my-item:last-child .myitem-name{
+  border-bottom: none;
+}
+.zone{
+background: #ffffff;
+
+margin-bottom: 20rpx;
+min-height: 100%
+}
+
+.question{
+  height: 40rpx;
+  text-align: left;
+  font-size: 36rpx;
+  padding:20rpx 20rpx 35rpx 20rpx;
+
+  border-bottom: solid 1px #ebebeb;
+  
+}
+
+.answer{
+  
+  text-align: left;
+  font-size: 30rpx;
+  padding:20rpx 20rpx
+  
+}
+
+.answer-details{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+

@@ -1,0 +1,101 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="container">
+
+        <view class="my">
+
+        <view class="zone">
+          <view class="my-item flex-wrp">
+            <view class="myitem-icon flex-item">
+              <image src="../../images/question.png"></image>
+            </view>
+            <view class="myitem-name flex-item" bindtap='gotoQuestions'>
+              <text>常见问题</text>
+            </view>
+
+            <view class="myitem-iconl flex-item">
+              <image src="../../images/rightarrow.png"></image>
+            </view>
+          </view>
+
+          <view class="my-item flex-wrp" hidden='true'>
+            <view class="myitem-icon flex-item">
+              <image src="../../images/icon-edit.png"></image>
+            </view>
+            <view class="myitem-name flex-item" bindtap='gotoSuggest'>
+              <text>建议反馈</text>
+            </view>
+
+            <view class="myitem-iconl flex-item">
+              <image src="../../images/rightarrow.png"></image>
+            </view>
+          </view>
+
+          </view>
+
+<view class="zone">
+
+          <view class="my-item flex-wrp" hidden='true'>
+            <view class="myitem-icon flex-item">
+              <image src="../../images/partner.png"></image>
+            </view>
+            <view class="myitem-name flex-item" bindtap='gotoPartner'>
+              <text>合作伙伴</text>
+            </view>
+           
+
+            <view class="myitem-iconl flex-item">
+              <image src="../../images/rightarrow.png"></image>
+            </view>
+          </view>
+</view>
+<view class="zone">
+          <view class="my-item flex-wrp">
+            <view class="myitem-icon flex-item">
+              <image src="../../images/about.png"></image>
+            </view>
+            <view class="myitem-name flex-item" bindtap='show_service_detail'>
+              <text>关于本站</text>
+            </view>
+
+            <view class="myitem-iconl flex-item">
+              <image src="../../images/rightarrow.png"></image>
+            </view>
+          </view>
+</view>
+  </view>
+</view>
+<!--<view class="div" style="font-size:13px;color:gray;vertical-align:middle;text-align:center;line-height:23px;}">点击右上角，显示在聊天顶部</view>
+<view class="div" style="font-size:13px;color:gray;vertical-align:middle;text-align:center;line-height:23px;}">再次使用： 发现-小程序-搜索“拼123”</view>
+<view class="div"  style="font-weight:bold;font-size:13px;color:#666;vertical-align:middle;text-align:center;line-height:30px;}">查看这张名片二维码，同步至手机</view>-->
+
+<view class="section service-detail-bg" wx:if="{{service_detail}}" catchtouchmove="stop" bindtap="close_service_detail">
+  <view class="div service-detail-main {{service_detail == 2 ? 'main-show' : 'main-hide'}}" catchtap="stop">
+    <view class="div service-title">
+      <view class="span">关于本站</view>
+      <view class="div service-close-btn" catchtap="close_service_detail"></view>
+    </view>
+    <view class="div" id="service-list" style="overflow: hidden;">
+      <view class="div service-item">
+        <view class="span ms-item-icon"></view>
+        <view class="span service-item-name">本站宗旨</view>
+        <view class="span service-item-desc">
+        <text>网罗全国各地名优土特产\n
+        以实惠的价格给您带来不一样的美味</text>
+        
+        </view>
+      </view>
+
+      <view class="div service-item">
+        <view class="span ms-item-icon"></view>
+        <view class="span service-item-name">技术支持</view>
+        <view class="span service-item-desc">
+        <text>本站由许昌微锐信息技术有限公司开发维护\n
+        商务合作请致邮jiangbwang@163.com</text>
+        </view>
+      </view>
+      
+    </view>
+  </view>
+</view>
+<include src="/common/footer.wxml" />

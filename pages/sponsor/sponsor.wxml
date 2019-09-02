@@ -1,0 +1,255 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}">
+</navbar>
+<view class="body" hidden="{{!page.load && !page.operate}}">
+  <form bindsubmit="listenFormSubmit" bindreser="listenFormReser" report-submit="true">
+
+    <view class="div ptit">奖品信息
+    </view>
+
+
+    <view class="image">
+
+      <view class="images" wx:if="{{avatarUrl}}">
+
+        <image class="giftpic" src="{{avatarUrl}}"  />
+
+      </view>
+
+      <view class="images" wx:else>
+
+        <image class="giftpic" src="../../images/giftcut.png" />
+
+      </view>
+      <view bindtap="bindViewTap" class="changepic">
+        <image src="../../images/addpic.png" />
+      </view>
+
+      <view class="changetext">更换图片</view>
+
+    </view>
+    <view class="flex-row flex-y-center edit-row">
+      <view class="flex-grow-0 row-label">抽奖名字</view>
+      <view class="flex-grow-1">
+        <input id="name" name="name" value="{{lottery.gift_name}}" placeholder="请填写抽奖名字" type="text" bindblur='receive_function' />
+      </view>
+
+    </view>
+
+    <view class="flex-row flex-y-center edit-row">
+      <view class="flex-grow-0 row-label">商品简述</view>
+      <view class="flex-grow-1">
+        <input id="instruction" name="instruction" value="{{lottery.goods_name}}" placeholder="请填写商品简述" type="text" bindblur='receive_function' />
+      </view>
+
+    </view>
+
+
+    <view class="flex-row flex-y-center edit-row">
+      <view class="flex-grow-0 row-label">奖品数量</view>
+      <view class="flex-grow-1">
+        <input id="instruction" name="giftnum" value="{{lottery.num}}" placeholder="请填写奖品数量(1-10)" type="number" bindblur='receive_function' />
+      </view>
+
+    </view>
+
+
+    <view class="flex-row flex-y-center edit-row">
+      <view class="flex-grow-0 row-label">推广方式</view>
+
+
+
+      <block wx:if="{{propagatesettings && propagatesettings.length>0}}">
+        <picker bindchange="propagatesettingIndexChange" value="{{propagatesettingIndex}}" range="{{propagatesettingsRanges}}" class='flex-grow-1'>
+          <view class="picker select flex-y-center">
+            {{propagatesettingsRanges[propagatesettingIndex]}}
+            <input disabled="true" name="propagatesetting" value="{{propagatesettingIndex}}" class="hide" />
+          </view>
+        </picker>
+        <view class="flex-grow-0">
+          <image class='pickericon' src="../../images/rightarrow.png"></image>
+        </view>
+      </block>
+
+
+      <block wx:else>
+        <view class="picker select flex-y-center" bindtap='gotopropagatesettings'>
+          请首先添加推广内容
+
+        </view>
+      </block>
+
+
+
+    </view>
+
+    <view class="div ptit">开奖设置</view>
+    <view class="div apply_container">
+
+      <view class="flex-row flex-y-center edit-row">
+
+        <view class="flex-grow-0 row-label">抽奖方式</view>
+        <picker bindchange="lotterymodeChange" value="{{lotterymodeindex}}" range="{{lotterymodes}}" class='flex-grow-1'>
+          <view class="picker select flex-y-center ">
+            {{lotterymodes[lotterymodeindex]}}
+            <input disabled="true" name="mode" value="{{lotterymodeindex}}" class="hide" />
+          </view>
+        </picker>
+        <view class="flex-grow-0">
+          <image class='pickericon' src="../../images/rightarrow.png"></image>
+        </view>
+
+
+      </view>
+
+
+
+
+
+
+      <view class="flex-row flex-y-center edit-row" wx:if="{{lotterymodeindex == 0}}">
+
+        <view class="flex-grow-0 row-label">开奖时间</view>
+        <view class="flex-grow-1">
+          <input id="opentime" name="opentime" value="{{chooseDateStr}}" disabled="true" placeholder="请选择开奖时间" bindtap='timeselect' />
+        </view>
+
+
+      </view>
+
+
+      <view class="flex-row flex-y-center edit-row" wx:if="{{lotterymodeindex == 1 || lotterymodeindex == 2}}">
+
+        <view class="flex-grow-0 row-label">中奖概率</view>
+        <view class="flex-grow-1">
+          <input id="chance" name="chance" value="{{lottery.chance}}" placeholder="请填写中奖概率" type="number" bindblur='mobile_function' />
+        </view>
+       
+
+      </view>
+
+
+      <view class="flex-row flex-y-center edit-row" wx:if="{{lotterymodeindex == 3}}">
+
+        <view class="flex-grow-0 row-label">满人人数</view>
+        <view class="flex-grow-1">
+          <input id="peoplenum" name="peoplenum" value="{{lottery.peoplenum}}" placeholder="请填写开奖人数" type="number" bindblur='mobile_function' />
+        </view>
+
+
+      </view>
+
+
+
+
+
+    </view>
+
+
+
+    <view class="div ptit">领取设置</view>
+    <view class="div apply_container">
+
+      <view class="flex-row flex-y-center edit-row">
+
+        <view class="flex-grow-0 row-label">领取方式</view>
+        <picker bindchange="lotterydrawChange" value="{{lotterydrawindex}}" range="{{lotterydraws}}"  class='flex-grow-1 '>
+          <view class="picker select flex-y-center ">
+            {{lotterydraws[lotterydrawindex]}}
+            <input disabled="true" name="drawmode" value="{{lotterydrawindex}}" class="hide" />
+          </view>
+        </picker>
+        <view class="flex-grow-0">
+          <image class='pickericon' src="../../images/rightarrow.png"></image>
+        </view>
+
+
+      </view>
+
+
+      <view class="flex-row flex-y-center edit-row">
+
+        <view class="flex-grow-0 row-label">领取说明</view>
+        <view class="flex-grow-1">
+          <input id="drawvalue" name="drawvalue" value="{{lottery.drawvalue}}" placeholder="请填写领取说明" type="text" />
+        </view>
+
+
+      </view>
+
+
+      <view class="flex-row flex-y-center edit-row">
+
+        <view class="flex-grow-0 row-label">联系方式</view>
+        <view class="flex-grow-1">
+          <input id="ownerphone" name="ownerphone" value="{{lottery.ownerphone}}" placeholder="请填写手机号(中奖者可见)" type="number" />
+        </view>
+
+
+      </view>
+
+    </view>
+
+    <view class="fixopt">
+      <view class='fix_inner flex-row-space-between'>
+
+      <block wx:if="{{!lottery}}">
+      <view>
+            <button  hover-class="none" class="btn_full" formType="submit">新建抽奖</button>
+          </view>
+      </block>
+
+
+      <block wx:else>
+
+        <block wx:if="{{lottery.status ==0 || lottery.status ==3 }}">
+
+          <view>
+            <button  hover-class="none" class="btn_share" formType="submit">编辑保存</button>
+          </view>
+
+
+          <view>
+            <button bindtap="apply" hover-class="none" class="btn_more">提交申请</button>
+          </view>
+
+          </block>
+
+          <block wx:if="{{lottery.status ==1 }}">
+
+          <view>
+            <button bindtap="recall" hover-class="none" class="btn_full" >撤回申请</button>
+          </view>
+
+
+          
+
+          </block>
+
+
+          
+
+
+
+          </block>
+      </view>
+
+
+    </view>
+
+
+
+    <view class='bottomspace'></view>
+
+  </form>
+</view>
+
+<include src="/common/footer.wxml" />
+
+<van-dialog id="van-dialog" />
+
+<van-toast id="van-toast" />
+
+
+<van-popup show="{{ datetimeshow }}" bind:close="onDatetimeClose" position="bottom" z-index="10001">
+  <datetime-picker type="datetime" value="{{ currentDate }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:confirm="ontimeChoosed" bind:cancel = "onDatetimeClose" />
+</van-popup>

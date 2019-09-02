@@ -1,0 +1,13 @@
+{
+    "navigationBarTitleText" : "评价列表",
+    "navigationBarBackgroundColor" : "#fff",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      "i-avatar": "../../thirdpartcomponents/iview/dist/avatar/index",
+      "zan-button": "../../thirdpartcomponents/vant/dist/button/index",
+      "i-tag": "../../thirdpartcomponents/iview/dist/tag/index",
+      "articlecover": "../../components/articlecover/index",
+      "navbar": "/components/navbar/index"
+    }
+    
+}

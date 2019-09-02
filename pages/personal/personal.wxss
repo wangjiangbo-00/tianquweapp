@@ -1,0 +1,344 @@
+
+
+.li{display: block;}
+
+.nav_item_hd .a {
+    display: block;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    min-height: 100%;
+    margin: 0 auto;
+    padding: 0 0 16px;
+    overflow-x: hidden;
+    background-color: #eceded;
+
+    overflow-y: hidden;
+}
+
+.my {
+    height: 100px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.my_head {
+    text-align: center;
+}
+
+.my_head_pic {
+    padding: 10px 0 0;
+}
+
+.userinfo-avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  margin-top: 40rpx;
+  display: block;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my_head_info {
+    color: #fff;
+    margin-left: 10px;
+    margin-top: 20px;   
+}
+
+.my_head{
+  padding: 10px
+}
+
+.my_head_name {
+    font-size: 14px;
+    line-height: 1;
+    padding: 7.5px 0 5.5px;
+    color: #333;
+}
+
+.my_head_update {
+    float: left;
+    width: 50px;
+    height: 15px;
+   color: white;
+    line-height: 15px;
+    border-radius: 4px;
+
+    font-size: 8px;
+    
+    background-color: pink;
+    text-align: center;
+
+    margin-top: 2px;
+    padding-left:1px;
+padding-right:1px;
+
+    
+}
+
+.img {
+    border: 0 none;
+    vertical-align: top;
+}
+
+.my_head_name {
+    font-size: 14px;
+    line-height: 1;
+    padding: 7.5px 0 1.5px;
+    
+}
+
+.my_head_img {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    box-shadow: 0 0 0 2px #fff;
+    height: 65px;
+    width: 65px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.h4 {
+    
+    font-weight: bold;
+}
+
+.nav {
+    background: none repeat scroll 0 0 ;
+    position: relative;
+}
+
+.nav {
+    padding-right: 0;
+}
+
+.nav:before {
+    border-bottom: 1px solid #d3d3d3;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.nav_item {
+    padding-left:  10px;
+    position: relative;
+    display: flex
+}
+
+.a {
+    text-decoration: none;
+    color: #333;
+}
+
+.a {
+    background-color: transparent;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav_item_hd {
+    color: #000;
+    font-size: 14px;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 10px;
+    position: relative;
+    z-index: 1;
+
+    border-bottom: 1px solid #d3d3d3;
+
+}
+
+.nav_item_hd_last {
+    color: #000;
+    font-size: 14px;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 10px;
+    position: relative;
+    z-index: 1;
+
+    
+
+}
+
+.ordersstatus{
+  width: 92%;
+  margin: 5px auto
+
+}
+.orderop{
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.addspace{
+  padding-bottom: 20px;
+}
+.ordersection{
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  background-color: #fff
+}
+
+
+
+
+
+
+
+
+.nav_item_bd {
+    font-size: 0;
+    padding: 11px 0;
+    position: relative;
+}
+
+
+
+.nav_item_bd .a {
+    color: #000;
+    display: inline-block;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    width: 33.333%;
+}
+
+
+
+
+
+
+
+.coupons_a {
+    display: block;
+    line-height: 45px;
+}
+
+
+
+
+
+.nav_item_bd .a {
+    color: #000;
+    display: inline-block;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    width: 33.333%;
+}
+
+
+
+.nav_item_txt {
+    position: relative;
+}
+
+.nav_item_num {
+    background: none repeat scroll 0 0 #ee2328;
+    border-radius: 13px;
+    color: #fff;
+    font-size: 9px;
+    height: 13px;
+    line-height: 13px;
+    position: absolute;
+    right: -12px;
+    top: -7px;
+    width: 13px;
+}
+
+
+
+.nav_item_refresh {
+    text-align: center;
+}
+
+.a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+
+.nav_item:after {
+    
+    bottom: -.5px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
+
+
+.rf {
+    float: right;
+    margin-top: 5px;
+}
+
+.post_sale {
+    background-color:none;
+    text-align:left;
+}
+
+
+.example-icon {
+  font-size: 24px;
+  width: 22px;
+  
+  color: rgba(69, 90, 100, .8);
+  margin-top: 6px
+}
+
+
+
+.icon-wrap {
+  width: 13%;
+ height: 45px;
+ 
+  text-align: left;
+}
+
+
+page {
+  min-height: 100%;
+  position: relative;
+ 
+  box-sizing: border-box;
+}
+
+.view-page {
+  min-height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  position: absolute;
+ 
+}
+
+.page-content {
+  box-sizing: border-box;
+  position: relative;
+  
+}
+
+
+
+
+
+

@@ -1,0 +1,155 @@
+@import "/common/flex.wxss";
+
+.order {
+  background-color: #fff;
+  border-top: 1px solid #e4e4e4;
+  border-bottom: 1px solid #dedede;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.introduction {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  min-height: 30px;
+}
+
+.order_goods_sum {
+  margin-right: 5px;
+}
+
+.order_hd {
+  background-color: #fff;
+  height: 39px;
+  line-height: 39px;
+  overflow: hidden;
+  padding: 0 10px;
+  border-bottom: 1px solid #dedede;
+}
+
+.order_bd {
+  padding: 0 10px;
+}
+
+.order_bd {
+  background-color: #fff;
+  border-bottom: 1px solid #dedede;
+  padding: 0 10px;
+}
+
+.order_goods {
+  position: relative;
+  padding: 20rpx;
+  font-size: 12px;
+  min-height: 60px;
+  border-bottom: 1px solid #dedede;
+}
+
+.order_goods_img {
+  top: 15px;
+  left: 0;
+}
+
+.order_goods_img .img {
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.order_goods_info {
+  position: relative;
+  margin-left: 5px;
+}
+
+.order_goods_attr {
+  color: silver;
+  margin-top: 5px;
+}
+
+.order_goods_price {
+  float: right;
+}
+
+.order_goods_price {
+  float: right;
+  font-size: px;
+  height: 22px;
+  line-height: 22px;
+}
+
+.order_total {
+  font-size: 12px;
+  height: 16px;
+  line-height: 16px;
+  overflow: hidden;
+  color: #5a5a5a;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.order_total_info {
+  float: left;
+}
+
+.order_price {
+  float: right;
+}
+
+.order_price .b {
+  color: #df2128;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.small {
+  font-size: 80%;
+}
+
+.order_total:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+.order_status {
+  margin-left: 20rpx;
+}
+
+.order_opt {
+  padding: 5px 10px 5px;
+}
+
+.order_btn {
+  float: right;
+}
+
+.order_btn .a {
+  float: left;
+  width: 80px;
+  height: 25px;
+  color: black;
+  line-height: 25px;
+  border-radius: 4px;
+  margin-left: 5px;
+  text-align: center;
+  border: 1px solid #dddee1;
+}
+
+.order_opt:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+.p {
+  display: inline;
+}

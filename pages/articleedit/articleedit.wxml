@@ -1,0 +1,137 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+<view class="body" hidden="{{!page.load && !page.operate}}">
+  <view class="div mod_container">
+    <view class="div wx_bar">
+      <view class="div wx_bar_back">
+        <navigator id="back" url="javascript:void(0);"></navigator>
+      </view>
+
+    </view>
+    <form bindsubmit="listenFormSubmit" bindreser="listenFormReser" report-submit="true">
+      <view class=" div wx_wrap">
+
+
+        <view class='flex-row title'>
+          <view class='flex-grow-1 titletext' bindtap='titletextChange' wx:if="{{article.title}}">标题：{{article.title}}</view>
+          <view class='flex-grow-1 titletext' bindtap='titletextChange' wx:else>请首先填写标题</view>
+          <view class='flex-grow-0' bindtap='titlecoverChange' wx:if="{{article.coverpic}}">
+            <image class='cover' src='{{article.coverpic}}'></image>
+          </view>
+          <view class='flex-grow-0' bindtap='titlecoverChange' wx:else>
+            <image class='cover' src='/images/pic.png'></image>
+          </view>
+        </view>
+
+
+
+
+
+
+        <view class="weui-grids_1" wx:if="{{article.title && article.coverpic}}">
+
+          <view url="../articles/articles" class="flex-grid_3 addimage">
+            <image class="weui-grid__icon" src="/images/add.png" />
+
+          </view>
+
+          <view url="" class="flex-grid_3" hover-class="weui-grid_active" bindtap='textAdd' data-index="-1">
+            <image class="weui-grid__icon" src="/images/text.png" />
+
+          </view>
+
+          <view url="" class="flex-grid_3" hover-class="weui-grid_active" bindtap='imageAdd' data-index="-1">
+            <image class="weui-grid__icon" src="/images/pic.png" />
+
+          </view>
+
+
+
+        </view>
+
+
+        <view class="contents" ms-repeat-order="contents" wx:key="" wx:for-item="content" wx:for="{{article.contents}}">
+
+          <view class='content_container'>
+
+            <view class='leftop flex-grow-0'>
+              <view bindtap='moveupitem' class="" wx:if="{{index!=0}}" data-index="{{index}}">
+                <image class="opicon" src="/images/arrow-up.png" />
+
+              </view>
+
+              <view class="" wx:else>
+                <image class="opicon" src="" />
+
+              </view>
+
+              <view bindtap='movedownitem' class="" wx:if="{{index!=article.contents.length-1}}" data-index="{{index}}">
+                <image class="opicon" src="/images/arrow-down.png" />
+
+              </view>
+            </view>
+
+
+            <view class='content flex-grow-1' wx:if="{{content.type == 1}}" bindtap='editText' data-index="{{index}}">
+              <text>{{content.content}}</text>
+            </view>
+            <view wx:else class='content flex-grow-1' bindtap='editImg' data-index="{{index}}">
+              <image src='{{content.content}}' class='contentimg'></image>
+            </view>
+
+
+            <view class='rightop flex-grow-0'>
+              <view class="" bindtap='removeitem' data-index="{{index}}">
+                <image class="opicon" src="/images/close_edit.png" />
+
+              </view>
+
+
+            </view>
+          </view>
+
+          <view class="weui-grids_1">
+
+            <view class="flex-grid_3 addimage">
+              <image class="weui-grid__icon" src="/images/add.png" />
+
+            </view>
+
+            <view url="" class="flex-grid_3" hover-class="weui-grid_active" bindtap='textAdd' data-index="{{index}}">
+              <image class="weui-grid__icon" src="/images/text.png" />
+
+            </view>
+
+            <view url="" class="flex-grid_3" hover-class="weui-grid_active" bindtap='imageAdd' data-index="{{index}}">
+              <image class="weui-grid__icon" src="/images/pic.png" />
+
+            </view>
+
+
+
+          </view>
+        </view>
+
+
+
+
+
+
+
+
+
+
+        <view class="bottom-bar">
+          <button class="weui-btn" type="primary" formType="submit">发布</button>
+          <block wx:if="{{address.address_id}}">
+            <button class="submit hidden" style="background-color: red;" id="deletes" bindtap="deletes" data-address_id="{{address.address_id}}">删除</button>
+          </block>
+        </view>
+
+
+      </view>
+
+    </form>
+  </view>
+</view>
+
+<include src="/common/footer.wxml" />

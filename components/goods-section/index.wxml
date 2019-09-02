@@ -1,0 +1,15 @@
+<view  class = "goodssection" hidden="{{items == '' || items == undefined}}">
+              
+                <view class="ul">
+                  <block wx:key="item" wx:for="{{items}}" wx:for-index="index">
+                  <view class='flex-grid_2' bindtap='gotogoods' data-id='{{item.id}}'>
+<goodscover item="{{item}}" index="{{index}}" bind:gotoarticle="goodscover"></goodscover>
+
+
+                  </view>
+                    
+                  </block>
+                  <view class="div" style="clear:both"></view>
+                </view>
+              
+            </view>

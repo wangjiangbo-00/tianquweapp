@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "搜索",
+    "usingComponents": {
+      
+      "zan-panel": "../../thirdpartcomponents/vant/dist/panel/index",
+      "doc-page": "../../components/doc-page/index",
+      "goodscover": "../../components/goodscover/index",
+      "goods-section": "../../components/goods-section/index",
+      "navbar": "/components/navbar/index"
+    }
+}

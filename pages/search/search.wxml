@@ -1,0 +1,60 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+
+<view class="page" style="height: 100%">
+    <view style="display: flex;flex-direction: column;height:100%;width: 100%">
+        <view style="flex-grow: 0">
+            <form>
+                <view class="search-box">
+                    <view class="input-box">
+                        <view style="font-size: 0">
+                            <image class="search-icon" src="/images/icon-search.png"></image>
+                        </view>
+                        <view style="width: 100%">
+                            <input autoFocus="true" bindblur="inputBlur" bindconfirm="inputConfirm" bindfocus="inputFocus" class="search-input" confirmType="search" style="width: 100%"></input>
+                        </view>
+                    </view>
+                    <view>
+                        <view bindtap="searchCancel" class="search-cancel">取消</view>
+                    </view>
+                </view>
+            </form>
+        </view>
+        <view style="flex-grow: 1;position: relative">
+            <scroll-view bindscrolltolower="onListScrollBottom" lowerThreshold="5" scrollY="true" style="height:100%;width:100%;position: absolute;left: 0;top:10rpx">
+                <view class="search-history" wx:if="{{show_history&&history_list&&history_list.length>0}}">
+                    <view>
+                        <text class="search-history-title">搜索历史</text>
+                        <view bindtap="deleteSearchHistory" class="delete-search-history">
+                            <image src="/images/icon-delete.png" style="width: 28rpx;height: 34rpx"></image>
+                        </view>
+                    </view>
+                    <view class="search-history-list">
+                        <view bindtap="historyClick" class="search-history-item" data-value="{{item.keyword}}" wx:for="{{history_list}}">{{item.keyword}}
+                            </view>
+                    </view>
+                </view>
+                <block wx:if="{{show_result}}">
+                    <view class="search-result" wx:if="{{is_search}}">
+                        <view class="goods-list" style="padding-top: 20rpx">
+                            <goods-section items="{{goods_list}}"></goods-section>
+                        </view>
+                        <view class="loading-more-bar {{loading_more_active}}">
+                            <image src="/images/loading-black.svg" style="width: 48rpx;height: 48rpx"></image>
+                        </view>
+                    </view>
+                    <view class="search-result" wx:else>
+                        <view class="flex-row flex-x-center" style="padding:36rpx 0;">
+                            <view class="flex-row flex-y-center">
+                                <view class="flex-grow-0" style="width:100rpx;height:100rpx;margin-right:40rpx;">
+                                    <image src="/images/icon-search-no.png" style="width:100rpx;height:100rpx;"></image>
+                                </view>
+                                <view class="flex-grow-1" style="color:#353535;">抱歉，没有相关商品</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </scroll-view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,48 @@
+<view class='article_container'>
+        <view class='article_content'>
+          <view class='desp'>
+
+            <view class='writer'>
+              <view>
+                <image  class='local-article-img' src="{{article.headpic}}" size="small"></image>
+
+              </view>
+              <view class='desptext'>
+                {{article.nikename}}
+              </view>
+              <view class='desptext'>
+                {{article.modifytime}}
+              </view>
+            </view>
+            <view class='statistics'>
+              <view class='desptext'>
+                阅读{{article.readcount}}
+              </view>
+
+
+              <view class='desptext'>
+                收藏{{article.collect}}
+              </view>
+
+            </view>
+          </view>
+
+          <view class='flex-row articlecontent'>
+            <view class='titlesection flex-grow-1'>
+              <view class='title'>{{article.title}}</view>
+
+            </view>
+
+            <view class='title_cover flex-grow-0' bindtap='gotoarticle'>
+              <image src='{{article.coverpic}}' class='coverimg'></image>
+            </view>
+          </view>
+
+
+
+        </view>
+
+      </view>
+      <view>
+
+      </view>

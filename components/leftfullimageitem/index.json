@@ -1,0 +1,10 @@
+{
+  "component": true,
+  
+
+  "usingComponents": {
+    "i-avatar": "../../thirdpartcomponents/iview/dist/avatar/index",
+    "zan-button": "../../thirdpartcomponents/vant/dist/button/index",
+    "i-tag": "../../thirdpartcomponents/iview/dist/tag/index"
+  }
+}

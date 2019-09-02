@@ -1,0 +1,203 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}">
+</navbar>
+<view class="body" hidden="{{!page.load && !page.operate}}">
+
+
+
+<view class="div ptit">订单信息</view>
+
+
+<view class='ordersection'>
+<view class="ordersection-inner">
+          <view class="div order_row flex-row">
+            <view class="div order_tit">订单编号： </view>
+            <view class="div order_cnt" id="canselect">{{order.outtradeno}} </view>
+          </view>
+
+          <view class="div order_row flex-row">
+            <view class="div order_tit">下单时间： </view>
+            <view class="div order_cnt">{{order.order_time}} </view>
+          </view>
+
+          <view class="div order_row flex-row">
+            <view class="div order_tit">
+              订单总额：
+            </view>
+            <view class="div order_cnt">
+              <view class="span order_price">
+                {{order.ordermoney}} 元
+              </view>
+
+            </view>
+          </view>
+
+        </view>
+</view>
+
+
+  
+
+  <view class="div ptit">商品信息
+  </view>
+
+  <view class="div order_bd">
+
+    <ordergoodscover item="{{order}}"></ordergoodscover>
+
+
+  </view>
+
+  <view class="div ptit">退货申请</view>
+  <view class="div apply_container">
+
+
+
+
+    <form bindsubmit="listenFormSubmit" bindreser="listenFormReser" report-submit="true">
+
+
+      <view class="flex-row flex-y-center edit-row">
+
+        <view class="flex-grow-0 row-label">退货方式</view>
+        <picker bindchange="adTypesChange" value="{{adTypeIndex}}" range="{{adTypes}}" class='flex-grow-1'>
+          <view class="picker select flex-y-center ">
+            {{adTypes[adTypeIndex]}}
+            <input disabled="true" name="mode" value="{{adTypeIndex}}" class="hide" />
+          </view>
+        </picker>
+        <view class="flex-grow-0">
+          <image class='pickericon' src="../../images/rightarrow.png"></image>
+        </view>
+
+
+      </view>
+
+
+
+
+      <view class="flex-row flex-y-center edit-row">
+        <view class="flex-grow-0 row-label">退货原因</view>
+        <picker bindchange="refundReasonChange" value="{{refundReasonIndex}}" range="{{refundReasons}}" class='flex-grow-1'>
+          <view class="picker select flex-y-center">
+            {{refundReasons[refundReasonIndex]}}
+            <input disabled="true" name="reason" value="{{refundReasonIndex}}" class="hide" />
+          </view>
+        </picker>
+        <view class="flex-grow-0">
+          <image class='pickericon' src="../../images/rightarrow.png"></image>
+        </view>
+
+
+      </view>
+
+
+      <view class="flex-row flex-y-center edit-row">
+        <view class="flex-grow-0 row-label">退款金额</view>
+        <view class="flex-grow-1">
+          <input id="name" name="money" value="{{refundprocess.refundmoney}}" placeholder="请填写协商退款金额" type="digit" bindblur='receive_function' />
+        </view>
+        <view class="span" id="updateTip1" style="color:red; {{!receive_name_tip ? 'display: none;' : ''}}">请填写姓名</view>
+      </view>
+
+      <view class="flex-row flex-y-center edit-row">
+
+        <view class="flex-grow-0 row-label">联系方式</view>
+        <view class="flex-grow-1">
+          <input id="mobile" name="mobile" value="{{refundprocess.customerphone}}" placeholder="请填写手机号码" type="number" bindblur='mobile_function' />
+        </view>
+        <view class="span" id="updateTip2" style="color: red; {{!mobile_tip ? 'display: none;' : ''}}">请填写正确的手机号</view>
+
+      </view>
+
+
+
+
+      <view class="div ptit">详情描述
+      </view>
+
+      <view class='content_container'>
+
+        <view class='content flex-grow-1' bindtap='editText' data-index="{{index}}">
+          <text>{{refundinfo}}</text>
+        </view>
+
+
+        <view class='rightop flex-grow-0'>
+          <view class="" bindtap='cleartext' data-index="{{index}}">
+            <image class="opicon" src="/images/close_edit.png" />
+
+          </view>
+
+
+        </view>
+      </view>
+
+
+      <view class=" ptit">上传图片</view>
+
+      <view class="image">
+
+
+        <view class="images" wx:if="{{avatarUrl}}">
+          <view id="status2_pics">
+            <ul class="pics6_status2">
+              <block wx:key="item" wx:for="{{avatarUrl}}">
+                <view class='half'>
+                  <image class="status2-pic" src="{{item}}" />
+
+                </view>
+              </block>
+            </ul>
+          </view>
+        </view>
+        <view bindtap="bindViewTap" class="makephone">
+          <image src="../../images/addpic.png" />
+        </view>
+
+      </view>
+
+
+
+
+
+
+      <view class="bottom-bar">
+        <button class="submit" id="add" formType="submit">提交申请</button>
+        <block wx:if="{{address.address_id}}">
+          <button class="submit hidden" style="background-color: red;" id="deletes" bindtap="deletes" data-address_id="{{address.address_id}}">删除</button>
+        </block>
+      </view>
+
+      <view class="address_select" style="{{address_select ? '' : 'display:none;'}}">
+        <view class="area_ctrl slideInUp" catchtap="stopclose">
+          <view class="div area_btn_box">
+            <view class="div area_btn larea_cancel" bindtap="close" style="visibility:hidden;">取消</view>
+            <view class="div area_btn larea_finish" bindtap="finish">完成
+            </view>
+          </view>
+
+          <picker-view bindchange="areaPickerChange" value="{{old_value}}" wx:if="{{address_select}}">
+            <picker-view-column class="selectItem">
+              <view class="tooth" wx:for="{{provinces}}" wx:key="index">{{item.n}}</view>
+            </picker-view-column>
+            <picker-view-column class="selectItem">
+              <view class="tooth" wx:for="{{citys}}" wx:key="index">{{item.n}}</view>
+            </picker-view-column>
+            <picker-view-column class="selectItem">
+              <view class="tooth" wx:for="{{areas}}" wx:key="index">{{item.n}}</view>
+            </picker-view-column>
+          </picker-view>
+        </view>
+      </view>
+
+
+    </form>
+  </view>
+
+  <view class='bottomspace'></view>
+</view>
+
+<include src="/common/footer.wxml" />
+
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />

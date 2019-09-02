@@ -1,0 +1,17 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<scroll-view scroll-top="{{scroll_Top}}" style="height: {{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="true" bindscrolltoupper="pullUpLoad" bindscrolltolower="pullDown">
+  <view class="body" hidden="{{!page.load && !page.operate || notNetCon.error == 1 && notNetCon.show == 1}}">
+    <view class="div con">
+      <orders-section orders="{{scroll_items}}" bind:orderAction="orderAction">
+
+      </orders-section>
+
+<include src="/common/scrollfooter.wxml" />
+    </view>
+  </view>
+  
+
+</scroll-view>
+
+<include src="/common/footer.wxml" />

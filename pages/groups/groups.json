@@ -1,0 +1,11 @@
+{
+    "enablePullDownRefresh": false,
+    "navigationBarTitleText" : "我的拼团",
+    "navigationBarBackgroundColor" : "#fff",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      
+      "orders-section": "../../components/orders-section/index",
+      "navbar": "/components/navbar/index"
+    }
+}

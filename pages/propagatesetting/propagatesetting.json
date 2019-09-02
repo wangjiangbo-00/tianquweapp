@@ -1,0 +1,18 @@
+{
+   
+     "navigationBarTitleText" : " ",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "disableScroll" : false,
+    "usingComponents": {
+      "i-input": "../../thirdpartcomponents/iview/dist/input/index",
+      "i-button": "../../thirdpartcomponents/iview/dist/button/index",
+      "i-panel": "../../thirdpartcomponents/iview/dist/panel/index",
+      "ordergoodscover": "../../components/ordergoodscover/index",
+          "van-dialog": "../../thirdpartcomponents/vant/dist/dialog/index",
+          "van-popup": "../../thirdpartcomponents/vant/dist/popup/index",
+          "datetime-picker": "../../thirdpartcomponents/vant/dist/datetime-picker/index",
+          
+      "navbar": "/components/navbar/index"
+    }
+}

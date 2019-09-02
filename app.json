@@ -1,0 +1,106 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/groups/groups",
+    "pages/wxcropper/wxcropper",
+    "pages/refunds/refunds",
+    "pages/orderrefunds/orderrefunds",
+    "pages/withdrew/withdrew",
+    "pages/articles/articles",
+    "pages/accountrecords/accountrecords",
+    "pages/articleedit/articleedit",
+    "pages/footprints/footprints",
+    "pages/rewards/rewards",
+    "pages/recommendcode/recommendcode",
+    "pages/sponsors/sponsors",
+    "pages/sponsor/sponsor",
+    "pages/textedit/textedit",
+    "pages/articleshow/articleshow",
+    "pages/orders/orders",
+    "pages/wximagecompose/wximagecompose",
+    "pages/gifts/gifts",
+    "pages/giver/giver",
+    "pages/giveraddr/giveraddr",
+    "pages/collects/collects",
+    "pages/checkout/checkout",
+    "pages/personal/personal",
+    "pages/goods/goods",
+    "pages/addresses/addresses",
+    "pages/order/order",
+    "pages/group/group",
+    "pages/express/express",
+    "pages/cat/cat",
+    "pages/search/search",
+    "pages/sendgift/sendgift",
+    "pages/shopdetail/shopdetail",
+    "pages/questioncategory/questioncategory",
+    "pages/questions/questions",
+    "pages/questiondetails/questiondetails",
+    "pages/personalsetting/personalsetting",
+    "pages/refundapply/refundapply",
+    "pages/refundprocess/refundprocess",
+    "pages/recommend/recommend",
+    "pages/propagatesettings/propagatesettings",
+    "pages/propagatesetting/propagatesetting",
+    "pages/serviceindex/serviceindex",
+    "pages/lotterys/lotterys",
+    "pages/lottery/lottery",
+    "pages/promitionindex/promitionindex",
+    "pages/platformdiscounts/platformdiscounts",
+    "pages/supergroups/supergroups",
+    "pages/goodsgroup/goodsgroup",
+    "pages/freeorders/freeorders",
+    "pages/recommendpeople/recommendpeople",
+    "pages/commonedit/commonedit"
+  ],
+  "window": {
+    "backgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "田趣小集",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "backgroundColor": "#FFF",
+    "selectedColor": "#df2127",
+    "color": "#777",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/littlehome.png",
+        "selectedIconPath": "images/select_home.png"
+      },
+      {
+        "pagePath": "pages/cat/cat",
+        "text": "美食坐标",
+        "iconPath": "images/zuobiao.png",
+        "selectedIconPath": "images/zuobiaored.png"
+      },
+      {
+        "pagePath": "pages/promitionindex/promitionindex",
+        "text": "活动",
+        "iconPath": "images/activity.png",
+        "selectedIconPath": "images/activity-active.png"
+      },
+      {
+        "pagePath": "pages/orders/orders",
+        "text": "我的订单",
+        "iconPath": "images/orders.png",
+        "selectedIconPath": "images/select_orders.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
+        "iconPath": "images/personal.png",
+        "selectedIconPath": "images/select_personal.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

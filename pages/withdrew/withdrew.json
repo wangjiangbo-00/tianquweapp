@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "noinfopage": "../../components/noinfopage/index",
+    "van-dialog": "../../thirdpartcomponents/vant/dist/dialog/index",
+    "van-toast": "../../thirdpartcomponents/vant/dist/toast/index",
+    "navbar": "/components/navbar/index"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "系统活动",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+
+      "zan-panel": "../../thirdpartcomponents/vant/dist/panel/index",
+      "doc-page": "../../components/doc-page/index",
+      "goodscover": "../../components/goodscover/index",
+      "goods-section": "../../components/goods-section/index",
+      "lotteryitem": "../../components/lotteryitem/index",
+      "groupitem": "../../components/groupitem/index",
+      "leftfullimageitem": "../../components/leftfullimageitem/index",
+      "navbar": "/components/navbar/index"
+    }
+}

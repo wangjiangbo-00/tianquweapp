@@ -1,0 +1,48 @@
+<view bindtap="bindRedirect" data-url="../goods/goods?goods_id={{item.id}}">
+  <view class="li_inside_left" wx:if="{{index%2==0}}">
+    <view class="div">
+      <image src="{{item.cover}}" class="img " data-id="two_goods_img" />
+    </view>
+    <view class="div desc">
+      <view class="div text">{{item.introduction}}</view>
+      <view class="div detail flex-row">
+        <view class="flex-row">
+          <view class="small">
+            ￥
+          </view>
+          <view class='price'>
+          {{item.group_price}}
+          </view>
+          
+        </view>
+
+        <view class='groupnum'>{{item.group_number}}人团</view>
+      </view>
+    </view>
+
+  </view>
+
+
+  <view class="li_inside_right" wx:else>
+    <view class="div">
+      <image src="{{item.cover}}" class="img " data-id="two_goods_img" />
+    </view>
+    <view class="div desc">
+      <view class="div text">{{item.introduction}}</view>
+      <view class="div detail flex-row">
+        <view class="flex-row">
+          <view class="small">
+            ￥
+          </view>
+          <view class='price'>
+          {{item.group_price}}
+          </view>
+          
+        </view>
+
+        <view class='groupnum'>{{item.group_number}}人团</view>
+      </view>
+    </view>
+
+  </view>
+</view>

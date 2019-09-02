@@ -1,0 +1,16 @@
+{
+  
+    "navigationBarTitleText" : "订单详情",
+    "navigationBarBackgroundColor" : "#fff",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      "zan-button": "../../thirdpartcomponents/vant/dist/button/index",
+      "zan-panel": "../../thirdpartcomponents/vant/dist/panel/index",
+      "doc-page": "../../components/doc-page/index",
+      "ordergoodscover": "../../components/ordergoodscover/index",
+      "van-dialog": "../../thirdpartcomponents/vant/dist/dialog/index",
+    
+      "van-toast": "../../thirdpartcomponents/vant/dist/toast/index",
+      "navbar": "/components/navbar/index"
+    }
+}

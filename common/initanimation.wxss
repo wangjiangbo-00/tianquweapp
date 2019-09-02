@@ -1,0 +1,10 @@
+
+
+.animationcell{
+   margin: auto;
+   min-width: 1px;
+}
+
+@import "animations/dots.wxss";
+@import "animations/spinner.wxss";
+@import "animations/throbber.wxss";

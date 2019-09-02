@@ -1,0 +1,43 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="body" hidden="{{notNetCon.error == 1 || notNetCon.error == 1 && notNetCon.show == 1 || needInitCheck && pageInit == 0}}">
+  <view class="div" ms-controller="root">
+
+  
+    <view class="div nav_fixed" style='top:{{navH}}rpx'>
+<i-tabs current="{{ all_status }}" color="red" bindchange="handleChange">
+    
+    
+    <i-tab key="1" title="礼物箱"></i-tab>
+    <i-tab key="2" title="送礼箱"></i-tab>
+    
+</i-tabs>
+</view>
+
+    <scroll-view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="true" bindscrolltoupper="pullUpLoad" bindscrolltolower="pullDown" hidden="{{!page.load && !page.operate}}">
+      <!--&& shippingBanner.open == '1'-->
+      <view class="div" id="dealliststatus1" ms-class="scroll_coup:confirm_code">
+        
+          
+        <orders-section orders="{{scroll_items}}" bind:orderAction="orderAction">
+
+</orders-section>
+
+        <include src="/common/scrollfooter.wxml" />
+
+      </view>
+
+    </scroll-view>
+
+
+
+    <view onclick="common.showService()" class="i service explain_icon_right" style="display: none;">
+      <contact-button type="default-light" size="27">
+      </contact-button>
+    </view>
+
+  </view>
+  <view style="div height:58px;visibility:hidden "></view>
+</view>
+
+<include src="/common/footer.wxml" />

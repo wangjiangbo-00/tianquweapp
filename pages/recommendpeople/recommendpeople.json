@@ -1,0 +1,18 @@
+{
+    "navigationBarTitleText" : "中奖纪录",
+    "navigationBarBackgroundColor" : "#fff",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      "i-tabs": "../../thirdpartcomponents/iview/dist/tabs/index",
+      "i-tab": "../../thirdpartcomponents/iview/dist/tab/index",
+
+         "lotteryorders-section": "../../components/lotteryorders-section/index" ,
+        "navbar": "/components/navbar/index"  
+                
+
+
+                
+      
+    }
+
+}

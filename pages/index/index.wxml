@@ -1,0 +1,111 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+
+
+<view id="main" hidden="{{notNetCon.error == 1 || notNetCon.error == 1 && notNetCon.show == 1 || needInitCheck && pageInit == 0}}">
+
+
+  <view class="container" wx:if="{{banners != 'undefined'}}">
+
+
+    <view class="main-view" id="co-focus">
+      <!--<view class="index_loctaion">
+                <view class="location" bindtap="location">
+                    <view class='i'></view>
+                    <view class='span'>{{address_info}}</view>
+                </view>
+                <view class='location-arrow'>
+                </view>
+            </view>
+            <view class='header' style="margin-bottom: 9.6px;"></view>
+            -->
+      <view class="view tuan" id="tuan">
+        <view id="channelSlider" class="ch-container view" style='top:{{navH}}rpx'>
+          <!--<view class="ch-left span"></view>
+                    <view class="ch-right span"></view>-->
+          <scroll-view class="ch-content recommend_scroll_x_box" scroll-x="true" scroll-left="{{nav_scroll_left}}" scroll-with-animation="true">
+            <!--<view class="ch-content ul">-->
+            <view class="ch-tab-item li">
+              <view class="{{ current_index == undefine || current_index == -1 ?  'cur-ch-tab' : 'ch-tab'}} span" data-index="-1" data-cate_id="0" catchtap="channelRendered">首页</view>
+            </view>
+            <block wx:key="item" wx:for="{{cates}}">
+              <view class="ch-tab-item li">
+                <view class="{{current_index == index ?  'cur-ch-tab' : 'ch-tab'}} span" data-index="{{index}}" data-cate_id="{{item.id}}" catchtap="channelRendered">{{item.name}}</view>
+              </view>
+            </block>
+            <!--</view>-->
+          </scroll-view>
+        </view>
+
+        <scroll-view scroll-top="{{scroll_Top}}" bindscroll="scroll" style="height: {{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="{{is_scroll}}" bindscrolltoupper="pullUpLoad" bindscrolltolower="pullDown">
+
+          <view id="rp-banner">
+            <swiper autoplay="true" interval="5000" duration="1000" bindchange="bindchange" indicator-dots="{{indicator-dots}}" indicator-color="#fff" indicator-active-color="#e02e24" duration="{{duration}}" style="width:{{banner_img.imageWidth}}px;height:{{banner_img.imageheight}}px;{{ current_index == undefine || current_index == -1 ? '' : 'display:none;'}}"
+              id="slider" circular="true">
+              <block wx:key="item" wx:for="{{banners}}">
+                <swiper-item style="width:100%;height:100%;">
+
+                  <image src="{{item.poster}}" class=" slide-image" style="width: 100%;height: 100%;" bindload='cusImageLoad' data-id="banner_img" mode="widthFix" bindtap="bannerDetail" data-index="{{index}}" />
+
+                </swiper-item>
+              </block>
+            </swiper>
+
+            <view class="ul rp-islider-dot-wrap">
+              <block wx:key="item" wx:for="{{banners}}" wx:for-index="idx">
+                <view class="li rp-islider-dot {{current == (idx + 1) ? 'active' : ''}}"></view>
+              </block>
+            </view>
+
+          </view>
+
+
+
+
+
+          <view class="view clear-both"></view>
+
+          <view class="for-margin-top"></view>
+
+
+          <view class='notice' wx:if="{{notice}}">
+            <zan-noticebar text="{{notice.notice_message}}" left-icon="https://img.yzcdn.cn/public_files/2017/8/10/6af5b7168eed548100d9041f07b7c616.png" scrollable="{{scrollable}}" color="#65A7E1" background-color="{{ bar2.backgroundColor }}" delay="1" />
+          </view>
+
+
+
+          <view class="{{(current_index != undefine && current_index > -1)?'addtopedge':''}}">
+
+
+            <goods-section items="{{goods}}"></goods-section>
+
+            <view style="padding-bottom:20px;" hidden="{{goods.length > 0}}"></view>
+
+          </view>
+
+
+          <include src="/common/scrollfooter.wxml" />
+
+
+
+
+
+
+
+
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view bindtap="goTop" class="view go-top {{goTopClass}}" data-reactid="485">
+  <view class="span" data-reactid="486">顶部</view>
+</view>
+
+<include src="/common/footer.wxml" />
+
+
+<!-- 引入图片预加载组件 -->
+<import src="../../utils/img-loader/img-loader.wxml" />
+<template is="img-loader" data="{{ imgLoadList }}"></template>

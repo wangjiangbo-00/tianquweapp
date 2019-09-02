@@ -1,0 +1,45 @@
+/* components/navbar/index.wxss */
+
+ @import "/common/flex.wxss";
+.navbar {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: white;
+
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.navbarspace{
+  width: 100%;
+   background-color: white;
+}
+
+.navimg{
+  width: 48rpx;
+  height: 48rpx;
+  margin-top: 24rpx;
+
+}
+.navbar-title {
+  line-height: 96rpx;
+  
+  color: black;
+  font-size: 36rpx;
+
+  font-weight: 900;
+
+  text-align: center
+
+   
+}
+
+.navbar-wrap{
+  margin-left: 20rpx;
+}
+
+
+

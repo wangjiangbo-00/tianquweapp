@@ -1,0 +1,343 @@
+
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+<view class="container" ms-controller="root" hidden="{{!page.load && !page.operate || notNetCon.error == 1 && notNetCon.show == 1 || notServerCon.error == 1}}">
+
+  
+
+  <view class=" div mod_container" ms-class=" exp_overflow:!express_hide">
+    <view id="detailCon" class="div wx_wrap" ms-visible="order.id != undefined">
+      <!-- ms-class="state_1: order.total_status == 2" ms-class-1="state_2: order.total_status == 3" ms-class-2="state_3: order.total_status == 4"-->
+      <view class="state">
+
+        <view class='ordertitle'>
+          <view class='orderstatus'>
+            {{order.order_status_lang}}
+          </view>
+
+
+        </view>
+
+      </view>
+
+      <view class="div ordersection orderinfo">
+
+        <view class="ordersection-inner">
+          <view class="div order_row flex-row">
+            <view class="div order_tit">订单编号： </view>
+            <view class="div order_cnt" id="canselect">{{order.outtradeno}} </view>
+          </view>
+
+          <view class="div order_row flex-row">
+            <view class="div order_tit">下单时间： </view>
+            <view class="div order_cnt">{{order.order_time}} </view>
+          </view>
+
+          <view class="div order_row flex-row">
+            <view class="div order_tit">
+              订单总额：
+            </view>
+            <view class="div order_cnt">
+              <view class="span order_price">
+                {{order.ordermoney}} 元
+              </view>
+
+            </view>
+          </view>
+
+        </view>
+      </view>
+
+      <view class="div ordersection giftinfo" wx:if="{{order.ordertype == 1 && order.givenstatus == 1 }}">
+
+        <view class="ordersection-inner">
+          <view class="div order_row flex-row" wx:if="{{order.giverid == userInfo.id }}">
+            <view class='flex-grow-0'>
+
+              <image class='giftheadpic' src='{{order.orderExtra.sendheadpic}}'></image>
+            </view>
+
+            <view class='flex-grow-1 giftsender'>
+              <view class='giftusername'>
+                {{order.orderExtra.sendnickname}}
+              </view>
+
+              <view class='gifttime'>
+                {{order.orderExtra.givertime}} 送出礼物
+              </view>
+            </view>
+          </view>
+
+          <view class="div order_row flex-row" wx:elif="{{order.buyerid == userInfo.id }}">
+            <view class='flex-grow-0'>
+
+              <image class='giftheadpic' src='{{order.orderExtra.recieveheadpic}}'></image>
+            </view>
+
+            <view class='flex-grow-1 giftsender'>
+              <view class='giftusername'>
+                {{order.orderExtra.recievenickname}}
+              </view>
+
+              <view class='gifttime'>
+                {{order.orderExtra.givertime}} 收到礼物
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="div ordersection giftinfo" wx:elif="{{order.ordertype == 2 }}">
+        <view class="ordersection-inner">
+          <view class="div order_row flex-row">
+            <view class='flex-grow-0'>
+
+              <image class='giftheadpic' src='{{order.orderExtra.sendheadpic}}'></image>
+            </view>
+
+            <view class='flex-grow-1 giftsender'>
+              <view class='giftusername'>
+                {{order.orderExtra.sendnickname}}
+              </view>
+
+              <view class='gifttime'>
+                {{order.orderExtra.givertime}} 送出礼物
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+
+      <view class="div ordersection goodsinfo ">
+        <view class="div ptit">
+          商品信息
+        </view>
+
+        <view class="div order_bd">
+          <ordergoodscover item="{{order}}"></ordergoodscover>
+        </view>
+
+        <view class='flex-row shipops'>
+          <view class='ordersectionop leftop'>
+            <button open-type="contact" class='contactshop'>客服售后</button>
+          </view>
+          <view class='ordersectionop rightop' bindtap='makecall'>联系卖家</view>
+        </view>
+
+      </view>
+      <view class="div ordersection shipinfo removebottom" wx:if="{{order.ordertype !=1 || (order.ordertype ==1 && userInfo && order.giverid == userInfo.id )}}">
+
+      <view wx:if="{{order.isselflift}}">
+
+      <view class="div ptit">
+          物流信息
+        </view>
+        <view class="ordersection-inner">
+
+
+          <view class="div order_row flex-row">
+            <view class="div order_tit">提示信息:</view>
+            <view class="div order_cnt">订单为自行取货订单,快去联系卖家取货吧</view>
+          </view>
+        </view>
+      </view>
+      <view wx:else>
+<view class="div ptit">地址物流<view class='span tips' wx:if="{{order.fixaddr == 2}}">已修改</view>
+        </view>
+        <view class="ordersection-inner">
+          <view class="div order_row flex-row">
+            <view class="div order_tit">
+              收 货 人:
+            </view>
+            <view class="div order_cnt">
+              {{order.orderAddr.receiverName + ' ' + order.orderAddr.receiverMobile}}
+            </view>
+          </view>
+
+          <view class="div order_row flex-row">
+            <view class="div order_tit">收货地址:</view>
+            <view class="div order_cnt">{{order.orderAddr.receiverAddress}}</view>
+          </view>
+        </view>
+      </view>
+
+        
+
+
+
+      </view>
+
+
+      <view class="div ordersection shipinfo removebottom" wx:else>
+        <view class="div ptit">
+          物流信息
+        </view>
+        <view class="ordersection-inner">
+
+
+          <view class="div order_row flex-row">
+            <view class="div order_tit">提示信息:</view>
+            <view class="div order_cnt">收礼人的地址物流是个人隐私哦</view>
+          </view>
+        </view>
+      </view>
+
+
+
+
+
+    </view>
+
+
+
+
+    <view class="fixopt">
+
+      <view class='fix_inner flex-row-right'>
+
+
+
+        <block wx:if="{{(order.orderStatus==0)}}">
+          <view class="orderbtn " bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="1">继续支付</view>
+
+          <view class="orderbtn " bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="16">查询支付</view>
+
+          <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="2">删除订单</view>
+        </block>
+
+        <block wx:elif="{{(order.orderStatus==1 )}}">
+
+          <block wx:if="{{order.ordertype ==0 || (order.ordertype ==1 && userInfo && order.giverid == userInfo.id )}}">
+            <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="13" wx:if="{{order.tryrefund == 0}}">申请退款</view>
+
+            <view class="orderbtn " bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="14" wx:if="{{order.fixaddr == 0 || order.fixaddr == 2}}">修改地址</view>
+          </block>
+
+
+          <block wx:elif="{{order.ordertype == 2 }}">
+            
+
+            <view class="orderbtn " bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="14" wx:if="{{order. fixaddr == 0}}">修改地址</view>
+          </block>
+
+          <block wx:else>
+            <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="10">重新购买</view>
+          </block>
+
+        </block>
+
+        <block class="div order_btn" wx:elif="{{( order.orderStatus==2)}}">
+          <block wx:if="{{order.ordertype !=1 || (order.ordertype ==1 && userInfo && order.giverid == userInfo.id )}}">
+            <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="5">确认收货</view>
+
+            <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="6">查看物流</view>
+          </block>
+
+          
+
+          <block wx:else>
+
+            <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="10">重新购买</view>
+
+
+          </block>
+        </block>
+
+
+        <block wx:elif="{{( order.orderStatus==3 )}}">
+          <block wx:if="{{order.ordertype ==0 || (order.ordertype ==1 && userInfo && order.giverid == userInfo.id )}}">
+            <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" wx:if="{{order.cancomment == 1}}" data-action="8">添加评价</view>
+            <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="7" wx:if="{{order.canrefund == 1 }}">申请退款</view>
+          </block>
+
+          <block wx:elif="{{order.ordertype == 2 }}">
+            
+
+             <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" wx:if="{{order.cancomment == 1}}" data-action="8">添加评价</view>
+             <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="10">重新购买</view>
+          </block>
+
+          <block wx:else>
+
+            <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="10">重新购买</view>
+
+
+
+          </block>
+        </block>
+
+        <block wx:elif="{{( order.orderStatus==4 )}}">
+          <block wx:if="{{order.ordertype == 0 || (order.ordertype ==1 && userInfo && order.giverid == userInfo.id )}}">
+            <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="12" wx:if="{{order.articleid != 0}}">评价详情</view>
+            <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="7" wx:if="{{order.canrefund == 1 }}">申请退款</view>
+          </block>
+
+          <block wx:elif="{{order.ordertype == 2 }}">
+            
+
+              <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="12" wx:if="{{order.articleid != 0}}">评价详情</view>
+             <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="10">重新购买</view>
+          </block>
+
+          <block wx:else>
+            <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="10">重新购买</view>
+          </block>
+        </block>
+
+
+        <block wx:elif="{{( order.orderStatus==5)}}">
+
+          <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="3">赠送礼物</view>
+
+        </block>
+
+        <block wx:elif="{{(order.orderStatus==6)}}">
+          <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="9">售后详情 </view>
+        
+
+           
+        </block>
+
+
+        <block wx:elif="{{(order.orderStatus==6)}}">
+          <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="9">售后详情 </view>
+        
+
+           
+        </block>
+
+        
+
+        <block class="div order_btn" wx:if="{{(order.groupbuy != 0)}}">
+
+          <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="11">团购详情 </view>
+
+        </block>
+
+        
+
+
+        <block class="div order_btn" wx:if="{{(order.refundFlag != 0)}}">
+
+          <view class="orderbtn" bindtap="orderAction" data-order_id="{{order.id}}" data-index="{{index}}" data-action="15">退款纪录 </view>
+
+        </block>
+
+
+
+      </view>
+
+    </view>
+
+
+
+
+
+
+
+
+  </view>
+</view>
+<include src="/common/footer.wxml" />
+<include src="/common/express.wxml" />
+<van-toast id="van-toast" />

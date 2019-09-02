@@ -1,0 +1,91 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}">
+</navbar>
+<view class="bottom-bar">
+  <view class="addaddr" bindtap="getWechatAddress">微信添加新地址</view>
+</view>
+
+<view class="address-list">
+  <view class="address-item" wx:for="{{address_list}}" wx:key="">
+    <view class="userinfo flex-row">
+      <view class="flex-grow-0">{{item.consigner}}</view>
+      <view class="add-margin-left">{{item.mobile}}</view>
+    </view>
+    <view class="flex-row address-detail">
+      <view class="flex-grow-1">
+        <view class="">{{item.address}}</view>
+      </view>
+      <view class="flex-grow-0 flex-row" wx:if="{{from_order}}" wx:key="">
+        <view class="address-option flex-y-center" data-address_id="{{item.id}}" wx:if="{{shiptype == 0 && item.select}}">
+          <image src="../../images/selected.png"></image>
+
+        </view>
+        <view bindtap="select" class="address-option flex-y-center" data-id="{{item.id}}" data-index="{{index}}" wx:else>
+          <image src="../../images/icon_select.png"></image>
+
+        </view>
+      </view>
+    </view>
+    <view class="flex-row opsection">
+      <view class="flex-grow-1">
+        <view style="display: inline-block" wx:if="{{item.isdefault==1}}">
+          <view class="default-address active flex-row flex-y-center">
+            <image src="../../images/icon-checked.png" style="width: 40rpx;height: 40rpx;margin-right: 12rpx"></image>
+            <text>默认地址</text>
+          </view>
+        </view>
+        <view style="display: inline-block" wx:else>
+          <view bindtap="selectedDEFAULT" class="default-address flex-row flex-y-center" data-index="{{index}}">
+            <image src="../../images/icon-uncheck.png" style="width: 40rpx;height: 40rpx;margin-right: 12rpx"></image>
+            <view>设为默认</view>
+          </view>
+        </view>
+      </view>
+      <view class="flex-grow-0 flex-row">
+
+        <view bindtap="deleteAddress" class="address-option flex-y-center" data-id="{{item.id}}" data-index="{{index}}" wx:if="{{!from_order}}">
+          <image src="../../images/deletelittle.png"></image>
+          <view>删除</view>
+        </view>
+      </view>
+    </view>
+
+
+
+  </view>
+</view>
+
+<view class='shoppickuppointsection' wx:if="{{from_order&&goods.openselflift&&pickuppoint}}">
+
+  <view class='address-item'>
+    <view class="userinfo flex-row">
+      <view class="flex-grow-0">自行取货</view>
+      
+    </view>
+    <view class="flex-row address-detail">
+      <view class="flex-grow-1">
+        <view class="">取货地址:{{pickuppoint.address}}</view>
+      </view>
+      <view class="flex-grow-0 flex-row" wx:if="{{from_order}}" wx:key="">
+        <view class="address-option flex-y-center" data-address_id="{{item.id}}" wx:if="{{shiptype == 1}}">
+          <image src="../../images/selected.png"></image>
+
+        </view>
+        <view bindtap="chooseselfleft" class="address-option flex-y-center" data-id="{{item.id}}" data-index="{{index}}" wx:else>
+          <image src="../../images/icon_select.png"></image>
+
+        </view>
+      </view>
+    </view>
+
+
+  </view>
+
+</view>
+
+<include src="/common/footer.wxml" />
+
+<van-dialog async-close title="请求授权" message="系统需要您授权以获取地址信息" show="{{ openSettingshow }}" show-cancel-button confirm-button-open-type="openSetting" bind:close="onOpenSettingClose" bind:opensetting="bindOpenSetting" id="getuserinfo">
+
+</van-dialog>
+
+<van-toast id="van-toast" />

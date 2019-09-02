@@ -1,0 +1,20 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}">
+</navbar>
+
+<view class='psheader'></view>
+
+<view class='container'>
+
+  <view class='flex-row settingitem'>
+    <view class='flex-grow-1'>展示推广信息</view>
+
+    <view class='flex-grow-0'>
+      <van-switch checked="{{ spreadshowchecked }}" bind:change="onspreadshowChange" size="24px" active-color="#4b0"
+  inactive-color="#f1f1f1"/>
+    </view>
+  </view>
+
+</view>
+
+
+<van-toast id="van-toast" />

@@ -1,0 +1,205 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+
+<view class="container " ms-controller="root" hidden="{{!page.load && !page.operate || notNetCon.error == 1 && notNetCon.show == 1 || notServerCon.error == 1}}">
+
+  <view class=" div mod_container" ms-class=" exp_overflow:!express_hide">
+    <view id="detailCon" class="div wx_wrap" ms-visible="order.id != undefined">
+      <!-- ms-class="state_1: order.total_status == 2" ms-class-1="state_2: order.total_status == 3" ms-class-2="state_3: order.total_status == 4"-->
+      <view class="state">
+
+        <view class='ordertitle'>
+          <view class='orderstatus'>
+            {{order.refundprocess_status_lang}}
+          </view>
+
+
+        </view>
+
+      </view>
+
+      <view class="div ordersection orderinfo">
+
+        <view class="ordersection-inner">
+          <view class="div order_row flex-row" hidden='{{!order.sellermsg}}'>
+            <view class="div order_tit">卖家回复： </view>
+            <view class="div order_cnt">
+              <view class="span address_price">{{order.sellermsg}} </view>
+
+            </view>
+          </view>
+
+          <view class="div order_row flex-row">
+            <view class="div order_tit">申请总额： </view>
+            <view class="div order_cnt">
+              <view class="span address_price">{{order.refundmoney}} 元</view>
+              <view class="span address_paytype">（订单金额：{{order.ordermoney}} ）</view>
+            </view>
+          </view>
+          <view class="div order_row flex-row" wx:if="{{!order.isgiven}}">
+            <view class="div order_tit">退货方式： </view>
+            <view class="div order_cnt">{{order.modestr}} </view>
+          </view>
+          <view class="div order_row flex-row" wx:if="{{!order.isgiven}}">
+            <view class="div order_tit">退货原因： </view>
+            <view class="div order_cnt">{{order.reasonstr }} </view>
+          </view>
+          
+          <view class="div order_row flex-row">
+            <view class="div order_tit">申请时间： </view>
+            <view class="div order_cnt">{{order.order_time}} </view>
+          </view>
+
+          <view class="div order_row flex-row" hidden='{{!order.sendbackcompany}}'>
+            <view class="div order_tit">物流信息： </view>
+            <view class="div order_cnt">
+              <view class="span address_price">{{order.sendbackcompany}} </view>
+              <view class="span address_paytype">（{{order.sendbackcode}}）</view>
+            </view>
+
+          </view>
+
+
+          <view class="div order_row flex-row" wx:if='{{order.status >= 5}}'>
+            <view class="div order_tit">收货地址： </view>
+            <view class="div order_cnt">
+              <view class="div btn_op" id="canselect" bindtap='showShopAddr'>
+                点击查看
+              </view>
+            </view>
+
+          </view>
+          <!--<view class="div order_row" ms-if="coupons.length>0">
+                         <view class="div order_tit">优惠信息： </view>
+                         <view class="div order_cnt posi_rela"> <view class="span">{{coupons[0].event_desc}} </view>
+                         <view class="span coupon_icon_order" ms-if="order.coupons.length>0"> </view> </view>
+                     </view>-->
+
+
+        </view>
+
+
+        <view class="div detailstitle">详情描述
+      </view>
+
+      <view class='content_container'>
+
+        <view class='content flex-grow-1' bindtap='editText' data-index="{{index}}">
+          <text>{{order.applymsg}}</text>
+        </view>
+
+
+
+      </view>
+      </view>
+
+
+      
+    </view>
+
+    <view class="div ordersection goodsinfo ">
+        <view class="div ptit">
+          商品信息
+        </view>
+
+        <view class="div order_bd">
+          <ordergoodscover item="{{order}}"></ordergoodscover>
+        </view>
+
+        <view class='flex-row shipops'>
+          <view class='ordersectionop leftop'>
+            <button open-type="contact" class='contactshop'>客服售后</button>
+          </view>
+          <view class='ordersectionop rightop' bindtap='makecall'>联系卖家</view>
+        </view>
+
+      </view>
+
+    <view class="div ptit">图片详情
+    </view>
+
+    <view class="imagesection">
+      
+        <ul class="pics6_status2 flex-row-space-between ">
+          <block wx:key="item" wx:for="{{order.applypics}}">
+            <view class='half'>
+              <image class="status2-pic" src="{{item}}" />
+
+            </view>
+          </block>
+        </ul>
+      
+    </view>
+
+    <view class="fixopt">
+
+      <view class='fix_inner flex-row-right'>
+
+
+        <block wx:if="{{(order.status==1)}}">
+          <view class="orderbtn " href="" ms-click="orderBuy(order.id)" bindtap="editApply" data-order_id="{{order.id}}" id="btn_order_done">修改申请 </view>
+        </block>
+        <block wx:if="{{( order.status==2 || order.status==4 || order.status==6 || order.status==7 || order.status==8)}}">
+          <view class="orderbtn " ms-click="expressShow" bindtap="toOrder" data-order_id="{{order.id}}" data-index="{{index}}">订单详情 </view>
+
+        </block>
+        <block wx:if="{{(order.status==3)}}">
+          <view class="orderbtn " ms-click="expressShow" bindtap="expressShow" data-order_id="{{order.id}}">撤销申请 </view>
+          <view class="orderbtn " data-order_id="{{order.id}}" bindtap="editApply" ms-click="orderReceive(order.id)">修改申请 </view>
+          <view class="orderbtn " data-order_id="{{order.id}}" bindtap="orderReceive" ms-click="orderReceive(order.id)">申请介入 </view>
+        </block>
+
+        <block wx:if="{{(order.status==5)}}">
+          <view class="orderbtn " bindtap="editShopAddr" data-order_id="{{order.id}}" hidden='{{!order.sendbackcompany}}'>填写物流</view>
+          <view class="orderbtn " bindtap="editShopAddr" data-order_id="{{order.id}}" hidden='{{order.sendbackcompany}}'>修改物流</view>
+        </block>
+
+        
+
+
+
+
+
+      </view>
+
+    </view>
+
+
+
+
+
+    <view class="i service explain_icon_right" style="display: block;top: 325px;" onclick="common.showService()">
+      <contact-button type="default-light" size="27">
+      </contact-button>
+    </view>
+    <modal hidden="{{hiddenmodalput}}" title="发货信息" confirm-text="提交" cancel-text="重置" bindcancel="cancel" bindconfirm="confirm">
+      <input placeholder="请填写物流公司" value="{{company}}" confirm-type="done" bindinput="onCompanyInput" />
+      <input placeholder="请填写物流单号" value="{{code}}" confirm-type="done" bindinput="onCodeInput" />
+    </modal>
+
+    <view class="section service-detail-bg" wx:if="{{service_detail}}" catchtouchmove="stop" bindtap="close_service_detail">
+      <view class="div service-detail-main {{service_detail == 2 ? 'main-show' : 'main-hide'}}" catchtap="stop">
+        <view class="div service-title">
+          <view class="span">退货地址</view>
+          <view class="div service-close-btn" catchtap="close_service_detail"></view>
+        </view>
+        <view class="div" id="service-list" style="overflow: hidden;">
+          <view class="div service-item">
+
+            <view class="span service-item-desc">
+              <text>收货人：{{addr.seller_name}}\n
+        </text>
+              <text>收货地址：{{addr.shop_address}}\n
+        </text>
+              <text>联系电话：{{addr.seller_mobile}}\n
+        </text>
+            </view>
+          </view>
+
+
+
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

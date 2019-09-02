@@ -1,0 +1,353 @@
+
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+<view class="container" hidden="{{notNetCon.error == 1 || notNetCon.error == 1 && notNetCon.show == 1 || needInitCheck && pageInit == 0}}">
+
+
+  <view class="goods-banner" bindtap='gotogoods'>
+    <image lazyload="true" bindtap="previewImage" data-idx="{{idx}}" src="{{group.goodsCover.pictureurl}}" class="slide-image" style='height:{{goods_banner.height || "445rpx"}}' />
+    <!--图片详情图片轮播-->
+
+  </view>
+
+
+
+  <view class="div comm_bd">
+
+    <view class="div order_goods">
+      <view class='introduction'>{{group.goodsCover.introduction}}</view>
+
+
+      <view class='mode'>
+
+        <view class="">基础团购价:
+          <view class='price'>¥{{group.goodsCover.group_price}}</view>
+        </view>
+
+      </view>
+
+      <view class='sponsor flex-row' bindtap='gotoshop'>
+        <view class='flex-grow-1'>商品来源</view>
+
+        <view class='flex-row flex-grow-0'>
+          <view class='sponsorname'>
+            {{group.shopCover.shopname}}
+          </view>
+          <view>
+            <image class='sponsorlogo' src="{{group.shopCover.shoplogo}}"></image>
+          </view>
+
+          <view>
+            <image class='sponsorlogo' src="/images/rightarrow.png"></image>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+
+  <view class="div comm_bd">
+
+    <view class="div order_goods">
+      <view class='introduction'>活动状态:{{group.status_lang}}</view>
+
+
+      <view class='activityspan'>
+
+        <view class="">活动期限:{{group.starttime_lang}}至{{group.expiretime_lang}}
+
+        </view>
+
+      </view>
+
+
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <view class='group_process'>
+      <view class='flex-row container_text'>
+
+        <block wx:for="{{processdatas}}" wx:key="item">
+
+          <view class='{{processclass}} ' wx:if="{{index != processdatas.length-1 && index != processdatas.length-2}}">
+            <view class="{{index!=0?'leftmove':'lefthalfmove'}}">
+              <view class='people'>{{item.num}}</view>人
+            </view>
+          </view>
+
+          <view class='{{processclass}} ' wx:if="{{index == processdatas.length-2}}">
+
+            <view class='flex-row-space-between'>
+
+              <view>
+
+                <view class='leftmove'>
+                  <view class='people'>{{item.num}}</view>人
+
+                </view>
+
+              </view>
+
+              <view class='rigthhalfmove'>
+                <view class='people'>{{lastprocessdata.num}}</view>人
+              </view>
+            </view>
+
+          </view>
+
+
+        </block>
+
+      </view>
+
+
+      <view class='flex-row container_process'>
+
+        <block wx:for="{{processes}}" wx:key="item">
+
+          <view class='{{processclass}} rightborder' wx:if="{{index != processes.length-1}}">
+            <progress percent="{{item}}" stroke-width="25" backgroundColor="black" activeColor='yellow' />
+          </view>
+
+          <view class='{{processclass}} ' wx:else>
+            <progress percent="{{item}}" stroke-width="25" backgroundColor="black" activeColor='yellow' />
+          </view>
+
+        </block>
+
+      </view>
+
+      <view class='flex-row container_text'>
+
+        <block wx:for="{{processdatas}}" wx:key="item">
+
+          <view class='{{processclass}} ' wx:if="{{index != processdatas.length-1 && index != processdatas.length-2}}">
+            <view class="{{index!=0?'leftmove':'lefthalfmove'}}">
+              <view class='discountdesp'>{{item.discount}}</view>折
+            </view>
+          </view>
+
+          <view class='{{processclass}} ' wx:if="{{index == processdatas.length-2}}">
+
+            <view class='flex-row-space-between'>
+
+              <view>
+
+                <view class='leftmove'>
+                  <view class='discountdesp'>{{item.discount}}</view>折
+                </view>
+
+              </view>
+
+              <view class='rigthhalfmove'>
+                <view class='discountdesp'>{{lastprocessdata.discount}}</view>折
+              </view>
+            </view>
+
+          </view>
+
+
+        </block>
+
+      </view>
+    </view>
+
+    <view class="div order_goods" wx:if="{{group.status == 5}}">
+      <view class='activityspan'>已有
+        <view class='discountdesp'>{{group.people}}</view>人参团 ,现参团可享
+        <view class='price'>{{group.currentdiscount}}折优惠</view>
+      </view>
+
+      <view class='activityspan'>距离
+        <view class='price'>{{nextdiscount}}</view>折还差
+        <view class='discountdesp'>{{peoplelack}}</view>人,快通知好友一起组团吧</view>
+    </view>
+  </view>
+
+  <view class="div order_goods" wx:if="{{group.status == 6}}">
+    <view class='activityspan'>已有
+      <view class='discountdesp'>{{group.people}}</view>人参团 ,最终成团优惠为
+      <view class='price'>{{group.currentdiscount}}
+        <view class='price'>折</view>
+      </view>
+
+
+
+    </view>
+
+  </view>
+
+
+
+
+<view class="fixopt">
+
+
+<view class='flex-row-space-between fix_inner' wx:if="{{ group.status== 4}}">
+    <view>
+      <button bindtap='showshare' hover-class="none" class="btn_share">通知好友</button>
+    </view>
+
+    <form bindsubmit="appointment" report-submit="true">
+
+    <view wx:if="{{appointment && appointment.status==1}}">
+      <button  hover-class="none" class="btn_more" data-action='0' form-type="submit">取消预约</button>
+    </view>
+
+    <view wx:else>
+    <button  hover-class="none" class="btn_more" data-action='1' form-type="submit">提前预约</button>
+      
+    </view>
+
+     </form>
+  </view>
+
+  <view class='flex-row-space-between fix_inner' wx:if="{{group.status==5}}">
+    <view>
+      <button bindtap='showshare' hover-class="none" class="btn_share">快速成团</button>
+    </view>
+
+    <view wx:if="{{group.orderid==0}}">
+      <button bindtap="groupbuy" hover-class="none" class="btn_more">立即参团</button>
+    </view>
+
+    <view wx:else>
+      <button bindtap="gotoorder" hover-class="none" class="btn_more">查看订单</button>
+    </view>
+  </view>
+
+
+  <view wx:elif="{{group.status == 6}}">
+
+    <view class='fix_inner flex-row-space-between' wx:if="{{group.orderid>0}}">
+<view>
+        <button bindtap="gotoMore" hover-class="none" class="btn_more">随便逛逛</button>
+      </view>
+    <view>
+        <button bindtap="gotoorder" hover-class="none" class="btn_share">查看订单</button>
+      </view>
+      
+    </view>
+<view class='fix_inner' wx:else>
+      <view>
+        <button bindtap="gotoMore" hover-class="none" class="btn_full">随便逛逛</button>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+</view>
+
+
+
+
+
+
+
+
+<view wx:if="{{goods_sku_choose}}" catchtouchmove="stop" bindtap="close_service_detail" class="section goods_sku_choose_bg">
+  <view class="div goods_sku_choose_main {{goods_sku_choose == 2 ? 'sku_main-show' : 'sku_main-hide'}}">
+    <view class="div flex-row sku_choose_title">
+      <view class='goodsdesp flex-row flex-grow-1'>
+        <view class="goodsimg">
+          <image src='{{goods.pictureurl}}'></image>
+        </view>
+        <view class="goodsinfo">
+          <view class="goodstitle">
+            {{goods.goodsname}}
+          </view>
+          <view class="goodsprice">
+            ￥{{spec_showprice}}
+          </view>
+        </view>
+      </view>
+
+      <view class="div flex-grow-0 service-close-btn" catchtap="close_sku_choose">
+
+        <image src='/images/close_edit.png' class='closeimg'></image>
+      </view>
+    </view>
+
+
+    <view class="specs_choose" wx:if="{{ goods_spec_format}}" wx:for-item="spec" wx:for="{{goods_spec_format}}" wx:for-index="spec_index">
+      <view class="div spec-item">
+        <view class='spec_name'>{{spec.spec_name}}</view>
+        <view class='spec_value_list'>
+          <view wx:for-item="spec_value" wx:for="{{spec.value}}" wx:for-index="spec_value_index">
+
+            <view wx:if="{{spec_value.isselect==0}}" class="spec_value_item" bindtap='select_spec' data-index_spec='{{spec_index}}' data-index_spec_value='{{spec_value_index}}'>
+              {{spec_value.spec_value_name}}
+            </view>
+            <view wx:else class="spec_value_item_selected" bindtap='unselect_spec' data-index_spec='{{spec_index}}' data-index_spec_value='{{spec_value_index}}'>{{spec_value.spec_value_name}}</view>
+          </view>
+        </view>
+
+      </view>
+
+    </view>
+
+    <view class='numchoose'>
+      <view class='spec_name'>数量</view>
+      <view>
+        <i-input-number value="{{ buysum }}" min="1" max="1" bindchange="buySumChange" />
+      </view>
+    </view>
+
+
+    <view class='sku_confirm'>
+      <button bindtap='sku_confirm'>确认</button>
+    </view>
+  </view>
+</view>
+
+
+<!-- 引入图片预加载组件 -->
+<import src="../../utils/img-loader/img-loader.wxml" />
+<template is="img-loader" data="{{ imgLoadList }}"></template>
+
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />
+
+<van-dialog
+
+  async-close
+  title = "请求授权" 
+  message = "系统需要获取您的头像信息以提供更好的体验"
+  show="{{ userinfoshow }}"
+  show-cancel-button
+  confirm-button-open-type="getUserInfo"
+  bind:close="onUserinfoClose"
+  bind:getuserinfo="bindGetUserInfo"
+id="getuserinfo"
+  
+>
+
+</van-dialog>
+
+<van-popup show="{{ shareshow }}" bind:close="onDatetimeClose" position="bottom" z-index="10001">
+  <view class='shareitems'>
+
+  <button class='shareitem' open-type="share" bindtap='shareclose'>直接分享 </button> 
+  <button class='shareitem' bindtap='generateshareimg'>生成分享图 </button> 
+  <button class='shareitem' bindtap='shareclose'>取消 </button> 
+
+  </view>
+</van-popup>
+
+<include src="/common/footer.wxml" />
+

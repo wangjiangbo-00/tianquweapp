@@ -1,0 +1,30 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="container">
+<view class="headerdescription" >
+            问题类型
+          </view>
+  <view class="my">
+    <view ms-repeat-order="goods" wx:key="" wx:for-item="item" wx:for="{{questions}}">
+      <view class="zone">
+        <view class="my-item flex-wrp " data-id="{{item.id}}" data-index="{{index}}" bindtap='toQuestions'>
+          <view class="myitem-icon flex-item">
+            <image src="{{item.logo}}"></image>
+          </view>
+          <view class="myitem-name flex-item" bindtap='gotoQuestions'>
+            <text>{{item.catname}}</text>
+          </view>
+
+          <view class="myitem-iconl flex-item">
+            <image src="/images/rightarrow.png"></image>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+
+
+<include src="/common/footer.wxml" />

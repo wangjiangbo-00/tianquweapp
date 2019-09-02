@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText" : "浏览记录",
+    "navigationBarBackgroundColor" : "#fff",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      
+      "leftimagecover": "../../components/leftimagecover/index",
+      "navbar": "/components/navbar/index"
+    }
+}

@@ -1,0 +1,202 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="body" avalonctrl="order" hidden="{{!page.load && !page.operate || notNetCon.error == 1 && notNetCon.show == 1}}">
+
+
+  <view class='flex-row spreaditem' wx:if="{{spreadshow}}">
+    <view class='flex-grow-1'>来自用户{{spreadshowname}}的推荐</view>
+
+    <view class='flex-grow-0 flex-y-center'>
+      <image src='../../images/close_edit.png' class='closebtn' bindtap='closespreadshow'></image>
+    </view>
+  </view>
+
+  <view class="div" style="display: block;">
+    <view class="div wx_wrap">
+      <!--ms-if-->
+      <view bindtap="redirectAddresses" hover-class="none">
+        <view class="a send_address">
+          <view class="div" id="sendTo">
+            <view class="div address address_defalut" wx:if="{{isgiveChecked || shiptype || address}}">
+              <view class="h3">
+                <view class="b send_margin">送至</view>
+                <view class="br"></view>
+                <!--ms-if-->
+              </view>
+
+              <view id="editAddBtn" adid="4" class="ul" wx:if="{{isgiveChecked}}">
+                <view class="li">
+                  <view class="strong">收货人:待接受者填写</view>
+                </view>
+                <view class="li">收货地址:待接受者填写</view>
+              </view>
+
+              <view id="editAddBtn" adid="4" class="ul" wx:elif="{{!isgiveChecked}}">
+                <view wx:if="{{shiptype == 1}}">
+                  <view class="li">
+                    <view class="strong">收货方式:线下自取</view>
+                  </view>
+                  <view class="li">取货地址:河南省许昌市魏都区</view>
+                </view>
+
+                <view wx:else>
+
+                  <view class="li">
+                    <view class="strong">{{address.consigner}}</view>
+                    {{address.mobile}}
+                  </view>
+                  <view class="li">{{address.cityname}}{{address.districtname}}{{address.address}}</view>
+                </view>
+
+
+
+              </view>
+            </view>
+
+            <view class="div address text_center" wx:else>
+              <view class="span">
+                <view class="strong">您还没有收货地址哦,点击新增地址</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells__title">送礼模式</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">送给亲朋好友</view>
+          <view class="weui-cell__ft">
+            <switch checked="{{isgiveChecked}}" bindchange="changeSwitch" disabled="{{swithdisabled}}" bindtap='switchtap'/>
+          </view>
+        </view>
+      </view>
+      <view class="div order">
+        <view class="div order_bd">
+          <view id="orderList" class="div order_glist">
+            <view class="div only">
+              <view class="div order_goods flex-row" bindtap='gotogoods'>
+                <view class="div order_goods_img flex-grow-0">
+                  <image class="img" alt="" src="{{goods.pictureurl}}" />
+                </view>
+                <view class="div order_goods_info flex-grow-1">
+
+                  <view class="div order_goods_name flex-grow-1">
+                    {{goods.introduction}}
+                  </view>
+
+                  <view class="p order_goods_attr_item flex-row">
+                    <view class='order_goods_sku' wx:if="{{goodssku}}">{{goodssku}}</view>
+                    <view class='order_goods_sku' wx:else>购买数量:</view>
+                    <view class='order_goods_num '>× {{buysum}} </view>
+                  </view>
+
+
+                  <view class="div order_goods_price2 flex-row" wx:if="{{discount && discount.status == 5 && discount.discount < 10}}">
+
+
+
+                    <view class="sku-price-title">
+                      商品价格:
+                    </view>
+
+                    <view class=" flex-row">
+                      <view class='price'>
+                        ￥{{discountprice}}
+                      </view>
+                      <view class='leftbracket small'>(</view>
+
+                      <view class='beforediscount'>
+                        ￥{{goodsprice}}
+                      </view>
+
+                      <view class='small'>)</view>
+
+                    </view>
+                  </view>
+
+                  <view class="div order_goods_price2 flex-grow-0" wx:else>
+                    商品价格:
+                    <view class="price">
+                      <view class='small'>￥</view>{{goodsprice}}</view>
+                  </view>
+
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="div" id="pay_area" style="opacity: 1;">
+
+
+
+
+
+        <view class="div total ">
+
+          <view class='span'>
+            实付款:
+          </view>
+          <view class="total_price span">￥{{totalmoney}}</view>
+
+
+          <view class="small span total_shipfee" >{{expressfeestr}}</view>
+        </view>
+
+        
+        <view class="pay2 div ">
+          <view class="div pay2_hd">请选择支付方式</view>
+          <view id="payList" class="div pay2_list">
+            <view id="goTenPay" class="div pay2_item pay2_wx pay2_selected">
+              <view class="span pay2_item_state"></view>
+              <view class="span pay2_item_ico"></view>
+              <view class="span pay2_item_tit">微信支付</view>
+            </view>
+          </view>
+          <!--ms-if-->
+          <!--ms-if-->
+          <!--ms-if-->
+          <form name="theForm" id="theForm" class="form" report-submit="true" bindsubmit="btnOrderDone">
+            <view>
+              <button formType="submit" class="pay2_btn" loading="{{btn_order_done ? true : false}}" id="btn_order_done" style="{{btn_order_done ||(isgiveChecked==0 && shiptype==0 && !address )? 'opacity: 0.4;' : ''}}">
+                <block wx:if="{{btn_order_done}}">正在支付 请稍候</block>
+                <block wx:elif="{{cancel_pay}}">继续支付</block>
+                <block wx:else>立即支付</block>
+              </button>
+            </view>
+          </form>
+        </view>
+      </view>
+    </view>
+    <view class="div step">
+      <view class="div step_hd">
+        送礼提醒
+
+      </view>
+
+      <view id="footItem" class="div step_list" wx:if="{{isgiveChecked}}">
+
+        送礼商品不满足全国包邮时，需要支付预付运费，系统会根据实际领取地址退返运费。
+
+      </view>
+
+      <view id="footItem" class="div step_list" wx:else>
+        选择送礼模式，购买成功后，可以直接在微信中发送礼品卡牌给好友。
+
+
+      </view>
+    </view>
+  </view>
+
+
+</view>
+
+
+
+<include src="/common/footer.wxml" />
+
+
+<van-dialog async-close title="请求授权" message="系统需要获取您的头像信息以提供更好的体验" show="{{ userinfoshow }}" show-cancel-button confirm-button-open-type="getUserInfo" bind:close="onUserinfoClose" bind:getuserinfo="bindGetUserInfo" id="getuserinfo">
+
+</van-dialog>

@@ -1,0 +1,97 @@
+@import "/common/flex.wxss";
+
+.comm_bd {
+  margin: 10px;
+  background-color: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+}
+
+.order_goods {
+  margin-top: 36rpx;
+  margin-left: 22rpx;
+  margin-right: 22rpx;
+}
+
+.lotteryheader {
+  margin-top: 16rpx;
+  margin-left: 22rpx;
+  margin-right: 22rpx;
+  font-size: 14px;
+}
+
+.participatestatus {
+  margin-left: 15rpx;
+}
+
+.shopname {
+  background-color: #b1b1b1;
+  color: white;
+  position: absolute;
+  top: 90rpx;
+  right: 30rpx;
+  z-index: 1;
+  padding: 3px 10px;
+}
+
+.img {
+  display: block;
+  width: 750rpx;
+  height: 375rpx;
+}
+
+.goods_img {
+  width: 100%;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.introduction {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: black;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.status_over {
+  color: sandybrown;
+  height: 45rpx;
+}
+
+.status_coming {
+  color: greenyellow;
+  height: 45rpx;
+}
+
+.status_on {
+  color: red;
+  height: 45rpx;
+}
+
+.result_winner {
+  color: green;
+  font-size: 13px;
+  margin-top: 4px;
+  margin-bottom: 36rpx;
+}
+
+.result_in {
+  color: #65a7e1;
+  font-size: 13px;
+  margin-top: 4px;
+  margin-bottom: 36rpx;
+}
+
+.mode {
+  color: silver;
+  font-size: 13px;
+  margin-top: 4px;
+  margin-bottom: 36rpx;
+}
+
+.giftname {
+  margin-bottom: 12rpx;
+}

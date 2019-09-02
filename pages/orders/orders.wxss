@@ -1,0 +1,41 @@
+.nav_fixed {
+    position: fixed;
+    background-color: #fff;
+    height: 40px;
+    width: 100%;
+    font-size: 15px;
+    text-align: center;
+    z-index: 9999;
+
+    max-width: 640px;
+}
+
+
+
+
+.nav_txt {
+    position: relative;
+}
+
+.nav_cur {
+    border-bottom: 2px solid #df2127;
+    color: red;
+}
+
+.fixed_nav_item {
+    height: 40px;
+    line-height: 40px;
+    width: 20%;
+    float: left;
+    display: block;
+    box-sizing: border-box;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+#dealliststatus1 {
+    font-size: 12px;
+    padding-top: 40px;
+}
+
+

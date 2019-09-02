@@ -1,0 +1,117 @@
+
+
+
+.title{
+  height: 60px;
+  margin: 10px;
+   border: 1px solid #c4bfba;
+   background-color:#FFF;
+
+}
+.cover{
+height: 60px;
+width: 60px;
+}
+
+.weui-grids_1 {
+border:1rpx solid #d9d9d9;
+
+
+overflow:hidden;
+display: flex;
+    display: -webkit-flex;
+    flex-flow: row wrap;
+  align-content: flex-start;
+
+  width: 100px;
+
+  margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 5px;
+
+   height: 26px;
+
+
+  
+
+}
+
+.weui-grid__icon{
+  width: 20px;
+  height: 20px;
+
+  margin-top: 3px;
+  
+}
+
+ .opicon{
+display:block;
+width:16px;
+height:16px;
+margin:0 auto;
+
+}
+
+
+.addimage{
+  border-right: 1rpx solid #d9d9d9;
+}
+
+.content_container{
+  margin: 10px;
+
+  height: 120px;
+  border:1rpx solid #dddee1;
+  border-radius:12px;
+  
+text-indent:2em;
+  background-color: #FFF ;
+
+  display: flex;
+  flex-direction: row;
+}
+.contentimg{
+  height: 100px;
+
+  width: 100px;
+  
+  margin-left: auto;
+  margin-right: auto;
+}
+.leftop{
+  width: 18px;
+  display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ margin-bottom: 3px;
+ margin-top: 3px;
+}
+
+.rightop{
+  width: 18px;
+  display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ margin-bottom: 3px;
+ margin-top: 3px;
+
+}
+
+.content{
+  margin-top: 10px
+}
+
+.titletext{
+  text-align: center;
+  font-size: 16px;
+  font-family: KaiTi;
+}
+
+.bottom-bar{
+  margin-top:20px;
+
+  margin-bottom:5px;
+  width: 92%;
+  margin-left: auto;
+  margin-right: auto;
+}

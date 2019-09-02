@@ -1,0 +1,21 @@
+<view class="covercontainer">
+
+  <view class="recordcontent">
+    <view class="flex-row-space-between line">
+      <view class='msg'>{{item.title}}</view>
+      <view  class='balance'>
+        {{item.balance}}
+      </view>
+      
+    </view>
+    <view class="flex-row-space-between line" >
+      <view class="time">{{item.createtime}}</view>
+      <view class="{{item.monyeclass}}">{{item.money}}</view>
+    </view>
+
+    <view class='tips'>
+    {{item.remark}}
+    </view>
+
+  </view>
+</view>

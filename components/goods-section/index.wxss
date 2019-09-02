@@ -1,0 +1,13 @@
+@import "/common/flex.wxss";
+
+.goodssection {
+  background-color: #f7f7f7;
+}
+
+.ul {
+  overflow: hidden;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}

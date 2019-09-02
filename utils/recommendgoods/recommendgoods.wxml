@@ -1,0 +1,33 @@
+<template name="recommendgoods">
+    <block >
+            <view id="recommendA" class="div recommendA" hidden="{{goods == '' || goods == undefined}}">
+              <view class="div recommend" style="display: block;">
+                <view class="ul">
+                  <block wx:key="item" wx:for="{{goods}}">
+                    <view class="li" bindtap="bindRedirect" data-url="../goods/goods?goods_id={{item.id}}">
+                      <view  class="li_inside" style="{{(index + 1) % 2 == 0 ? 'padding: 10px 1px 20px 1px;' : 'padding: 10px 1px 20px 1px;'}}">
+                        <view class="div img">
+                          <image src="{{item.image.imageurl_mid}}" mode="widthFix" class="img " data-id="two_goods_img" />
+                        </view>
+                        <view class="div desc">
+                          <view class="div text">{{item.introduction}}</view>
+                          <view class="div detail">
+                            <view class="span price">
+                              <view class="small">￥</view>{{item.group_price}}</view>
+                            <view class="span spec">
+                            </view>
+                          </view>
+                        </view>
+
+                      </view>
+                    </view>
+                  </block>
+                  <view class="div" style="clear:both"></view>
+                </view>
+              </view>
+            </view>
+
+            <view style="padding-bottom:20px;" hidden="{{goods.length > 0}}"></view>
+
+          </block>
+</template>

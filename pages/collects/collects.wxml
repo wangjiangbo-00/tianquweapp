@@ -1,0 +1,91 @@
+
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="body" hidden="{{notNetCon.error == 1 || notNetCon.error == 1 && notNetCon.show == 1}}">
+  <view class="div" ms-controller="root">
+
+    <view class="div nav_fixed" style='top:{{navH}}rpx'>
+      <i-tabs current="{{ all_status }}" color="red" bindchange="handleChange">
+        <i-tab key="1" title="商品"></i-tab>
+        <i-tab key="2" title="地区"></i-tab>
+        <i-tab key="3" title="文章"></i-tab>
+
+      </i-tabs>
+    </view>
+
+    <scroll-view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="true" bindscrolltoupper="pullUpLoad" bindscrolltolower="pullDown" hidden="{{!page.load && !page.operate}}">
+      <!--&& shippingBanner.open == '1'-->
+      <view class="div" id="dealliststatus1" ms-class="scroll_coup:confirm_code">
+
+        <view class="div" wx:if="{{all_status == 1}}">
+          <view class="div order" ms-repeat-order="goods" wx:key="" wx:for-item="item" wx:for="{{scroll_items}}">
+
+            <leftimagecover item="{{item}}"></leftimagecover>
+          </view>
+        </view>
+
+
+        <view class="div" wx:elif="{{all_status == 2}}">
+          <view class="div order" ms-repeat-order="goods" wx:key="" wx:for-item="item" wx:for="{{scroll_items}}">
+
+            <view class="div order_bd ">
+              <view class="div order_glist">
+                <navigator url="../shopdetail/shopdetail?shopid={{item.id}}">
+                  <view class='a' ms-href="order.html?id={{order.id}}">
+                    <view class="div order_goods flex-row" data-url="">
+                      <!-- ms-class-1="order_li: order.order_goods[0].nbstore_only == '1'"-->
+                      <view class="div order_goods_img flex-grow-0 flex-y-center">
+                        <!--ms-src="{{order.order_goods[0].thumb_url}}"-->
+                        <!-- <navigator  url="goods?goods_id={{order.order_goods.goods_id}}"></navigator> -->
+                        <image class="img" alt="" src="{{item.shoplogo}}"></image>
+                      </view>
+
+                      <view class="div order_goods_info flex-grow-1">
+
+                        <view class='order_goods_name flex-row '>
+                          <view class="div flex-grow-1">
+                            <view>
+                              {{item.shopname}}
+                            </view>
+                            <view class="div order_goods_price ">
+                              <view class="i">销量：{{item.shop_collect}}</view>
+                              <view class="i">件</view>
+                            </view>
+                          </view>
+
+                          <view class="goinbutton flex-grow-0 flex-y-center">
+                            <button class="weui-btn mini-btn" type="warn" size="mini">去逛逛</button>
+                          </view>
+                        </view>
+
+
+                      </view>
+
+                    </view>
+                  </view>
+                </navigator>
+
+              </view>
+            </view>
+          </view>
+        </view>
+
+
+
+        <view class="div" wx:elif="{{all_status == 3}}">
+          <view class="div order" ms-repeat-order="goods" wx:key="" wx:for-item="item" wx:for="{{scroll_items}}">
+
+            <articlecover article="{{item}}" bind:gotoarticle="gotoarticle"></articlecover>
+          </view>
+        </view>
+<include src="/common/scrollfooter.wxml" />
+
+      </view>
+
+    </scroll-view>
+
+  </view>
+  <view style="div height:58px;visibility:hidden "></view>
+</view>
+
+<include src="/common/footer.wxml" />

@@ -1,0 +1,56 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="page">
+  <view class="state">
+
+    <view class='ordertitle'>
+      <view class='orderstatus'>
+        我的余额：{{account.money?account.money:0}}元
+      </view>
+<view class='lockmoney' wx:if ="{{account.money_lock>0}}">
+        提现途中：{{account.money_lock?account.money_lock:0}}元
+      </view>
+
+    </view>
+
+  </view>
+  <view class="page__bd">
+    <view class="weui-form-preview">
+
+    <view class='withdrew_container'>
+    <view class='tips'>提现金额</view>
+
+      <form bindsubmit="formSubmit" bindreset="formReset" report-submit="true">
+        <view class='inputsection flex-row'>
+        <view>￥</view>
+        <view class='inputarea flex-grow-1'> <input type="digit" value='{{withdrewvalue}}' bindinput="bindKeyInput" placeholder="输入提现金额"/></view>
+        <view wx:if = "{{needclear}}" bindtap='clearinput'><image  class='clearinput' src ="/images/icon-close.png"></image></view>
+        </view>
+
+        <view class='errtips flex-row' wx:if="{{tips}}">
+        <view>{{tips}}</view>
+        <view  bindtap='gotohelp'><image class='helpimage' src ="/images/question.png"></image></view>
+        </view>
+
+<view class='tips flex-row' wx:else>
+        <view>最低提现金额1元</view>
+        </view>
+
+        <view class="section btn-area">
+          <button formType="submit" class="weui-btn" type="primary">提交申请</button>
+          
+        </view>
+      </form>
+    </view>
+
+    
+
+      
+    </view>
+  </view>
+</view>
+
+
+<van-toast id="van-toast" />
+
+<van-dialog id="van-dialog" />

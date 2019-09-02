@@ -1,0 +1,24 @@
+<view class="covercontainer">
+
+  <view class="recordcontent">
+    <view class="flex-row-space-between line">
+      <view class='msg'>{{item.reason}}</view>
+      <view class='money'>￥{{item.money}}</view>
+    </view>
+    <view class="flex-row-space-between line tips">
+      <view class="time" wx:if ="{{item.status == 1}}">退款时间：{{item.refundtime}}</view>
+      <view class="time" wx:else>创建时间：{{item.createtime}}</view>
+      <view class="{{item.statuclass}}">
+
+        {{item.statusstr}}
+      </view>
+    </view>
+
+
+    <view class="flex-row-space-between line tips" wx:if ="{{item.status == 2}}">
+      <view class="time" >失败原因：{{item.failstr}}</view>
+      
+    </view>
+
+  </view>
+</view>

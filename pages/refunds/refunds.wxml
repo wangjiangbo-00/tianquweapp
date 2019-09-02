@@ -1,0 +1,20 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="body" hidden="{{notNetCon.error == 1 || notNetCon.error == 1 && notNetCon.show == 1}}">
+  <view class="div" ms-controller="root">
+
+<scroll-view scroll-top="{{scroll_Top}}" style="height: {{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="true" bindscrolltoupper="pullUpLoad" bindscrolltolower="pullDown">
+  <view class="div" id="dealliststatus1" ms-class="scroll_coup:confirm_code">
+      <orders-section orders="{{scroll_items}}" bind:orderAction="orderAction">
+
+      </orders-section>
+
+      <include src="/common/scrollfooter.wxml" />
+
+    </view>
+
+
+</scroll-view>
+</view>
+</view>
+  <include src="/common/footer.wxml" />

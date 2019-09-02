@@ -1,0 +1,79 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class="page {{__page_classes}}">
+  
+  <view class="body after-navber">
+    <view class="flex-y-center flex-x-center" style="height: 100rpx;border-bottom: 1rpx solid #e3e3e3;border-top: 1rpx solid #e3e3e3;position: fixed;top:{{navH}}rpx;width: 100%;z-index: 999;background: #EFEFF4">
+      <navigator class="flex-y-center flex-x-center" style="width: 700rpx;height: 60rpx;background: #fff;border: 1rpx solid #e3e3e3; border-radius: 10rpx;text-align: center;font-size: 9pt;color: #b2b2b2" url="../search/search">
+        <image src="/images/icon-search.png" style="width:24rpx;height: 24rpx;margin-right:10rpx "></image>
+        <text>搜索</text>
+      </navigator>
+    </view>
+    
+    <view class="flex-row" style="height: 100%;padding-top: 100rpx" >
+      <view class="flex-grow-0" style="height:100%;background: #fff">
+        <scroll-view class="cat-list" scrollY="true" style="height: 100%;width: 204rpx">
+          <view bindtap="catItemClick" class="cat-item {{item.active?'active':''}} flex-y-center flex-x-center" data-index="{{index}}" wx:for="{{cat_list}}">
+            <view class="cat-name">{{item.provincename}}</view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="flex-grow-1" style="background: #f6dae1">
+        <view style="position: fixed; top:{{navH + 100}}rpx ;left: 200rpx;bottom: 0;right: 0;z-index:0;overflow: hidden">
+          <scroll-view class="sub-cat-box cat-block-list" scrollTop="{{sub_cat_list_scroll_top}}" scrollY="true" style="height: 100%;padding: 20rpx;padding-bottom: 115rpx">
+            
+            <view class="cat-small-style cat-num-3 flex-row" >
+              <block wx:if="{{current_cat}}">
+                <navigator class="advert" url="{{current_cat.advert_url}}" wx:if="{{current_cat.advert_pic}}">
+                  <image class="cat-icon" src="{{current_cat.advert_pic}}"></image>
+                </navigator>
+                <view class="flex-grow-0" wx:for="{{current_cat.cityList}}">
+                  <navigator class="cat-item " url="../shopdetail/shopdetail?shopid={{item.id}}">
+                    <image class="cat-icon" src="{{item.shoplogo}}"></image>
+                    <view class="cat-name">{{item.shopname}}</view>
+                  </navigator>
+                </view>
+              </block>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+    <view id="catall" style="padding-top: 100rpx;background: #fff;position:fixed;top:{{navH}}rpx;width:100%;z-index:40">
+      <view wx:if="{{store.cat_style==5}}">
+        <scroll-view class="group-top scroll-view-x">
+          <view class="flex-row flex-y-center">
+            <view class="flex-grow-1">
+              <scroll-view class="scroll-view-x" scrollLeft="{{scrollLeft}}" scrollWithAnimation="true" scrollX="true">
+                <view bindtap="goodsAll" class="scroll-view-item {{item.active?'active':''}}" data-index="{{index}}" wx:for="{{cat_list}}" wx:key="unique">{{item.name}}</view>
+              </scroll-view>
+            </view>
+          </view>
+        </scroll-view>
+        <view hidden="{{current_cat.list==''?true:false}}">
+          <view style="display:inline-block;padding-bottom:14rpx">
+            <view bindtap="goodsItem" class="view-item1 {{item.active?'view-item2':''}}" data-index="{{index}}" wx:for="{{current_cat.list}}">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view id="cat" style="padding-top:{{catheight}}rpx;background: #fff;position:fixed;top:{{navH}}rpx;width:100%;z-index:40">
+      <view wx:if="{{store.cat_style==-1&&current_cat.list!=undefault}}">
+        <scroll-view class="group-top scroll-view-x">
+          <view class="flex-row flex-y-center">
+            <view class="flex-grow-1">
+              <scroll-view class="scroll-view-x" scrollLeft="{{scrollLeft}}" scrollWithAnimation="true" scrollX="true">
+                <view bindtap="goodsItem" class="scroll-view-item {{item.active?'active':''}}" data-index="{{index}}" wx:for="{{current_cat.list}}" wx:key="unique">{{item.name}}</view>
+              </scroll-view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    
+    <view class="loading-bar {{show_loading_bar?'active':''}}" style="text-align: center">
+      <image src="/images/loading.svg" style="width: 160rpx;height: 80rpx"></image>
+    </view>
+  </view>
+ 
+</view>

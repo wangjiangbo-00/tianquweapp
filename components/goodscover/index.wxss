@@ -1,0 +1,84 @@
+@import "/common/flex.wxss";
+
+.span {
+  display: inline;
+}
+
+.small {
+  display: inline;
+}
+
+.li_inside_left {
+  margin: 10rpx 12rpx 10rpx 24rpx;
+  border-radius: 3px;
+  background-color: white;
+}
+
+.li_inside_right {
+  margin: 10rpx 24rpx 10rpx 12rpx;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.img {
+  height: 339rpx;
+  width: 339rpx;
+  border-bottom: 1px solid #eceded;
+}
+
+.desc {
+  text-align: left;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}
+
+.text {
+  display: block;
+  width: 100%;
+  min-height: 32px;
+  padding: 12rpx 0 0rpx;
+  line-height: 16px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  
+}
+
+.detail {
+  height: 24px;
+  line-height: 24px;
+  margin-top: 10rpx;
+}
+
+.price {
+  line-height: 24px;
+  color: #df2127;
+  font-size: 16px;
+  overflow: hidden;
+  margin-left: -1px;
+}
+
+.small {
+  color: #df2127;
+}
+
+.small {
+  font-size: 12px;
+  line-height: 24px;
+  color: #df2127;
+  margin-top: 1px;
+}
+
+.spec {
+  color: #878787;
+  font-size: 12px;
+}
+
+.groupnum {
+  margin-left: 5px;
+  color: #666;
+  font-size: 12px;
+}

@@ -1,0 +1,98 @@
+<navbar page-name="{{pageName}}" showNav="{{showNav}}" showHome="{{showHome}}"></navbar>
+
+<view class='container'>
+  <view class="w-100">
+
+    <image src="{{shop.shopbanner}}"></image>
+
+
+  </view>
+
+  <view class="titlesection">
+
+  <view class='titleheader flex-x-center'>
+<view class='flex-row'>
+      <image class='shoplogo' src="{{shop.shoplogo}}"></image>
+      <view class="title">{{shop.shopname}}</view>
+
+    </view>
+  </view>
+    
+
+    <view class="sales">销量:{{shop.shopsalesstr}}件</view>
+
+  </view>
+
+  <view class="sharesection">
+    <view class="flex-row shopop flex-x-center flex-y-center ">
+
+      <view class="flex-row opitem">
+        <button open-type="share" class='sharebutton' style="background-color:#FFF;border-radius:0px" data-reactid="61"></button>
+        <view class="opdesp">分享</view>
+
+      </view>
+
+      <view class="flex-row opitem" wx:if="{{bcollect}}" bindtap='uncollect'>
+        <image class='collectimage' src="/images/icon-favorite-active.png"></image>
+        <view class="opdesp" data-reactid="63">已收藏</view>
+
+      </view>
+
+      <view class="flex-row opitem" wx:else bindtap='collect'>
+
+        <image class='collectimage' src="/images/icon-favorite.png"></image>
+
+        <view class="opdesp" data-reactid="63">收藏</view>
+
+      </view>
+
+      <view class="flex-row opitem withoutborder">
+        <button open-type="contact" class='contactbutton' style="background-color:#FFF;border-radius:0px" data-reactid="61"></button>
+        <view class="opdesp" data-reactid="63">客服</view>
+
+      </view>
+
+
+
+    </view>
+
+  </view>
+
+  <view class='notice' wx:if="{{notice}}">
+    <zan-noticebar text="{{notice.notice_message}}" left-icon="https://img.yzcdn.cn/public_files/2017/8/10/6af5b7168eed548100d9041f07b7c616.png" scrollable="{{scrollable}}" color="#65A7E1" background-color="{{ bar2.backgroundColor }}" delay="1" />
+  </view>
+
+  <!-- view bindtap='gotoarticles'>
+    <i-panel class="cell-panel-demo">
+      <i-cell title="用户评价" is-link value="查看更多"></i-cell>
+    </i-panel>
+  </view -->
+
+
+
+  <!-- view class="articles_section" ms-repeat-order="articles" wx:key="" wx:for-item="article" wx:for="{{articles}}">
+
+    <articlecomment article="{{article}}"></articlecomment>
+  </view -->
+
+  <view class='shopdetais'>
+<view class="detailtitle">水土人情</view>
+  <view class="detailinfo">
+    <view>{{shop.shopdesc}}</view>
+  </view>
+  </view>
+
+  <view class='goods'>
+    <view class="detailtitle">本地特产</view>
+    <block>
+
+
+      <goods-section items="{{goods}}"></goods-section>
+
+      <view style="padding-bottom:20px;" hidden="{{goods.length > 0}}"></view>
+
+    </block>
+
+
+  </view>
+</view>
